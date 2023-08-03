@@ -29,8 +29,7 @@ classvars:
    viTerrain_type = TERRAIN_CITY | TERRAIN_RESIDENCE
 
 properties:
-   viPermanent_flags = ROOM_NO_COMBAT
-
+   
    prRoom = room_TosTavern
    piRoom_num = RID_TOS_OLD_TAVERN
    prMusic = TosTavern_music
@@ -54,6 +53,33 @@ messages:
       plExits = Cons([ 6, 12, RID_TOS_SECRET_PASSAGE, 4, 2, ROTATE_NONE ],plExits);
 
       propagate;
+   }
+
+   Constructed()
+   {
+      plMonsters = [ [&Zombie, 85], [&Skeleton, 15] ];
+
+      propagate;
+   }
+
+   SetMonsterGenPoints()
+   {
+      plGenerators = [ [4, 11], [6, 1], [6, 7], [12, 2] ];
+
+      return;
+   }
+
+   TryCreateMonster(initroom = FALSE,loadfirst = FALSE)
+   {
+      local iHour;
+
+      iHour = Send(SYS,@GetHour);
+      if iHour < 5 OR iHour > 21
+      {
+         propagate;
+      }
+
+      return FALSE;
    }
 
 end
