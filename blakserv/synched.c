@@ -351,7 +351,7 @@ void CheckIPAddress(session_node *s)
 
 void SynchedAcceptLogin(session_node *s,char *name,char *password)
 {
-   //session_node *other;
+   session_node *other;
    account_node *a;
    int now = GetTime();
 
