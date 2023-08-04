@@ -351,7 +351,7 @@ void CheckIPAddress(session_node *s)
 
 void SynchedAcceptLogin(session_node *s,char *name,char *password)
 {
-   //session_node *other;
+   session_node *other;
    account_node *a;
    int now = GetTime();
 
@@ -448,7 +448,7 @@ void SynchedAcceptLogin(session_node *s,char *name,char *password)
       SuspendAccountAbsolute(a, 0);
 
    /* check if anyone already logged in on same account */
-   /* Can we allow users to login with all their chars?
+   /* Can we allow users to login with all their chars?*/
    other = GetSessionByAccount(a);
    if (other != NULL)
    {
@@ -468,7 +468,8 @@ void SynchedAcceptLogin(session_node *s,char *name,char *password)
          AddByteToPacket(AP_ACCOUNTUSED);
          SendPacket(s->session_id);
       }
-   }*/
+   }
+/* not really that way we want to*/
 
    /* check if we're too busy, if not an admin. */
    if (a->type != ACCOUNT_ADMIN && a->type != ACCOUNT_DM && !s->active)
