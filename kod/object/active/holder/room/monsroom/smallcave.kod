@@ -25,7 +25,7 @@ resources:
 
 classvars:
 
-   vrName = room_name_SMALLCAVE
+   vrName = room_name_smallcave
 
    viTeleport_row = 8
    viTeleport_col = 8
