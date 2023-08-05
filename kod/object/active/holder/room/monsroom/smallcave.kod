@@ -8,7 +8,7 @@
 
 
 ////////////////////////////////////////////////////////////////////////////////
- SMALLCAVE is MonsterRoom
+ smallcave is MonsterRoom
 
 constants:
 
@@ -16,11 +16,11 @@ constants:
 
 resources:
 
-   include SMALLCAVE.lkod
+   include smallcave.lkod
 
-   room_SMALLCAVE = SMALLCAVE.roo
-   room_name_SMALLCAVE ="A small dark stinky cave."
-   SMALLCAVE_music = walk1.ogg
+   room_smallcave = smallcave.roo
+   room_name_smallcave ="A small dark stinky cave."
+   smallcave_music = walk1.ogg
    smallcave_msg1 = "Today does not seem like a particularly good day to in there."
 
 classvars:
