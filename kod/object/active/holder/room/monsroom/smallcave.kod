@@ -8,7 +8,7 @@
 
 
 ////////////////////////////////////////////////////////////////////////////////
- smallcave is MonsterRoom
+ SmallCave is MonsterRoom
 
 constants:
 
@@ -21,7 +21,7 @@ resources:
    room_smallcave = smallcave.roo
    room_name_smallcave ="A small dark stinky cave."
    smallcave_music = walk1.ogg
-   smallcave_msg1 = "Today does not seem like a particularly good day to in there."
+   smallcave_msg1 = "Today does not seem like a particularly good day to be in there."
 
 classvars:
 
