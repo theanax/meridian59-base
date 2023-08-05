@@ -64,7 +64,7 @@ messages:
 
    SetMonsterGenPoints()
    {
-      plGenerators = [ [4, 11], [6, 1], [6, 7], [12, 2] ];
+      plGenerators = [ [4, 11], [6, 1], [6, 7] ];
 
       return;
    }
