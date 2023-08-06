@@ -2727,7 +2727,7 @@ messages:
       Send(self,@CreateOneRoomIfNew,#num=RID_RATCAVE1,#class=&RatCave1);
       Send(self,@CreateOneRoomIfNew,#num=RID_RATCAVE2,#class=&RatCave2);
       Send(self,@CreateOneRoomIfNew,#num=RID_RATCAVE3,#class=&RatCave3);
-      
+      Send(self,@CreateOneRoomIfNew,#num=RID_SMALLCAVE,#class=&SmallCave);
       Send(self,@CreateOneRoomIfNew,#num=RID_QORMASLAND,#class=&QormasLand);
 
       if poRentableRoomMaintenance <> $  // After a clean build, for example.
@@ -4594,7 +4594,7 @@ messages:
       }
 
       if NOT StringConsistsOf(sName, 
-          "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890_ '!@$^&*()+=:[]{};/?|<>ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏĞÑÒÓÔÕÖØÙÚÛÜİŞßàáâãäåæçèéêëìíîïğñòóôõöøùúûüışÿ")
+          "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890_ '!@$^&*()+=:[]{};/?|<>ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")
       {
          Debug("Got char name with illegal characters for user ", oUser);
 

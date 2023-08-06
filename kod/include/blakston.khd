@@ -977,7 +977,7 @@
    RID_RATCAVE1 = 2701
    RID_RATCAVE2 = 2702
    RID_RATCAVE3 = 2703
-
+   RID_SMALLCAVE = 2704
    RID_QORMASLAND = 2751
    
    // "Historical" rooms 9000-10000
@@ -1164,7 +1164,7 @@
    RID_OMAR = 9001
    RID_OBARLN = 9002
    RID_OBARLS = 9003
-   RID_SMALLCAVE = 9004
+
 
    // Room flags
 

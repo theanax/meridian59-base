@@ -8,7 +8,7 @@
 
 
 ////////////////////////////////////////////////////////////////////////////////
- SMALLCAVE is MonsterRoom
+ SmallCave is MonsterRoom
 
 constants:
 
@@ -16,16 +16,16 @@ constants:
 
 resources:
 
-   include SMALLCAVE.lkod
+   include smallcave.lkod
 
-   room_SMALLCAVE = SMALLCAVE.roo
-   room_name_SMALLCAVE ="A small dark stinky cave."
-   SMALLCAVE_music = walk1.ogg
-   smallcave_msg1 = "Today does not seem like a particularly good day to in there."
+   room_smallcave = smallcave.roo
+   room_name_smallcave ="A small dark stinky cave."
+   smallcave_music = walk1.ogg
+   smallcave_msg1 = "Today does not seem like a particularly good day to be in there."
 
 classvars:
 
-   vrName = room_name_SMALLCAVE
+   vrName = room_name_smallcave
 
    viTeleport_row = 8
    viTeleport_col = 8
@@ -65,7 +65,7 @@ messages:
 
       plEdge_Exits = $;
 
-      plEdge_Exits = Cons([LEAVE_WEST, RID_I6, 6, 50, ROTATE_NONE,ROW_IS_GREATER_THAN,21], plEdge_exits);
+      plEdge_Exits = Cons([LEAVE_WEST, RID_I6, 7, 47, ROTATE_NONE,ROW_IS_GREATER_THAN,21], plEdge_exits);
 
       propagate;
    }
