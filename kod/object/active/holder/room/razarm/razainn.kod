@@ -24,27 +24,25 @@ resources:
 
    razainn_Back_Door = "The back door is locked."
 
-   razainn_Signname = "Welcome"
+   razainn_Signname = "WASD to move, SPACE to open doors."
    razainn_Sign = \
-      "Welcome to the game!  We hope that you come to enjoy this "
-      "unique online experience.\n\n"
-      "The first thing you need to learn is how to walk, using the W, A, S, and D keys "
-      "alone with the left and right arrows. "
-      "You can walk forward and back using the W and S keys, and turn "
-      "using the left and right arrows.  We will get more into movement "
-      "in a moment.\n\n"
+      "Welsome to the Server 900! It's time to bonk some "
+      "monsters, get some loot, and mug some folks!\n\n"
+      "The first thing you need to learn is how to walk. use the W, A, S, and D keys "
+      "to move, and the arrow keys to turn while walking.\n\n"
       "Also, you should note that you can right-click on many of the "
       "things you see in the world. These signs are a good example, "
       "as is Marcus, the innkeeper. You can even view yourself "
       "by right-clicking on the head on the upper-right corner of the "
       "screen.\n\n"
       "If you wish to activate 'mouselook' you can do so at this time "
-      "by pressing the C key. If you wish to deactivate it, you can do "
-      "so by pressing the C key again.\n\n"
-      "Lastly, you can go through doors by pressing the space bar.\n\n"
+      "by holding the rightclick. If you wish to deactivate it, you can do "
+      "so releasing the mouse button. \n\n"
+      "Lastly, you can go through unlocked doors by pressing the space bar.\n\n"
       "-------------------\n\n"
       "When you're ready to proceed, walk to the exit door (forward and to your left), "
       "hit the space bar, and then read the next sign which will be in plain sight."
+
 
    razainn_god_name = "Designers' News"
    razainn_god_desc = \
