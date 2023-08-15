@@ -71,6 +71,9 @@ jobs:
 
     #   If the Autobuild fails above, remove it and uncomment the following three lines.
     #   modify them (or add more) to build your code if your project, please refer to the EXAMPLE below for guidance.
+    - uses: ilammy/msvc-dev-cmd@v1
+      with:
+        arch: x86
     - name: Build code
       run: |
          echo "Run, Build Application using script"
