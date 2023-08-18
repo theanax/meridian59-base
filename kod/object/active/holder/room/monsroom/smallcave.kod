@@ -65,14 +65,14 @@ messages:
 
       plEdge_Exits = $;
 
-      plEdge_Exits = Cons([LEAVE_WEST, RID_I6, 7, 47, ROTATE_NONE,ROW_IS_GREATER_THAN,21], plEdge_exits);
+      plEdge_Exits = Cons([LEAVE_WEST, RID_I6, 6, 47, ROTATE_NONE], plEdge_exits);
 
       propagate;
    }
 
    Constructed()
    {
-      plMonsters = [ [&Centipede, 70], [&Slime, 30] ];
+      plMonsters = [ [&Centipede, 70], [&Slime, 30]  ];
 
       propagate;
    }
@@ -80,7 +80,8 @@ messages:
    SetMonsterGenPoints()
    {
       plGenerators = [ [5, 3], [5, 2], [11, 12], [7, 3],
-                       [7, 2], [11, 6] ];
+                       [7, 2], [11, 6], [22, 4], [17, 11],
+		       [18, 4], [18, 8], [19, 17] ];
 
       return;
    }
