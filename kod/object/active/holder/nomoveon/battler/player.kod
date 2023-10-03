@@ -9138,7 +9138,7 @@ messages:
          }
 
          // Scale XP with server modifier.
-         iXP = iXP * Bound(Send(SETTINGS_OBJECT,@GetXPPercent),50,500) / 100;
+         iXP = iXP * Bound(Send(SETTINGS_OBJECT,@GetXPPercent),50,1000) / 100;
 
          // Add in XP bonus from items after this.
          iXP += iItemBonus;
