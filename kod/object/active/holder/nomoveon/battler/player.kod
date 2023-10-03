@@ -2731,6 +2731,9 @@ messages:
          piKarma = 2000;
       }
 
+      // Add Training Points for boosted character building
+      Send(self,@AddTrainingPoints,#points=100000,#bCap=FALSE);
+
       Send(self,@SetInitialHomeroom);
       Send(self,@TeleportToInitialLocation);
 
