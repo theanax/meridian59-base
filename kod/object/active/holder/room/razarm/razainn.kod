@@ -26,14 +26,14 @@ resources:
 
    razainn_Signname = "WASD to move, SPACE to open doors."
    razainn_Sign = \
-      "Welsome to the Server 900! It's time to bonk some "
-      "monsters, get some loot, and mug some folks!\n\n"
+      "Welcome to the Aristocrats server!"
+      "Another piece of fresh meat for the grinder ey?\n\n"
       "The first thing you need to learn is how to walk. use the W, A, S, and D keys "
       "to move, and the arrow keys to turn while walking.\n\n"
       "Also, you should note that you can right-click on many of the "
       "things you see in the world. These signs are a good example, "
       "as is Marcus, the innkeeper. You can even view yourself "
-      "by right-clicking on the head on the upper-right corner of the "
+      "by right-clicking on the head on the upper corner of the "
       "screen.\n\n"
       "If you wish to activate 'mouselook' you can do so at this time "
       "by holding the rightclick. If you wish to deactivate it, you can do "
