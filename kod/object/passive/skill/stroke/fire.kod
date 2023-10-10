@@ -78,7 +78,8 @@ messages:
          return $;
       }
 
-      if (NOT IsClass(oWeapon,&RangedWeapon))
+      if (NOT IsClass(oWeapon,&RangedWeapon)) 
+      AND (NOT IsClass(oWeapon,&ThrownWeapon))
       {
          if report
          {
