@@ -87,8 +87,6 @@ messages:
    {
       plFor_sale = [
          [
-            Create(&RemoveCursePotion,#labelled=TRUE),
-            Create(&Torch),
             Create(&Solagh,#number=4),
             Create(&RemoveCursePotion,#labelled=TRUE),
             Create(&Torch),
