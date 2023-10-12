@@ -61,7 +61,7 @@ constants:
    MIN_NEEDED_TO_ADVANCE = 75       
                                     
    // How many weapon swings until we get an improve check?
-   SWINGS_PER_IMPROVE_CHECK = 75    
+   SWINGS_PER_IMPROVE_CHECK = 5    
 
    // What's the length after having a player attacked before we let "mules" 
    //  cast on them again.  Currently set to 15 minutes.  Should be bigger 
@@ -2723,17 +2723,18 @@ messages:
       piKarma = 0;
       if bQor AND NOT bShalille
       {
-         piKarma = -2000;
+         piKarma = -60000;
       }
 
       if bShalille AND NOT bQor
       {
-         piKarma = 2000;
+         piKarma = 60000;
       }
 
       // Add Training Points for boosted character building
       Send(self,@AddTrainingPoints,#points=100000,#bCap=FALSE);
-
+      // Add All Mana Nodes except the Corpse Node
+      Send(self,@ConnectManaNode,#node_num=piNode_num);
       Send(self,@SetInitialHomeroom);
       Send(self,@TeleportToInitialLocation);
 
@@ -2903,14 +2904,15 @@ messages:
 
       // Give the poor newbie an weapon and a bit of cash.
       Send(self,@NewHold,#what=Create(&Mace));
-      Send(self,@NewHold,#what=Create(&Money,#number=500));
+      Send(self,@NewHold,#what=Create(&Chalice));
+      Send(self,@NewHold,#what=Create(&Money,#number=15000));
       Send(Send(SYS,@GetStatistics),@MoneyCreated,#amount=500);
       Send(self,@AddReagentsForSpells,#iNumCasts=10);
 
       // If player hasn't suicided in last 5 hours, give them cash and prizes!
       if (GetTime() - piLast_restart_time) > (5*60*60)   
       {
-         Send(self,@NewHold,#what=Create(&Money,#number=500));
+         Send(self,@NewHold,#what=Create(&Money,#number=15000));
          Send(Send(SYS,@GetStatistics),@MoneyCreated,#amount=500);
          Send(self,@AddReagentsForSpells,#iNumCasts=10);
       }

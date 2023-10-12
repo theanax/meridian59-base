@@ -109,7 +109,11 @@ config_table_type config_table[] =
 { INACTIVE_OVERRIDE,      T, "Override",      CONFIG_BOOL,  "Yes" },
 
 { MOTD_GROUP,             F, "[MessageOfTheDay]", CONFIG_GROUP, "" },
-{ MOTD_DEFAULT,           F, "Default",       CONFIG_STR,   "<Default>" },
+{ MOTD_DEFAULT,           F, "Default",       CONFIG_STR,
+      "Welcome to Meridian 59 Eternals \n \n"
+      "https://m59eternals.com/ \n"
+      "Discord: https://discord.gg/4N2nrF9cQQ \n\n"
+      "To create an account, simply enter a new user/password." },
 
 { SESSION_GROUP,          F, "[Session]",     CONFIG_GROUP, "" },
 { SESSION_MAX_ACTIVE,     T, "MaxActive",     CONFIG_INT,   "300" },

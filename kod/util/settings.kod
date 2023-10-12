@@ -99,7 +99,7 @@ properties:
 
    // How far up the food chain can basic players learn?  See player for more
    //  specific information on what this number means.
-   piMaxLearnPoints = 20
+   piMaxLearnPoints = 18
 
    // The default time for building group membership.
    piDefaultGroupTime = 60000
