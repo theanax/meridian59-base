@@ -65,7 +65,7 @@ classvars:
 properties:
 
    pbAccessible = FALSE
-   pbEnabled = FALSE
+   pbEnabled = TRUE
 
 messages:
 

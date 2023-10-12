@@ -283,7 +283,7 @@ user_news_toobig = de \
    "Wow Kumpel!! Atme mal tief durch, die Nachricht ist zu lang!"
 user_news_los = de "Du kannst die Nachrichtenkugel von deiner Position aus nicht richtig sehen."
 user_guildofficer_rsc = de "guildofficer"
-user_default_url = de "https://www.meridiannext.com/"
+user_default_url = de "https://www.m59eternals.com/"
 user_autocombine_on = de "Du entscheidest dich, die Gegenstände zu kombinieren."
 user_autocombine_off = de \
    "Du entscheidest dich, die Gegenstände nicht mehr zu kombinieren."
