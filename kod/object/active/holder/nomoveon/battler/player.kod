@@ -993,6 +993,7 @@ properties:
    //  successfully melded with.  List of available nodelists in the
    //  blakston.khd constants file.
    piNodeList = 0
+   piNode_Num = 0
 
    piBorn_year = 0
 
