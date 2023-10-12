@@ -155,15 +155,12 @@ README file included as README.old.
 
 ## Server 001 Specific Changes
 * We've modified the build settings to increase spawns and loot drops
-* Unbound was uncapped to 100000 for testing, it still drains
+* Unbound was uncapped to 3000
 * Training Points per day are set to 500
 * We've fixed various entrances and spawnpoints on maps
-* New Explosion (spell) and Lightning Graphics
+* New Explosion (spell), Energy Bolt (spell), and Lightning Graphics
 * Simplified Account creation flow added to login
-* Accounts no longer restrict a user to 1 character at a time
 * In game macro (bot) commands to allow for simple spellbotting without needing another tool
-* Learning points increased by (now 20) to return to 1996 levels: 6/6 with 1 int.
 * Added smallcave map to i6, outskirts of tos
 * Brax entrance added in jasper cragged mountains
-
   
