@@ -2724,18 +2724,18 @@ messages:
       piKarma = 0;
       if bQor AND NOT bShalille
       {
-         piKarma = -60000;
+         piKarma = -6000;
       }
 
       if bShalille AND NOT bQor
       {
-         piKarma = 60000;
+         piKarma = 6000;
       }
 
       // Add Training Points for boosted character building
       Send(self,@AddTrainingPoints,#points=100000,#bCap=FALSE);
-      // Add All Mana Nodes except the Corpse Node
-      Send(self,@ConnectManaNode,#node_num=piNode_num);
+      // Add All Mana Nodes
+      Send(self,@ConnectManaNode,#all=TRUE);
       Send(self,@SetInitialHomeroom);
       Send(self,@TeleportToInitialLocation);
 

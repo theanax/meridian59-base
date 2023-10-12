@@ -124,7 +124,7 @@ classvars:
 
    viItem_type = ITEMTYPE_WEAPON | ITEMTYPE_SPECIAL
 
-   viRange = 3 * FINENESS
+   viRange = 4 * FINENESS
 
 properties:
 
