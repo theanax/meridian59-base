@@ -87,15 +87,12 @@ messages:
    {
       plFor_sale = [
          [
-<<<<<<< Updated upstream
             Create(&RemoveCursePotion,#labelled=TRUE),
             Create(&Torch),
-=======
             Create(&Solagh,#number=4),
             Create(&RemoveCursePotion,#labelled=TRUE),
             Create(&Torch),
             Create(&Snack,#number=4),
->>>>>>> Stashed changes
             Create(&BlueMushroom,#number=4),
             Create(&RedMushroom,#number=4),
             Create(&Mushroom,#number=5),
