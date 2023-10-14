@@ -138,9 +138,9 @@ messages:
          }
       }
       
-      /// Okay, see if all four parts are there.
-      if (ShardA <> $) AND (ShardB <> $)
-         AND (ShardC <> $) AND (ShardD <> $)
+      /// Okay, see if any parts are there -  every quest will give a sword.
+      if (ShardA <> $) OR (ShardB <> $)
+         OR (ShardC <> $) OR (ShardD <> $)
       {
          /// They have all the parts.  Delete 'em and give
          /// the owner a sword.
