@@ -4829,7 +4829,7 @@ messages:
    "CF_SAFETY_OFF prevents accidental attacks. You can always successfully "
    "hit a murderer or outlaw, though."
    {
-      local oEnemyGuild, oSoldierShield, iPenTime;
+      local oEnemyGuild, oSoldierShield, iPenTime, oSoldierShieldVictim;
 
       // Don't care about monsters or token holders...
       if IsClass(victim,&Monster)
@@ -4875,6 +4875,7 @@ messages:
 
       oEnemyGuild = Send(victim,@GetGuild);
       oSoldierShield = Send(self,@FindUsing,#class=&SoldierShield);
+      oSoldierShieldVictim = Send(victim,@FindUsing,#class=&SoldierShield);
 
       // Check for enemy guild or faction soldier fighting - If attacking a (mutual)
       //  enemy, then they can whack on each other freely, without outlaw penalty
@@ -4882,8 +4883,9 @@ messages:
       if (poGuild <> $
             AND oEnemyGuild <> $
             AND Send(poGuild,@IsMutualEnemy,#otherguild=oEnemyGuild))
-         OR (oSoldierShield <> $
-            AND Send(oSoldierShield,@IsEnemyAttack,#what=victim))
+         OR (oSoldierShield <> $ AND oSoldierShieldVictim <> $)
+            // (oSoldierShield <> $
+            // AND Send(oSoldierShield,@IsEnemyAttack,#what=victim))
       {
          // Okay, attack is against a player, so record the time
          if actual = TRUE
