@@ -142,7 +142,7 @@ messages:
    // 'who' is the caster of the spell we are modifying.
    ModifySpellPower(who=$,state=$,oSpell=$,iSpellPower=0,report=TRUE)
    {
-      local oTarget, iSub;
+      local oTarget, iSub, iSchool;
 
       if (state = $)
       {
@@ -159,9 +159,15 @@ messages:
       }
 
       // Case 1: 'who' is casting a spell, and they are enchanted with AMA.
-      // Always lose spellpower, and display a message.
+      // Always lose spellpower, and display a message if its a non Kraanan spell.
       if (oTarget = who)
       {
+         iSchool = Send(oSpell,@GetSchool);
+         if (iSchool = SS_KRAANAN)
+         {
+            return iSpellPower;
+         }
+
          iSub = Nth(state,2) * piAMAEffectPercent / 100;
          iSub = Bound(iSpellPower - iSub,SPELLPOWER_MINIMUM,SPELLPOWER_MAXIMUM);
 
