@@ -332,7 +332,8 @@ messages:
 
          // Gotta have a shield, and it can't be the same faction as us.
          if oSoldierShield <> $
-            AND Send(oSoldierShield,@GetFaction) <> viFaction
+         // MORG: We allow to attack opposing faction soldier by disabling the "opposing faction" check.
+         //   AND Send(oSoldierShield,@GetFaction) <> viFaction
          {
             Send(oSoldierShield,@AttackedByEnemy,#who=what);
 
