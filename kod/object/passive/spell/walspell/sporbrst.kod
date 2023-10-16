@@ -54,6 +54,7 @@ classvars:
    viCooldownSID = SID_COOLDOWN_SPOREBURST
 
    //// Seed parameters
+   viCast_time = 3000
    viElementDuration = 10000
    viElementSpeed = 50
    viElementCharges = 27
