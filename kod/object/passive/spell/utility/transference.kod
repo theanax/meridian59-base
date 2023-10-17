@@ -147,7 +147,7 @@ messages:
          oVault = First(i);
          if IsClass(oVault,&StorageBox)
          {
-            if Send(oVault,@ReqNewHold(#what=oTarget))
+            if Send(oVault,@ReqNewHold,#what=oTarget)
             {
                Send(who,@MsgSendUser,#message_rsc=transference_cast,
                   #parm1=Send(oTarget,@GetDef),#parm2=Send(oTarget,@GetName));
