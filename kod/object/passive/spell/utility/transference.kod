@@ -148,9 +148,12 @@ messages:
          if IsClass(oVault,&StorageBox)
          {
             if Send(oVault,@ReqNewHold,#what=oTarget)
+                AND Send(oTarget,@IsStackable)
             {
                Send(who,@MsgSendUser,#message_rsc=transference_cast,
                   #parm1=Send(oTarget,@GetDef),#parm2=Send(oTarget,@GetName));
+
+               Send(oVault,@newhold,#what=oTarget);
 
                if iFee > 0
                {
