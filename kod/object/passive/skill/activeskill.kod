@@ -123,6 +123,12 @@ messages:
          }
       }
 
+      if Send(who,@IsInCannotInteractMode)
+      {
+
+         return FALSE;
+      }
+
       propagate;
    }
 
