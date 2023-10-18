@@ -146,8 +146,6 @@ messages:
    {
       local use_weapon, stroke_obj, iPower, i, bTarget;
 
-                  
-
       use_weapon = Send(who,@GetWeapon);
       stroke_obj = Send(who,@GetStrokeObject);
 
