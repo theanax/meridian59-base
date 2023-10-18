@@ -28,35 +28,35 @@ properties:
 
    // piMoneyFactor: How much money should be given out?  Raise this number to
    //  increase the amount of money given out.
-   piMoneyFactor = 250
+   piMoneyFactor = 5000
 
    // Increase this to increase the number of items dropped from monster deaths.
-   piItemFactor = 100
+   piItemFactor = 400
 
    // Modifier to the chance for items to be generated.
-   piMagicItemModifier = 50
+   piMagicItemModifier = 25
 
    // Changed the wait for monsters to spawn.  A decrease means things
    //  spawn faster (less time waiting between spawns).
-   piSpawnRate = 75
+   piSpawnRate = 200
 
    //
    // Player advancement
    //
 
    // XP percent awarded, can be raised to give a bonus.
-   piXPPercent = 130
+   piXPPercent = 5000
 
    // piAdvancementRate: Determines how fast or slow advancement goes for all
    //  spells and skills.  This is a percent of normal, and only affects the
    //  secondary chance.
-   piAdvancementRate = 100
+   piAdvancementRate = 1000
 
    piKillKarmaSwingNeutral = 3
    piKillKarmaSwingMonster = 6
    piKillKarmaSwingPlayer = 10
 
-   pbMonsterFactionEnabled = TRUE
+   pbMonsterFactionEnabled = FALSE
 
    pbAtrophyOn = FALSE
    
@@ -68,7 +68,7 @@ properties:
 
    // Stat reset token has a 1 in (piStatResetTokenDropFactor / monster_level)
    // chance to drop, with monster_level bound between 50 and 150.
-   piStatResetTokenDropFactor = 250000
+   piStatResetTokenDropFactor = 150000
 
    // Lore book drop facter, 1 in piLoreBookDropFactor per loot roll
    piLoreBookDropFactor = 2000
@@ -76,13 +76,13 @@ properties:
    // DefaultDeathCost:  Should always be a value between 3 and 100.  Lowering
    //  this will lower the odds of a dead player losing health and skill/spell
    //  percents.
-   piDefaultDeathCost = 3
+   piDefaultDeathCost = 20
 
    // The training points we grant players each day to reward them for logging on.
    piLogonBonus = 500
 
    // The maximum amount of unbound energy we can absorb
-   piUnboundMax = 100000
+   piUnboundMax = 3000
 
    // The maximum percentage of XP we can absorb as unbound energy.
    piUnboundAbsorption = 100
@@ -99,7 +99,7 @@ properties:
 
    // How far up the food chain can basic players learn?  See player for more
    //  specific information on what this number means.
-   piMaxLearnPoints = 18
+   piMaxLearnPoints = 16
 
    // The default time for building group membership.
    piDefaultGroupTime = 60000
@@ -131,16 +131,16 @@ properties:
    piTeleportAttackDelaySec = 240
 
    // Rescue always takes at least this long to cast
-   piRescueBaseDelaySec = 5
+   piRescueBaseDelaySec = 10
 
    // If true, spellpower and duration are displayed for all spells cast.
-   pbDisplaySpellData = TRUE
+   pbDisplaySpellData = FALSE
 
    // If true, JoF regains hits when players kill mobs.
    pbFrozRechargeOnKill = TRUE
 
    // Spell items cost this much compared to casting the actual spell.
-   piItemManaCostPct = 75
+   piItemManaCostPct = 90
 
    // Can users buff each other in safe zones?
    pbBuffOthersInSafeZones = TRUE
@@ -203,11 +203,11 @@ properties:
    pbLoseXPOnPenalty = TRUE
 
    // Time in milliseconds that ghosts will last before taking a penalty
-   piLogPenGhostTime = 480 * 1000
+   piLogPenGhostTime = 400000
 
    // Time in milliseconds that outlaw / murderer ghosts will last
    // before taking a penalty
-   piOutlawMurdererLogPenGhostTime = 180 * 1000
+   piOutlawMurdererLogPenGhostTime = 400000
 
    // Seconds for which we consider the player 'active' in PvP. This includes
    // attacking or being attacked.
@@ -234,7 +234,7 @@ properties:
    piMinHPForJusticar = 100
 
    // Cost for Caramo to change a player's name.
-   piNameChangeCost = 3000000
+   piNameChangeCost = 1000000
 
    // TRUE if a user entering a room causes wall elems on entry point to dissipate
    pbDeleteWallsOnPlayerEntry = TRUE
@@ -256,7 +256,7 @@ properties:
    pbRiijaSwordDropOnDeath = FALSE
 
    // Replaces old constant
-   piPKillEnableHP = 50
+   piPKillEnableHP = 30
    
    // Replaces old constant
    piIntrigueEnableHP = 50
@@ -268,7 +268,7 @@ properties:
    piLogonDelay = 2500
    
    // Length of time the temporary guardian angel lasts, in minutes
-   piTempSafeMinutes = 360
+   piTempSafeMinutes = 15
 
    // Revenant speed setting
    piRevSpeed = 18
@@ -319,7 +319,7 @@ properties:
    // setting changes, you should recreate the system. Doesn't affect
    // players that already have the flag - if this is switched off,
    // the flag needs to be manually removed from players.
-   pbPvPOptOutEnabled = TRUE
+   pbPvPOptOutEnabled = FALSE
 
    // Percentage of mob vision for determining aggro range.
    piVisionModifier = 70
@@ -384,7 +384,7 @@ properties:
    piHonorMinLevels = 0
 
    // No honor points awarded for this amount of seconds after a player has died.
-   piHonorDeathTime = 1 * 60 * 60
+   piHonorDeathTime = 120
 
    // No honor points are awarded if the player has this many penalty points.
    // (1 pen = 1 point, decays by 1 every 12 hours)

@@ -56,7 +56,9 @@ messages:
    SetItemsToAttribute()
    {
       plItems_to_attribute = \
-             [ [ &WoodenShield, 15],
+             [ 
+               //Removed all
+               /*[ &WoodenShield, 15],
                [ &LeatherArmor, 15],
                [ &MetalShield, 13],
                [ &ChainArmor, 10],
@@ -72,6 +74,7 @@ messages:
                [ &NeruditeArmor, 2],
                [ &Circlet, 2],
                [ &DiscipleRobe, 2]
+               */
              ];
 
       return;
