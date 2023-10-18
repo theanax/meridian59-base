@@ -58,7 +58,7 @@ messages:
 
    CanPayCosts(who=$,lTargets=$)
    {
-      local oSpell, oWeapon, bRanged;
+      local oSpell, oWeapon, bRanged, iFlags;
 
       // Check attack timer without setting a timer.
       // Setting the timer is done in PerformSkill().
@@ -123,9 +123,9 @@ messages:
          }
       }
 
-      if Send(who,@IsInCannotInteractMode)
+      iFlags = PFLAG_PHASED | PFLAG_NO_FIGHT | PFLAG_NO_MAGIC;
+      if Send(who,@CheckPlayerFlag,#flag=iFlags)
       {
-
          return FALSE;
       }
 
