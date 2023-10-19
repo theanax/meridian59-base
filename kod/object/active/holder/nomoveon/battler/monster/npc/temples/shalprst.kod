@@ -113,7 +113,10 @@ messages:
    "letting her sell chalices for profit. Also, we add a skll for fun"
    {
       plFor_Sale = [
-         $,$,
+         [
+            Create(&OfferingShalille)
+         ],
+         $,
          [
             SID_MINOR_HEAL,
             SID_HOLY_WEAPON,

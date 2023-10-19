@@ -190,7 +190,10 @@ messages:
    SetForSale()
    {
       plFor_Sale = [
-         $,$,
+         [
+            Create(&OfferingRiija)
+         ],
+         $,
          [
             SID_ANONYMITY,
             SID_APPARITION,

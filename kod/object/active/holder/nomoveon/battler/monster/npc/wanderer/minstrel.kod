@@ -94,7 +94,10 @@ messages:
    SetForSale()
    {
       plFor_Sale = [
-         $,$,
+         [
+            Create(&OfferingJala)
+         ],
+         $,
          [
             SID_TRUTH,
             SID_MIRTH,

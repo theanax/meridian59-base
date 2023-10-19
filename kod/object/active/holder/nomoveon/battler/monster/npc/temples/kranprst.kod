@@ -87,7 +87,10 @@ messages:
    SetForSale()
    {
       plFor_Sale = [
-         $,$,
+         [
+            Create(&OfferingKraanan)
+         ],
+         $,
          [
             SID_BLESS,
             SID_ENCHANT_WEAPON,

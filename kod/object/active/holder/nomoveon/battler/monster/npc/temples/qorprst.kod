@@ -117,7 +117,10 @@ messages:
    SetForSale()
    {
       plFor_sale = [
-         $,$,
+         [
+            Create(&OfferingQor)
+         ],
+         $,
          [ 
             SID_DARKNESS,
             SID_DETECT_GOOD,
