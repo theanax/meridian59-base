@@ -28,6 +28,7 @@ classvars:
    vrIcon = OfferingShalille_icon_rsc
    vrDesc = OfferingShalille_desc_rsc
 
+   viValue_average = 30000
    vrAllegiance = SS_SHALILLE
    viIndefinite = ARTICLE_THE
 

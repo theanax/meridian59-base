@@ -64,7 +64,10 @@ messages:
    SetForSale()
    {
       plFor_Sale = [
-         $,$,
+         [
+            Create(&OfferingFaren)
+         ],
+         $,
          [
             SID_LIGHT,
             SID_ZAP,
