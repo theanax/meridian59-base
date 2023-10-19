@@ -2906,15 +2906,15 @@ messages:
 
       // Give the poor newbie an weapon and a bit of cash.
       Send(self,@NewHold,#what=Create(&Mace));
-      Send(self,@NewHold,#what=Create(&Money,#number=15000));
-      Send(Send(SYS,@GetStatistics),@MoneyCreated,#amount=500);
+      Send(self,@NewHold,#what=Create(&Money,#number=7000));
+      Send(Send(SYS,@GetStatistics),@MoneyCreated,#amount=7000);
       Send(self,@AddReagentsForSpells,#iNumCasts=10);
 
       // If player hasn't suicided in last 5 hours, give them cash and prizes!
       if (GetTime() - piLast_restart_time) > (5*60*60)   
       {
-         Send(self,@NewHold,#what=Create(&Money,#number=15000));
-         Send(Send(SYS,@GetStatistics),@MoneyCreated,#amount=500);
+         Send(self,@NewHold,#what=Create(&Money,#number=7000));
+         Send(Send(SYS,@GetStatistics),@MoneyCreated,#amount=7000);
          Send(self,@AddReagentsForSpells,#iNumCasts=10);
       }
 
