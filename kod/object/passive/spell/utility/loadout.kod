@@ -526,7 +526,7 @@ messages:
          {
             if GetClass(oItem) = class
             {
-               if Send(oBox,@WithdrawFromStorage,#who=who,#what=oItem)
+               if Send(oBox,@WithdrawFromStorage,#who=who,#what=oItem,#count=number)
                {
                   return TRUE;
                }
