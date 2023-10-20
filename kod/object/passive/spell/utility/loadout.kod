@@ -83,29 +83,6 @@ messages:
          return FALSE;
       }
 
-      oGuild = Send(who,@GetGuild);
-
-      if oGuild = $
-      {
-         Send(who,@MsgSendUser,#message_rsc=loadout_not_guilded);
-
-         return FALSE;
-      }
-
-      if Send(oGuild,@GetRank,#who=who) = RANK_APPRENTICE
-      {
-         Send(who,@MsgSendUser,#message_rsc=loadout_rank_too_low);
-
-         return FALSE;
-      }
-
-      if Send(oGuild,@GetGuildHall) = $
-      {
-         Send(who,@MsgSendUser,#message_rsc=loadout_no_hall);
-
-         return FALSE;
-      }
-
       if NOT Send(Send(who,@GetOwner),@CheckRoomFlag,#flag=ROOM_NO_COMBAT)
       {
          Send(who,@MsgSendUser,#message_rsc=loadout_not_safe);
@@ -131,16 +108,7 @@ messages:
       Send(who,@MsgSendUser,#message_rsc=loadout_cast);
 
       oGuild = Send(who,@GetGuild);
-      if (oGuild = $)
-      {
-         return TRUE;
-      }
-
       oGuildHall = Send(oGuild,@GetGuildHall);
-      if (oGuildHall = $)
-      {
-         return TRUE;
-      }
 
       lLoadout_list = Send(who,@GetLoadoutList);
       // Copy inventory since we're going to modify the list.
@@ -341,31 +309,50 @@ messages:
 
       bFound = FALSE;
 
-      foreach i in Send(oGuildHall,@GetHolderActive)
+      if oGuildHall <> $
       {
-         oBox = First(i);
-         if IsClass(oBox,&StorageBox)
+          foreach i in Send(oGuildHall,@GetHolderActive)
+          {
+             oBox = First(i);
+             if IsClass(oBox,&StorageBox)
+             {
+                foreach oItem in Send(oBox,@GetHolderPassive)
+                {
+                   if (GetClass(oItem) = class
+                      AND Send(oItem,@GetSchool) = school)
+                   {
+                      bFound = TRUE;
+                      if Send(who,@ReqNewHold,#what=oItem)
+                      {
+                         Send(who,@NewHold,#what=oItem);
+
+                         return TRUE;
+                      }
+                      else
+                      {
+                         Send(who,@MsgSendUser,#message_rsc=loadout_cant_carry_one,
+                               #parm1=Send(oItem,@GetIndef),
+                               #parm2=Send(oItem,@GetTrueName));
+
+                         return FALSE;
+                      }
+                   }
+                }
+             }
+          }
+      }
+
+      if NOT bFound
+      {
+         oBox = Send(SYS,@FindVaultByNum,#num=VID_BARLOQUE);
+         foreach oItem in Send(oBox,@GetItemsStored,#who=who)
          {
-            foreach oItem in Send(oBox,@GetHolderPassive)
+            if (GetClass(oItem) = class
+                AND Send(oItem,@GetSchool) = school)
             {
-               if (GetClass(oItem) = class
-                  AND Send(oItem,@GetSchool) = school)
+               if Send(oBox,@WithdrawFromStorage,#who=who,#what=oItem)
                {
-                  bFound = TRUE;
-                  if Send(who,@ReqNewHold,#what=oItem)
-                  {
-                     Send(who,@NewHold,#what=oItem);
-
-                     return TRUE;
-                  }
-                  else
-                  {
-                     Send(who,@MsgSendUser,#message_rsc=loadout_cant_carry_one,
-                           #parm1=Send(oItem,@GetIndef),
-                           #parm2=Send(oItem,@GetTrueName));
-
-                     return FALSE;
-                  }
+                  return TRUE;
                }
             }
          }
@@ -392,31 +379,49 @@ messages:
 
       bFound = FALSE;
 
-      foreach i in Send(oGuildHall,@GetHolderActive)
+      if oGuildHall <> $
       {
-         oBox = First(i);
-         if IsClass(oBox,&StorageBox)
+          foreach i in Send(oGuildHall,@GetHolderActive)
+          {
+             oBox = First(i);
+             if IsClass(oBox,&StorageBox)
+             {
+                oItem = GetListElemByClass(Send(oBox,@GetHolderPassive),class);
+                if (oItem = $)
+                {
+                   continue;
+                }
+
+                bFound = TRUE;
+                if Send(who,@ReqNewHold,#what=oItem)
+                {
+                   Send(who,@NewHold,#what=oItem);
+
+                   return TRUE;
+                }
+                else
+                {
+                   Send(who,@MsgSendUser,#message_rsc=loadout_cant_carry_one,
+                         #parm1=Send(oItem,@GetIndef),
+                         #parm2=Send(oItem,@GetTrueName));
+
+                   return FALSE;
+                }
+             }
+          }
+      }
+
+      if NOT bFound
+      {
+         oBox = Send(SYS,@FindVaultByNum,#num=VID_BARLOQUE);
+         foreach oItem in Send(oBox,@GetItemsStored,#who=who)
          {
-            oItem = GetListElemByClass(Send(oBox,@GetHolderPassive),class);
-            if (oItem = $)
+            if GetClass(oItem) = class
             {
-               continue;
-            }
-
-            bFound = TRUE;
-            if Send(who,@ReqNewHold,#what=oItem)
-            {
-               Send(who,@NewHold,#what=oItem);
-
-               return TRUE;
-            }
-            else
-            {
-               Send(who,@MsgSendUser,#message_rsc=loadout_cant_carry_one,
-                     #parm1=Send(oItem,@GetIndef),
-                     #parm2=Send(oItem,@GetTrueName));
-
-               return FALSE;
+               if Send(oBox,@WithdrawFromStorage,#who=who,#what=oItem)
+               {
+                  return TRUE;
+               }
             }
          }
       }
@@ -449,63 +454,81 @@ messages:
       bFound = FALSE;
       bSentErrorMsg = FALSE;
 
-      foreach i in Send(oGuildHall,@GetHolderActive)
+      if oGuildHall <> $
       {
-         iGetNumber = number;
-         oBox = First(i);
-         if IsClass(oBox,&StorageBox)
+          foreach i in Send(oGuildHall,@GetHolderActive)
+          {
+             iGetNumber = number;
+             oBox = First(i);
+             if IsClass(oBox,&StorageBox)
+             {
+                oItem = GetListElemByClass(Send(oBox,@GetHolderPassive), class);
+                if (oItem = $)
+                {
+                   continue;
+                }
+
+                iCanHold = Send(who,@GetNumberCanHold,#what=oItem);
+                iNumInChest = Send(oItem,@GetNumber);
+                bFound = TRUE;
+
+                if iGetNumber > iNumInChest
+                {
+                   iGetNumber = iNumInChest;
+                }
+
+                if iCanhold <> $
+                   AND iGetNumber > iCanHold
+                {
+                   if iCanHold > 0
+                   {
+                      if NOT bSentErrorMsg
+                      {
+                         Send(who,@MsgSendUser,#message_rsc=loadout_cant_carry_all,
+                               #parm1=Send(oItem,@GetPluralName));
+                         bSentErrorMsg = TRUE;
+                      }
+                   }
+                   else
+                   {
+                      if NOT bSentErrorMsg
+                      {
+                         Send(who,@MsgSendUser,#message_rsc=loadout_cant_carry_any,
+                              #parm1=Send(oItem,@GetPluralName));
+                         bSentErrorMsg = TRUE;
+                      }
+                      return;
+                   }
+                   iGetNumber = iCanHold;
+                }
+
+                if iGetNumber > 0
+                {
+                   if (iGetNumber <> iNumInChest)
+                   {
+                      oItem = Send(oItem,@Split,#number=iGetNumber);
+                   }
+                   Send(who,@NewHold,#what=oItem);
+                   number = number - iGetNumber;
+                   if number < 1
+                   {
+                      return;
+                   }
+                }
+             }
+          }
+      }
+
+      if NOT bFound
+      {
+         oBox = Send(SYS,@FindVaultByNum,#num=VID_BARLOQUE);
+         foreach oItem in Send(oBox,@GetItemsStored,#who=who)
          {
-            oItem = GetListElemByClass(Send(oBox,@GetHolderPassive), class);
-            if (oItem = $)
+            if GetClass(oItem) = class
             {
-               continue;
-            }
-
-            iCanHold = Send(who,@GetNumberCanHold,#what=oItem);
-            iNumInChest = Send(oItem,@GetNumber);
-            bFound = TRUE;
-
-            if iGetNumber > iNumInChest
-            {
-               iGetNumber = iNumInChest;
-            }
-
-            if iCanhold <> $
-               AND iGetNumber > iCanHold
-            {
-               if iCanHold > 0
+               if Send(oBox,@WithdrawFromStorage,#who=who,#what=oItem)
                {
-                  if NOT bSentErrorMsg
-                  {
-                     Send(who,@MsgSendUser,#message_rsc=loadout_cant_carry_all,
-                           #parm1=Send(oItem,@GetPluralName));
-                     bSentErrorMsg = TRUE;
-                  }
-               }
-               else
-               {
-                  if NOT bSentErrorMsg
-                  {
-                     Send(who,@MsgSendUser,#message_rsc=loadout_cant_carry_any,
-                          #parm1=Send(oItem,@GetPluralName));
-                     bSentErrorMsg = TRUE;
-                  }
-                  return;
-               }
-               iGetNumber = iCanHold;
-            }
-
-            if iGetNumber > 0
-            {
-               if (iGetNumber <> iNumInChest)
-               {
-                  oItem = Send(oItem,@Split,#number=iGetNumber);
-               }
-               Send(who,@NewHold,#what=oItem);
-               number = number - iGetNumber;
-               if number < 1
-               {
-                  return;
+                  return TRUE;
                }
             }
          }
@@ -549,76 +572,94 @@ messages:
       bFound = FALSE;
       bSentErrorMsg = FALSE;
 
-      foreach i in Send(oGuildHall,@GetHolderActive)
+      if oGuildHall <> $
       {
-         oBox = First(i);
-         if (IsClass(oBox,&StorageBox))
+          foreach i in Send(oGuildHall,@GetHolderActive)
+          {
+             oBox = First(i);
+             if (IsClass(oBox,&StorageBox))
+             {
+                oItem = GetListElemByClass(Send(oBox,@GetHolderPassive),class);
+
+                // We either use up all the items and move to next box, or we
+                // get what we need and return.
+                while (oItem <> $)
+                {
+                   iGetNumber = number;
+                   iCanHold = Send(who,@GetNumberCanHold,#what=oItem);
+                   iNumHits = Send(oItem,@GetHits);
+                   bFound = TRUE;
+
+                   if iGetNumber > iNumHits
+                   {
+                      iGetNumber = iNumHits;
+                   }
+
+                   if iCanhold <> $
+                      AND iGetNumber > iCanHold
+                   {
+                      if iCanHold > 0
+                      {
+                         if NOT bSentErrorMsg
+                         {
+                            Send(who,@MsgSendUser,#message_rsc=loadout_cant_carry_all,
+                                  #parm1=Send(oItem,@GetTrueName));
+                            bSentErrorMsg = TRUE;
+                         }
+                      }
+                      else
+                      {
+                         if NOT bSentErrorMsg
+                         {
+                            Send(who,@MsgSendUser,#message_rsc=loadout_cant_carry_any,
+                                  #parm1=Send(oItem,@GetTrueName));
+                            bSentErrorMsg = TRUE;
+                         }
+
+                         return;
+                      }
+                      iGetNumber = iCanHold;
+                   }
+
+                   if iGetNumber > 0
+                   {
+                      if (iGetNumber <> iNumHits)
+                      {
+                         oItem = Send(oItem,@Split,#number=iGetNumber);
+                      }
+
+                      if (oPlayerItem <> $)
+                      {
+                         Send(oPlayerItem,@CombineSpellItems,#what=oItem);
+                      }
+                      else
+                      {
+                         Send(who,@NewHold,#what=oItem,#check_combine=FALSE);
+                         oPlayerItem = oItem;
+                      }
+                      number = number - iGetNumber;
+                      if (number < 1)
+                      {
+                         return;
+                      }
+                   }
+                   oItem = GetListElemByClass(Send(oBox,@GetHolderPassive),class);
+                }
+             }
+          }
+      }
+
+      if NOT bFound
+      {
+         oBox = Send(SYS,@FindVaultByNum,#num=VID_BARLOQUE);
+         foreach oItem in Send(oBox,@GetItemsStored,#who=who)
          {
-            oItem = GetListElemByClass(Send(oBox,@GetHolderPassive),class);
-
-            // We either use up all the items and move to next box, or we
-            // get what we need and return.
-            while (oItem <> $)
+            if GetClass(oItem) = class
             {
-               iGetNumber = number;
-               iCanHold = Send(who,@GetNumberCanHold,#what=oItem);
-               iNumHits = Send(oItem,@GetHits);
-               bFound = TRUE;
-
-               if iGetNumber > iNumHits
+               if Send(oBox,@WithdrawFromStorage,#who=who,#what=oItem,#count=number)
                {
-                  iGetNumber = iNumHits;
+                  return TRUE;
                }
-
-               if iCanhold <> $
-                  AND iGetNumber > iCanHold
-               {
-                  if iCanHold > 0
-                  {
-                     if NOT bSentErrorMsg
-                     {
-                        Send(who,@MsgSendUser,#message_rsc=loadout_cant_carry_all,
-                              #parm1=Send(oItem,@GetTrueName));
-                        bSentErrorMsg = TRUE;
-                     }
-                  }
-                  else
-                  {
-                     if NOT bSentErrorMsg
-                     {
-                        Send(who,@MsgSendUser,#message_rsc=loadout_cant_carry_any,
-                              #parm1=Send(oItem,@GetTrueName));
-                        bSentErrorMsg = TRUE;
-                     }
-
-                     return;
-                  }
-                  iGetNumber = iCanHold;
-               }
-
-               if iGetNumber > 0
-               {
-                  if (iGetNumber <> iNumHits)
-                  {
-                     oItem = Send(oItem,@Split,#number=iGetNumber);
-                  }
-
-                  if (oPlayerItem <> $)
-                  {
-                     Send(oPlayerItem,@CombineSpellItems,#what=oItem);
-                  }
-                  else
-                  {
-                     Send(who,@NewHold,#what=oItem,#check_combine=FALSE);
-                     oPlayerItem = oItem;
-                  }
-                  number = number - iGetNumber;
-                  if (number < 1)
-                  {
-                     return;
-                  }
-               }
-               oItem = GetListElemByClass(Send(oBox,@GetHolderPassive),class);
             }
          }
       }
