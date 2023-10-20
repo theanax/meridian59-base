@@ -113,7 +113,7 @@ messages:
          return FALSE;
       }
    
-      foreach i in Send(oRoom,@GetEntchantmentList)
+      foreach i in Send(oRoom,@GetEnchantmentList)
       {
          oSpell = Nth(i,2);
          if (IsClass(oSpell,&KillingFields))
