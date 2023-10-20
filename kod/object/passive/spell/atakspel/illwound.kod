@@ -73,7 +73,6 @@ messages:
    ResetReagents()
    {
       plReagents = $;
-      plReagents = Cons([&Solagh,1],plReagents);
       plReagents = Cons([&FireSand,1],plReagents);
 
       return;

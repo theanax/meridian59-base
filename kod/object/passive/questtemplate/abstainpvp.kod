@@ -51,8 +51,8 @@ resources:
       "a soldier shield or interact with faction flagpoles."
 
    // Quest resources.
-   abstainpvp_trigger = "abstain from violence"
-   abstainpvp_trigger_2 = "I request that Shal'ille protect me from harm"
+   abstainpvp_trigger = "I abstain from violence and admit I am a weakling."
+   abstainpvp_trigger_2 = "I request that Shal'ille protect me from harm."
    abstainpvp_assign = \
       "Shal'ille will protect you from the violence of combat with other "
       "adventurers. To obtain protection, you must speak these words aloud: "

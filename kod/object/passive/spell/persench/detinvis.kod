@@ -59,7 +59,7 @@ messages:
 
    ResetReagents()
    {
-      plReagents = [ [&Solagh, 2] ];
+      plReagents = Cons([&Solagh,1],plReagents);
 
       return;
    }
