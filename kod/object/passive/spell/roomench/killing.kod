@@ -87,6 +87,12 @@ messages:
            #time=send(self,@GetDuration,#iSpellPower=iSpellPower));
       Send(oRoom,@EnchantAllOccupants,#what=self);
 
+      oRoomEnch = Send(SYS,@FindSpellByNum,#num=SID_TRUCE);
+      if Send(oRoom,@GetEnchantmentState,#what=oRoomEnch) <> $
+      {
+         Send(oRoom,@RemoveEnchantment,#what=oRoomEnch);
+      }
+
       return TRUE;
    }
 
