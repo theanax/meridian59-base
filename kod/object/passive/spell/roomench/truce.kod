@@ -80,7 +80,7 @@ messages:
 
    CanPayCosts(who = $, lTargets = $)
    {
-      local oRoom, i, oActive, oRoomEnch;
+      local oRoom, i, oSpell;
 
       oRoom = Send(who,@GetOwner);
 
@@ -112,11 +112,14 @@ messages:
 
          return FALSE;
       }
-    
-      oRoomEnch = Send(SYS,@FindSpellByNum,#num=SID_KILLING_FIELDS);
-      if Send(oRoom,@GetEnchantmentState,#what=oRoomEnch) <> $
+   
+      foreach i in Send(oRoom,@GetEntchantmentList)
       {
-         return FALSE;
+         oSpell = Nth(i,2);
+         if (IsClass(oSpell,&KillingFields))
+         {
+            return FALSE;
+         }
       }
 
       propagate;

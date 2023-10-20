@@ -168,6 +168,11 @@ messages:
             continue;
          }
 
+         if (IsClass(oSpell,&Truce))
+         {
+            continue;
+         }
+
          iModifiedChance = iChance;
          if Send(oSpell,@GetSchool) = SS_JALA
          {
