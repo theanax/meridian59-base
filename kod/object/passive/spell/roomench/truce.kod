@@ -80,7 +80,7 @@ messages:
 
    CanPayCosts(who = $, lTargets = $)
    {
-      local oRoom, i, oActive;
+      local oRoom, i, oSpell;
 
       oRoom = Send(who,@GetOwner);
 
@@ -111,6 +111,15 @@ messages:
          Send(who,@MsgSendUser,#message_rsc=truce_no_towns);
 
          return FALSE;
+      }
+   
+      foreach i in Send(oRoom,@GetEnchantmentList)
+      {
+         oSpell = Nth(i,2);
+         if (IsClass(oSpell,&KillingFields))
+         {
+            return FALSE;
+         }
       }
 
       propagate;

@@ -69,7 +69,7 @@ messages:
 
    DoSpellEffects(who = $,iSpellPower = 0)
    {
-      local oRoom;
+      local i, oRoom, oSpell;
 
       if (IsClass(who,&Room))
       {
@@ -86,6 +86,15 @@ messages:
       Send(oRoom,@RoomStartEnchantment,#what=self,#state=[iSpellPower,who],
            #time=send(self,@GetDuration,#iSpellPower=iSpellPower));
       Send(oRoom,@EnchantAllOccupants,#what=self);
+
+      foreach i in Send(oRoom,@GetEnchantmentList)
+      {
+         oSpell = Nth(i,2);
+         if (IsClass(oSpell,&Truce))
+         {
+            Send(oRoom,@RemoveEnchantment,#what=oSpell);
+         }
+      }
 
       return TRUE;
    }
