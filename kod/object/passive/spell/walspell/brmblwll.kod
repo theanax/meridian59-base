@@ -60,9 +60,8 @@ messages:
    ResetReagents()
    {
       plReagents = $;
-      plReagents = Cons([&Elderberry,3],plReagents);
-      plReagents = Cons([&Yrxlsap,1], plReagents);
-
+      plReagents = Cons([&WebMoss,1],plReagents);
+ 
       return;
    }
 
@@ -70,6 +69,11 @@ messages:
    {
       // Wall spells are difficult to use.
       return FALSE;
+   }
+
+   SpellBannedInArena()
+   {
+      return TRUE;
    }
 
    PlaceWallElements(seed = $)

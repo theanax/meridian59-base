@@ -70,7 +70,7 @@ messages:
    {
       plReagents = $;
       plReagents = Cons([&Diamond,1],plReagents);
-      plReagents = Cons([&Herbs,5],plReagents);
+      plReagents = Cons([&Herbs,3],plReagents);
 
       return;
    }

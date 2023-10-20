@@ -59,7 +59,6 @@ messages:
    {
       plReagents = $;
       plReagents = Cons([&ElderBerry,1],plReagents);
-      plReagents = Cons([&Mushroom,1],plReagents);
 
       return;
    }
