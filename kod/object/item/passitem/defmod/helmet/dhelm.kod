@@ -64,8 +64,10 @@ classvars:
    viDefense_base = 20
    viDamage_base = 1
 
+   viValue_average = 25000
+
    viLightColor = LIGHT_BLOOD
-   viBaseLightIntensity = 100
+   viBaseLightIntensity = 25
 
 properties:
 

@@ -60,7 +60,7 @@ classvars:
    viKarma = -30
    viDefault_behavior = AI_FIGHT_AGGRESSIVE
    viWimpy = 30
-   viCashmin = -100
+   viCashmin = 100
    viCashmax = 300
    vrSound_hit = spider_sound_hit
    vrSound_miss = spider_sound_miss

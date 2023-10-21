@@ -105,6 +105,8 @@ messages:
    {
       plFor_sale = [
          [ 
+            Create(&DaemonHelm),
+            Create(&BattleBow),
             Create(&ScaleArmor),
             Create(&LeatherArmor),
             Create(&GoldShield),

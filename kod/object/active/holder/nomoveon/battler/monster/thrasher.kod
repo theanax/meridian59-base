@@ -60,8 +60,8 @@ classvars:
    vrDead_name = thrasher_dead_name_rsc
 
    viTreasure_type = TID_THRASHER
-   viCashmin = -9000
-   viCashmax = 4000
+   viCashmin = 1000
+   viCashmax = 3000
    viNormalSpeed = SPEED_FAST
    viAttack_type = ATK_TYPE_BLUDGEON
    viVisionDistance = 25

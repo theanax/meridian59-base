@@ -77,7 +77,7 @@ classvars:
    viVisionDistance = 16
    viKarma = 40
    viDefault_behavior = AI_FIGHT_AGGRESSIVE
-   viCashmin = -10000
+   viCashmin = 700
    viCashmax = 1000
    viWimpy = 5
 

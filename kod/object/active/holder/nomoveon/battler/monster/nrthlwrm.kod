@@ -60,7 +60,7 @@ classvars:
    viMeleeRange = 192
    viKarma = -70
    viDefault_behavior = AI_FIGHT_AGGRESSIVE
-   viCashmin = -3600
+   viCashmin = 1000
    viCashmax = 1250
    vrSound_miss = NarthylWorm_sound_miss
    vrSound_aware = NarthylWorm_sound_aware

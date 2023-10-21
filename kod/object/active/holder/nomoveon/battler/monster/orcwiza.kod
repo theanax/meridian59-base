@@ -70,7 +70,7 @@ classvars:
    viMeleeRange = 128
    viKarma = -60
    viDefault_behavior = AI_FIGHT_AGGRESSIVE | AI_MOVE_FLEE_FRIGHTENERS
-   viCashmin = -800
+   viCashmin = 300
    viCashmax = 800
    viWimpy = 3
 
