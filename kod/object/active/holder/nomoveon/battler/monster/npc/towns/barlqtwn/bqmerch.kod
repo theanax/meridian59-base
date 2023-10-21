@@ -148,7 +148,7 @@ messages:
          [ 
             //Create(&GemRemove),
             Create(&Diamond,#number=1),
-            Create(&Torch),
+            Create(&Ruby,#number=1),
             Create(&Sapphire,#number=1),
             Create(&Emerald,#number=1)
          ],

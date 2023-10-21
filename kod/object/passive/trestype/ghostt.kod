@@ -36,7 +36,6 @@ messages:
                      [ &PlateArmor, 6 ],
                      [ &KnightShield, 13 ],
                      [ &Scimitar, 17],
-                     [ &VampireWand, 4],
                      [ &DiscipleRobe, 4],
                      [ &FineLute, 5],
                      [ &Key, 9 ],

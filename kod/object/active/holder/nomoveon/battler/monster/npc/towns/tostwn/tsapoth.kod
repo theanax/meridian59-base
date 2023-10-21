@@ -87,16 +87,21 @@ messages:
    {
       plFor_sale = [
          [
-            Create(&Solagh,#number=4),
-            Create(&RemoveCursePotion,#labelled=TRUE),
             Create(&Torch),
+            Create(&InkyCap,#number=2),
+            Create(&RemoveCursePotion,#labelled=TRUE),
+            Create(&DispellIllusionScroll,#labelled=TRUE),
+
             Create(&Snack,#number=4),
-            Create(&BlueMushroom,#number=4),
+            Create(&Mushroom,#number=4),
             Create(&RedMushroom,#number=4),
-            Create(&Mushroom,#number=5),
+            Create(&BlueMushroom,#number=4),            
+            Create(&PurpleMushroom,#number=4),
             Create(&Elderberry,#number=4),
-            Create(&Herbs,#number=5),
-            Create(&Flask)
+            Create(&Herbs,#number=4),
+            Create(&EntrootBerry,#number=4),
+            Create(&Fairywing,#number=2),
+            Create(&OrcTooth,#number=2)
          ],
          $,
          [

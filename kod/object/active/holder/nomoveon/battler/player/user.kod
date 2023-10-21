@@ -6544,7 +6544,7 @@ messages:
          return FALSE;
       }
 
-      if StringContain(string,user_say_start_solo_survival)
+      /*if StringContain(string,user_say_start_solo_survival)
       {
          if NOT Send(poOwner,@CheckRoomFlag,#flag=ROOM_SAFELOGOFF)
             OR Send(poOwner,@GetRoomNum) = RID_UNDERWORLD
@@ -6559,7 +6559,7 @@ messages:
                #who=self,#sString=string);
 
          return TRUE;
-      }
+      }*/
 
       if StringEqual(string,user_say_join_pub_survival)
       {
@@ -6634,7 +6634,7 @@ messages:
          return TRUE;
       }
 
-      if StringEqual(string,user_say_join_guild_survival)
+      /*if StringEqual(string,user_say_join_guild_survival)
       {
          if poGuild = $
          {
@@ -6705,7 +6705,7 @@ messages:
          }
 
          return TRUE;
-      }
+      }*/
 
       return FALSE;
    }

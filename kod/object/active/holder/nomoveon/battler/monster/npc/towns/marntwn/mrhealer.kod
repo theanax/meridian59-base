@@ -50,6 +50,8 @@ messages:
    {
       plFor_sale = [
          [  
+            Create(&Chalice),
+            Create(&HealWand),
             Create(&PurifyPotion,#labelled=TRUE),
             Create(&RemoveCursePotion,#labelled=TRUE),
             Create(&CurePoisonPotion,#labelled=TRUE),
