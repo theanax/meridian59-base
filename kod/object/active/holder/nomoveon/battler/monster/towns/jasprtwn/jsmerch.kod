@@ -73,7 +73,7 @@ messages:
             Create(&Shirt,#color=XLAT_TO_PURPLE),
 
             Create(&Torch),
-            Create(&InkyCap,#number=2),
+            Create(&InkyCap,#number=1),
             Create(&RemoveCursePotion,#labelled=TRUE),
             Create(&DispellIllusionScroll,#labelled=TRUE),
 

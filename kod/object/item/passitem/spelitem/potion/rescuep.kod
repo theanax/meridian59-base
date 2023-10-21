@@ -33,12 +33,14 @@ classvars:
    viUse_type = ITEM_SINGLE_USE
    viSpellEffect = SID_RESCUE
 
-   viValue_average = 2000
+   viValue_average = 7000
    viPoisonPercent = 10
    viGoBadDamage = 1
    viColor = XLAT_TO_GRAY
 
 properties:
+
+pbCheckKarma = FALSE
 
 messages:
 
