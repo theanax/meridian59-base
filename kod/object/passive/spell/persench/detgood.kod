@@ -73,7 +73,7 @@ messages:
    ResetReagents()
    {
       plReagents = $;
-      plReagents = Cons([&FairyWing, 1],plReagents);
+      plReagents = Cons([&FairyWing,1],plReagents);
 
       return;
    }

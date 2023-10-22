@@ -178,6 +178,7 @@ void InitBkodInterpret(void)
    ccall_table[CLEARPACKET] = C_ClearPacket;
    ccall_table[GODLOG] = C_GodLog;
    ccall_table[DEBUG] = C_Debug;
+   ccall_table[BROADCAST] = C_Broadcast;
    ccall_table[GETINACTIVETIME] = C_GetInactiveTime;
    ccall_table[DUMPSTACK] = C_DumpStack;
 

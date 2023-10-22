@@ -126,6 +126,7 @@ enum
 #define LOG_FILE "log.txt"
 #define GOD_FILE "god.txt"
 #define ADMIN_FILE "admin.txt"
+#define BROADCAST_FILE "broadcast.txt"
 
 #define KODBASE_FILE "kodbase.txt"
 

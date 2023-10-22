@@ -20,11 +20,12 @@ typedef struct
 
 enum
 {
-   CHANNEL_D,		/* debug info */
-   CHANNEL_E,		/* errors */
-   CHANNEL_L,		/* system log */
-   CHANNEL_G,		/* god log */
-   CHANNEL_A,     /* admin log */
+   CHANNEL_D,	/* debug info */
+   CHANNEL_E,	/* errors */
+   CHANNEL_L,   /* system log */
+   CHANNEL_G,	/* god log */
+   CHANNEL_A,   /* admin log */
+   CHANNEL_X,   /* broadcast log */
    NUM_CHANNELS
 };
 
@@ -38,5 +39,6 @@ void eprintf(const char *fmt,...);
 void bprintf(const char *fmt,...);  /* blakod errors, goes to channel e */
 void lprintf(const char *fmt,...);
 void gprintf(const char *fmt,...);
+void xprintf(const char *fmt,...);
 
 #endif
