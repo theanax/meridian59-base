@@ -203,7 +203,8 @@ messages:
       {
          oRisen = Create(&DaemonSkeleton);
       }
-
+      
+      // Animates can be removed by dispel
       Send(oRisen,@SetIllusion,#value=TRUE);
 
       // Place the minion

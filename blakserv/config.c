@@ -77,9 +77,10 @@ config_table_type config_table[] =
 { CHANNEL_DEBUG_DISK,     F, "DebugDisk",     CONFIG_BOOL,  "No" },
 { CHANNEL_ERROR_DISK,     F, "ErrorDisk",     CONFIG_BOOL,  "No" },
 { CHANNEL_LOG_DISK,       F, "LogDisk",       CONFIG_BOOL,  "No" },
-{ CHANNEL_FLUSH,          T, "Flush",         CONFIG_BOOL,  "No" },
+{ CHANNEL_FLUSH,          T, "Flush",         CONFIG_BOOL,  "Yes" },
 { CHANNEL_GOD_DISK,       T, "GodDisk",       CONFIG_BOOL,  "Yes" },
 { CHANNEL_ADMIN_DISK,     T, "AdminDisk",     CONFIG_BOOL,  "Yes" },
+{ CHANNEL_BROADCAST_DISK, T, "BroadcastDisk", CONFIG_BOOL,  "Yes" },
 
 { ACCOUNT_GROUP,          T, "[Account]",     CONFIG_GROUP, "" },
 { ACCOUNT_NUM_SLOTS,      T, "NumSlots",      CONFIG_INT,   "3" },

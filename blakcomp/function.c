@@ -67,6 +67,7 @@ function_type Functions[] = {
 {"ClearPacket",         CLEARPACKET,     STORE_OPTIONAL, ANONE},
 {"GodLog",              GODLOG,          STORE_OPTIONAL, AEXPRESSIONS,  ANONE},
 {"Debug",               DEBUG,           STORE_OPTIONAL, AEXPRESSIONS,  ANONE},
+{"Broadcast",           BROADCAST,       STORE_OPTIONAL, AEXPRESSIONS,  ANONE},
 {"GetInactiveTime",     GETINACTIVETIME, STORE_REQUIRED, AEXPRESSION,   ANONE},
 {"DumpStack",           DUMPSTACK,       STORE_OPTIONAL, ANONE},
 {"StringEqual",         STRINGEQUAL,     STORE_REQUIRED, AEXPRESSION,   AEXPRESSION,  ANONE},

@@ -31,6 +31,7 @@ channel_table_type channel_table[] =
 { CHANNEL_L, CHANNEL_LOG_DISK,   LOG_FILE,   },
 { CHANNEL_G, CHANNEL_GOD_DISK,   GOD_FILE,   },
 { CHANNEL_A, CHANNEL_ADMIN_DISK, ADMIN_FILE, },
+{ CHANNEL_X, CHANNEL_BROADCAST_DISK, BROADCAST_FILE, },
 };
 
 channel_node channel[NUM_CHANNELS];
@@ -186,6 +187,21 @@ void aprintf(const char *fmt, ...)
 
    WriteStrChannel(CHANNEL_A, s);
    AdminBufferSend(s, strlen(s));
+}
+
+void xprintf(const char *fmt,...)
+{
+   char s[BUFFER_SIZE];
+   va_list marker;
+
+   va_start(marker,fmt);
+   vsnprintf(s, sizeof(s), fmt, marker);
+   va_end(marker);
+   
+   if (s[strlen(s)-1] != '\n')
+      strcat(s,"\n");
+
+   WriteStrChannel(CHANNEL_X,s);
 }
 
 void WriteStrChannel(int channel_id,char *s)

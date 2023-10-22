@@ -228,6 +228,12 @@ messages:
             Send(oRoom,@SomethingPhasedOut,#what=who,
                   #iHealth=Send(who,@GetHealth),
                   #iMaxHealth=Send(who,@GetMaxHealth));
+            
+            if Send(who,@IsRecentPVPCombatant)
+            {
+               Broadcast( Send(who,@GetName)," phased out at ", Send(oRoom,@GetName) );
+            }
+
          }
          // Post this because FreezeAllEnchantments checks for phase applied
          Post(who,@StartEnchantment,#what=self);
@@ -289,6 +295,12 @@ messages:
          // removed without teleporting must have less than max time
          // remaining.
          bTeleport = Send(who,@IsAtMaxPhaseTime);
+       
+         if NOT bTeleport
+            AND Send(who,@IsRecentPVPCombatant)
+         {
+            Broadcast( Send(who,@GetName)," phased in at ", Send(oRoom,@GetName) );
+         }
 
          // Post so it gets processed after enchantment is fully removed
          // from the player.
@@ -330,6 +342,11 @@ messages:
                      #parm1=Send(who,@GetName),#parm2=Send(who,@GetHimHer));
             }
          }
+      }
+
+      if Send(who,@IsRecentPVPCombatant)
+      {
+         Broadcast( Send(who,@GetName)," penned at ", Send(oRoom,@GetName) );
       }
 
       Send(oRoom,@SomethingWaveRoom,#what=who,#wave_rsc=Phase_penned_wav_rsc);
