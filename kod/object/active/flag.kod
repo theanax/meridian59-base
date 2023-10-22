@@ -430,6 +430,12 @@ messages:
                #parm5=Send(self,@GetFactionNamePlugin,#who=poClaimer));
       }
 
+      Broadcast(
+        Send(poClaimer,@GetName)," claims ",
+        Send(poOwner,@GetName), " in the name of ",
+        Send(self,@GetFactionNamePlugin,#who=poClaimer)
+      );
+
       piFaction = Send(poClaimer,@GetFaction);
       Send(poOwner,@SomethingChanged,#what=self);
 

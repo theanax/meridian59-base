@@ -241,6 +241,8 @@ enum
    RECORDSTAT = 210,
    
    GETSESSIONIP = 220,
+
+   BROADCAST = 221,
 };
 
 enum

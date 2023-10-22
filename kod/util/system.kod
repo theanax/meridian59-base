@@ -1968,6 +1968,12 @@ messages:
          Send(i,@WaveSendUser,#wave_rsc=system_message_sound,#what=self);
       }
 
+      Broadcast(
+        Send(what,@GetName)," was killed by ",
+        Send(killer,@GetName)," at ",
+        Send(oRoom,@GetName)
+      );
+
       return;
    }
 
