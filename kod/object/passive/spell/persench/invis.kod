@@ -139,7 +139,7 @@ messages:
 
    IsIllusion()
    {
-      return FALSE;
+      return TRUE;
    }
 
    EffectDesc(who=$)

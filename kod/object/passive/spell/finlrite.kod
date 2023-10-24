@@ -133,7 +133,7 @@ messages:
          }
 
          // Do damage to them.
-         iDamage = Random(1,5) + (iSpellpower/10) + (2*((Send(who,@GetKarma,#detect=TRUE)
+         iDamage = Random(1,5) + (iSpellpower/20) + (2*((Send(who,@GetKarma,#detect=TRUE)
                      - Send(oUndead,@GetKarma,#detect=TRUE))/40));
 
          // Tell the room first so that we may wipe their memories later.
