@@ -64,7 +64,7 @@ classvars:
 
 properties:
 
-   pbAccessible = TRUE
+   pbAccessible = TRUE // can be bought
    pbEnabled = TRUE
 
 messages:
