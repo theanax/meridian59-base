@@ -64,7 +64,7 @@ messages:
 
       oPlayer = Send(self,@GetOwner);
       oRoom = Send(oPlayer,@GetOwner);
-      Send(oRoom,@DeleteWallsAroundBattler,#who=oPlayer);
+      Send(oRoom,@StaffDeleteWallsAroundBattler,#who=oPlayer);
 
       oFlash = Send(SYS,@FindSpellByNum,#num=SID_FLASH);
       lGoodTargets = Send(oFlash,@GetGoodTargets,#who=poOwner,#report=FALSE);

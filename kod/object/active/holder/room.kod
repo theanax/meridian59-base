@@ -6133,6 +6133,39 @@ messages:
       return;
    }
 
+   StaffDeleteWallsAroundBattler(who=$)
+   "Deletes walls in a small radius around target battler."
+   {
+      local i, each_obj;
+
+      // Relies on SquaredDistanceTo, a function descended from nomoveon.
+      if NOT IsClass(who,&Battler)
+      {
+         return;
+      }
+
+      // Check each active element, tell the object to delete
+      // if it is a wall and too close
+      foreach i in plActive
+      {
+         each_obj = Send(self,@HolderExtractObject,#data=i);
+         if (IsClass(each_obj,&ActiveWallElement)
+            or IsClass(each_obj,&Brambles))
+            or IsClass(each_obj,&ActiveSporeCloud)
+            or IsClass(each_obj,&Web)
+         {
+            if Send(who,@SquaredDistanceTo,#what=each_obj)
+               <= (WALL_DELETE_RADIUS * WALL_DELETE_RADIUS)
+            {
+               Post(each_obj,@Delete);
+            }
+         }
+      }
+
+      return;
+   }
+
+
    AddToBuilderGroup(who=$)
    {
       if who = $
