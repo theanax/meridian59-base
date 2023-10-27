@@ -2330,7 +2330,7 @@ messages:
    // NOTE: For a monster, the stroke_obj is the monster itself for now.
    TryAttack(what=$,stroke_obj=$,ambush=FALSE,factor=100,bGuaranteed=FALSE)
    {
-      local iOffense, iDefense, iChanceToHit, iDamage, iScalefactor, oWeapon;
+      local iOffense, iDefense, iChanceToHit, iDamage, iScalefactor, oWeapon, oBerserker;
 
       oWeapon = Send(self,@GetWeapon);
 
@@ -2382,6 +2382,13 @@ messages:
          iDamage = Send(what,@AssessDamage,#what=self,#damage=iDamage,
             #atype=Send(self,@GetAttackType),#stype=Send(self,@GetSpellType),
             #scalefactor=iScalefactor,#precision=TRUE);
+
+         oBerserker = GetListElemByClass(Send(self,@GetHolderActive),&BerserkerRing);
+         if oBerserker <> $
+            AND Send(oBerserker,@CanPenetrateGort)
+         {
+           iDamage = Send(oBerserker,@ModifyDamage,#who=self,#damage=iDamage);
+         }
 
          Send(self,@AssessHit,#what=what,#stroke_obj=stroke_obj,#damage=iDamage);
 
