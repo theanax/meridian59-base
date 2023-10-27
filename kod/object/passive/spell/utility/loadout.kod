@@ -68,7 +68,7 @@ messages:
 
    CanPayCosts(who = $)
    {
-      local oGuild;
+      local oGuild, oGuildHall, oRoom;
 
       if (who = $
          OR NOT IsClass(who,&User))
@@ -83,7 +83,15 @@ messages:
          return FALSE;
       }
 
-      if NOT Send(Send(who,@GetOwner),@CheckRoomFlag,#flag=ROOM_NO_COMBAT)
+      oGuild = Send(who,@GetGuild);
+      if oGuild <> $
+      {
+         oGuildHall = Send(oGuild,@GetGuildHall);
+      }
+
+      oRoom = Send(who,@GetOwner);
+      if NOT Send(oRoom,@CheckRoomFlag,#flag=ROOM_NO_COMBAT)
+         AND NOT StringEqual(Send(oGuildHall,@GetName),Send(oRoom,@GetName))
       {
          Send(who,@MsgSendUser,#message_rsc=loadout_not_safe);
 
