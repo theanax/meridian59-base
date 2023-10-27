@@ -91,7 +91,7 @@ messages:
 
       oRoom = Send(who,@GetOwner);
       if NOT Send(oRoom,@CheckRoomFlag,#flag=ROOM_NO_COMBAT)
-         AND NOT oGuildHall = oRoom
+         AND NOT StringEqual(Send(oGuildHall,@GetName),Send(oRoom,@GetName))
       {
          Send(who,@MsgSendUser,#message_rsc=loadout_not_safe);
 
