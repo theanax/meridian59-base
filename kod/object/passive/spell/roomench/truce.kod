@@ -79,7 +79,7 @@ messages:
 
    CanPayCosts(who = $, lTargets = $)
    {
-      local oRoom, i, oSpell;
+      local i, oObject, oRoom, oSoldierShield, oSpell;
 
       oRoom = Send(who,@GetOwner);
 
@@ -118,6 +118,26 @@ messages:
          if (IsClass(oSpell,&KillingFields))
          {
             return FALSE;
+         }
+      }
+
+      // Extra check if caster is not using a soldier shield.
+      // Prevent abusing with truce mules.
+      oSoldierShield = Send(who,@FindUsing,#class=&SoldierShield);
+
+      if oSoldierShield = $
+      {
+         foreach i in Send(oRoom,@GetHolderActive)
+         {
+            oObject = Send(oRoom,@HolderExtractObject,#data=i);
+            if (IsClass(oObject,&Player))
+            {
+               oSoldierShield = Send(oObject,@FindUsing,#class=&SoldierShield);
+               if oSoldierShield <> $
+               {
+                  return FALSE;
+               }
+            }
          }
       }
 
