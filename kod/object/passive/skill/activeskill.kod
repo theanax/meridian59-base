@@ -107,7 +107,10 @@ messages:
       if (vbIsMeleeAttack OR vbIsRangedAttack OR vbIsUnarmedAttack)
          AND (lTargets = $)
       {
-         Send(who,@MsgSendUser,#message_rsc=ActiveSkill_no_targets_rsc);
+         // Don't spam that shit! 
+         // Send(who,@MsgSendUser,#message_rsc=ActiveSkill_no_targets_rsc);
+
+         return FALSE;
       }
 
       if viSignatureBuffSID <> $
