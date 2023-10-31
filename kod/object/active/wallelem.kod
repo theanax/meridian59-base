@@ -68,6 +68,7 @@ classvars:
 
 properties:
 
+   piColor_Translation = 0
    vbSummoned = FALSE
 
    poCaster = $
@@ -118,7 +119,8 @@ properties:
 
 messages:
 
-   Constructor(seed=$)
+    
+   Constructor(color=0,seed=$)
    {
       local iCharges, iTime, oCaster;
 

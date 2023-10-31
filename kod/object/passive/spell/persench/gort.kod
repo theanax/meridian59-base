@@ -49,6 +49,7 @@ resources:
    gort_mag_red_rsc = \
       "%s%s's armor of Gort glimmers, offering a slight protection "
       "against your magical attack."
+   Agort_sound = agort.ogg
 
 classvars:
 
@@ -60,6 +61,7 @@ classvars:
    vrEnchantment_On = ArmorOfGort_On_rsc
    vrEnchantment_Off = ArmorOfGort_Off_rsc
    vrSuccess = ArmorOfGort_Success_rsc
+   vrSucceed_wav = Agort_sound
 
    viSpell_num = SID_ARMOR_OF_GORT
 
