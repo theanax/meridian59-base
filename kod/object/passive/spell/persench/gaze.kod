@@ -88,9 +88,11 @@ messages:
 
    GetDuration(iSpellPower=0)
    {
-      // Duration for Gaze is simply the spellpower it was cast at.
-      // One second per spellpower, bound 1-99 here just in case.
-      return Bound(iSpellPower,1,99) * 1000;
+      local iDuration;
+
+      iDuration = ((iSpellPower + 1) * 600) * Send(SETTINGS_OBJECT,@GetBuffDurationFactorAdvanced);
+
+      return iDuration;
    }
 
    GetStateValue(who=$,iSpellPower=0)

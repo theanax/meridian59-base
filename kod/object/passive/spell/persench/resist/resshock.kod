@@ -72,15 +72,6 @@ messages:
       return (iSpellPower+1)/5 + 5;
    }
 
-   GetDuration(iSpellPower = 0)
-   {
-      local iDuration;   //// 3 to 8 minutes
-
-      iDuration = 180 + iSpellPower * 3;
-      iDuration = iDuration * 1000;  /// translate to milliseconds
-      return iDuration;
-   }
-
    GetPotionClass()
    {
       return &ResistShockPotion;

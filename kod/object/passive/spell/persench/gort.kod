@@ -97,9 +97,7 @@ messages:
    {
       local iDuration;
 
-      iDuration = iSpellPower/8 + 1;
-      // Convert to milliseconds
-      iDuration = iDuration * 60 * 1000;
+      iDuration = ((iSpellPower + 1) * 600) * Send(SETTINGS_OBJECT,@GetBuffDurationFactorAdvanced);
 
       return iDuration;
    }

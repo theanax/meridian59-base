@@ -91,12 +91,11 @@ messages:
       return iSpellpower;
    }
 
-   GetDuration(iSpellpower=0)
+   GetDuration(iSpellPower=0)
    {
       local iDuration;
 
-      // 4 - 8 minutes max,
-      iDuration = 2400 * (100 + iSpellPower);
+      iDuration = ((iSpellPower + 1) * 600) * Send(SETTINGS_OBJECT,@GetBuffDurationFactorBasic);
 
       return iDuration;
    }

@@ -108,7 +108,11 @@ messages:
 
    GetDuration(iSpellPower=0)
    {
-      return 60000 + (iSpellPower * 3000);
+      local iDuration;
+
+      iDuration = ((iSpellPower + 1) * 600) * Send(SETTINGS_OBJECT,@GetBuffDurationFactorBasic);
+
+      return iDuration;
    }
 
    SetSpellPlayerFlag(who=$)

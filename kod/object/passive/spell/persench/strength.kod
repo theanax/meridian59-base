@@ -92,8 +92,8 @@ messages:
    GetDuration(iSpellPower=0)
    {
       local iDuration;
-      iDuration = 300 + (iSpellpower * 6);
-      iDuration = iDuration * 1000;
+
+      iDuration = ((iSpellPower + 1) * 600) * Send(SETTINGS_OBJECT,@GetBuffDurationFactorBasic);
 
       return iDuration;
    }

@@ -404,6 +404,11 @@ properties:
    // Are fizzles disabled?
    pbNoFizzles = FALSE
 
+   // The duration of basic and advanced buffs can me tweaked now.
+   // duration in minutes.
+   piBuffDurationFactorAdvanced = 2
+   piBuffDurationFactorBasic = 15
+
 messages:
 
    Constructor()
@@ -1013,6 +1018,16 @@ messages:
    NoFizzles()
    {
       return pbNoFizzles;
+   }
+
+   GetBuffDurationFactorAdvanced()
+   {
+      return piBuffDurationFactorAdvanced;
+   }
+   
+   GetBuffDurationFactorBasic()
+   {
+      return piBuffDurationFactorBasic;
    }
 
 end

@@ -89,9 +89,7 @@ messages:
    {
       local iDuration;
 
-      // 20 - 218 seconds
-      iDuration = 20 + (iSpellPower*2);
-      iDuration = iDuration * 1000;
+      iDuration = ((iSpellPower + 1) * 600) * Send(SETTINGS_OBJECT,@GetBuffDurationFactorAdvanced);
 
       return iDuration;
    }

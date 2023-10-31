@@ -134,8 +134,11 @@ messages:
 
    GetDuration(iSpellPower=0)
    {
-      // piBaseDuration seconds plus 1s per point of spellpower.
-      return (piBaseDuration + iSpellPower) * 1000;
+      local iDuration;
+
+      iDuration = ((iSpellPower + 1) * 600) * Send(SETTINGS_OBJECT,@GetBuffDurationFactorAdvanced);
+
+      return iDuration;
    }
 
    // 'who' is the caster of the spell we are modifying.
