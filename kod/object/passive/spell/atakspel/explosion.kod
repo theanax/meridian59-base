@@ -17,12 +17,10 @@ constants:
 resources:
 
    Explosion_name_rsc = "explosive blast"
-   //needs new bgf VVV
    Explosion_icon_rsc = iblfire.bgf
    Explosion_desc_rsc = \
       "Detonates a magical explosion after a short delay "
       "to a target at medium range."
-   //needs sound file
    //Explosion_sound = explosionspell.ogg
 
 classvars:
@@ -67,25 +65,11 @@ DoSpellEffects(what=$,who=$, lTargets=$, state=$,iSpellPower=$,iPowerLevel=100,
 {
    local oTargeted, oRoom, poNewBoom, oElement;
 
-   //if Send(First(lTargets),@GetOwner) = $
    if First(LTargets) = $
    {
       return FALSE;
    }
-
-   Debug("Made it this far!!!!!!");
-   //oTargeted = First(lTargets);
-   //oRoom = Send(oTargeted,@GetOwner);
-
-   //poNewBoom = Create(&ExplosionBoom,#seed=[oTargeted,1,3000,0,0,0,0,0,0]);
-               //Send(oRoom,@NewHold,#what=poNewBoom,#new_row=Send(oTargeted,@GetRow),#new_col=Send(oTargeted,@GetCol),
-               //#fine_row=Send(oTargeted,@GetFineRow),#fine_col=Send(oTargeted,@GetFineCol));
-
-   //Send(oRoom,@SomethingWaveRoom,#what=poNewBoom,#wave_rsc=vrSound_explosionspell);
-
-
-
-   //see lightning for old animating comments
+   
 propagate;
 }
 

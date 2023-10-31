@@ -44,7 +44,7 @@ classvars:
 
 properties:
 
-   viFilling = 25                 // Don't fill up too fast...
+   viFilling = 5                 // Don't fill up too fast...
    viNutrition = 50               // ultra-envigorating
    piNumber = 1
 
