@@ -108,14 +108,11 @@ messages:
       propagate;
    }
 
-   GetDuration(iSpellpower=0)
+   GetDuration(iSpellPower=0)
    {
       local iDuration;
 
-      // 2 - 8.6 minutes max.
-      iDuration = 120 + (4 * iSpellPower);
-      // Convert to ms.
-      iDuration = iDuration * 1000;
+      iDuration = ((iSpellPower + 1) * 600) * Send(SETTINGS_OBJECT,@GetBuffDurationFactorBasic);
 
       return iDuration;
    }

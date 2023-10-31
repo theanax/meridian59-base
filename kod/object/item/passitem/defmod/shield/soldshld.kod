@@ -87,6 +87,7 @@ properties:
 
    piFactionRank = 4
 
+   piDaysUntilRankLoss = 6
    piNextRankLoss_tick = 1000 * 60 // 1 minute
    piNextRankLossMax = 1000 * 60 * 60 * 6 // 6 online hours per rank
    piNextRankLossRemaining_time = 0
@@ -112,9 +113,7 @@ messages:
       Send(self,@SetPaletteTranslation,
            #translation=Send(SYS,@EncodeTwoColorXLAT,#color1=viColor,
                              #color2=viColor));
-
-      Send(self,@ResetRankLossCount);
-
+      
       propagate;
    }
 
@@ -224,7 +223,6 @@ messages:
 
          // Killing an enemy player gets us 2 ranks and resets our loss counter.
          iAdvance = 2;
-         Send(self,@ResetRankLossCount);
          piFactionKills = piFactionKills + 1;
       }
       else

@@ -430,15 +430,13 @@ messages:
 
    //// Enchantment support
 
-   GetDuration(iSpellpower=$)
+   GetDuration(iSpellPower=0)
    {
       local iDuration;
 
-      // Up to 16.5 minutes
-      iDuration = iSpellPower * 10 * 1000; 
+      iDuration = ((iSpellPower + 1) * 600) * Send(SETTINGS_OBJECT,@GetBuffDurationFactorBasic);
 
-      // Min 2 minutes
-      return Bound(iDuration,120000,$);
+      return iDuration;
    }
 
    GetStateValue(iSpellpower=$,target=$)

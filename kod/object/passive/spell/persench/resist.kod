@@ -85,10 +85,9 @@ messages:
 
    GetDuration(iSpellPower=0)
    {
-      local iDuration;      //// 5 to 10 minutes
+      local iDuration;
 
-      iDuration = 300 + iSpellPower * 3;
-      iDuration = iDuration * 1000;      /// translate to milliseconds
+      iDuration = ((iSpellPower + 1) * 600) * Send(SETTINGS_OBJECT,@GetBuffDurationFactorBasic);
 
       return iDuration;
    }

@@ -73,14 +73,11 @@ messages:
       return;
    }
 
-   GetDuration(iSpellPower=$)
+   GetDuration(iSpellPower=0)
    {
       local iDuration;
 
-      iDuration = 1 + ((iSpellPower + 5)/10);
-
-      // Convert to ms.
-      iDuration = iDuration * 60 * 1000;
+      iDuration = ((iSpellPower + 1) * 600) * Send(SETTINGS_OBJECT,@GetBuffDurationFactorBasic);
 
       return iDuration;
    }

@@ -78,16 +78,14 @@ messages:
       return iState;
    }
 
-   GetDuration(iSpellpower=0)
+   GetDuration(iSpellPower=0)
    {
       local iDuration;
 
-      iDuration = 1500 + 10 * iSpellPower;
-      iDuration = iDuration * 1000;
+      iDuration = ((iSpellPower + 1) * 600) * Send(SETTINGS_OBJECT,@GetBuffDurationFactorBasic);
 
       return iDuration;
    }
-
 
    EndEnchantment(who=$,report=TRUE,state=0)
    {

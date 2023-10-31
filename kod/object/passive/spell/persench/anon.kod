@@ -98,8 +98,7 @@ messages:
    {
       local iDuration;
 
-      // Spell lasts 1 to 10 minutes.
-      iDuration = ((iSpellPower / 10) + 1) * 60000;
+      iDuration = ((iSpellPower + 1) * 600) * Send(SETTINGS_OBJECT,@GetBuffDurationFactorBasic);
 
       return iDuration;
    }

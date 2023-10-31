@@ -92,13 +92,10 @@ messages:
    {
       local iDuration;
 
-      // 10 - 20 plus 1 second per spellpower
-      iDuration = Random(10000,20000) + (iSpellPower * 1000);
-      iDuration=Bound(iDuration,20000,120000);
+      iDuration = ((iSpellPower + 1) * 600) * Send(SETTINGS_OBJECT,@GetBuffDurationFactorAdvanced);
 
       return iDuration;
    }
-
 
    GetStateValue(who=$,Target=$,iSpellPower=1)
    {

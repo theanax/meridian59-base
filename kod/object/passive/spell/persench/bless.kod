@@ -90,8 +90,7 @@ messages:
    {
       local iDuration;
 
-      // Base duration is 40-640 seconds.
-      iDuration = (40 + (iSpellPower*6)) * 1000;
+      iDuration = ((iSpellPower + 1) * 600) * Send(SETTINGS_OBJECT,@GetBuffDurationFactorBasic);
 
       return iDuration;
    }
