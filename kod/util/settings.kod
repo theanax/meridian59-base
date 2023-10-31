@@ -253,7 +253,7 @@ properties:
    piWeaponcraftImprovementMinimumSwings = 2
    
    // Riija Sword drops on death? (Used to limit griefing)
-   pbRiijaSwordDropOnDeath = FALSE
+   pbRiijaSwordDropOnDeath = TRUE
 
    // Replaces old constant
    piPKillEnableHP = 30

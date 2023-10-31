@@ -49,6 +49,18 @@ properties:
 
 messages:
 
+   SetForSale()
+   {
+      plFor_sale = [
+         [ 
+            Create(&LoadoutScroll,#labelled=TRUE),
+            Create(&SetScroll,#labelled=TRUE)
+         ],
+      $,$,$];
+      
+      return;
+   }
+
    UserEntered(who=$)
    {
       Post(who,@SomeoneSaid,#what=self,#string=RazaInnkeeper_welcome,
