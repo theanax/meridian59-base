@@ -389,6 +389,9 @@ int C_Broadcast(int object_id,local_var_type *local_vars,
 	class_node *c;
 	char buf[2000];
 	kod_statistics *kstat;
+
+    // empty buffer
+    memset(buf, 0, sizeof(buf));
 	
 	/* need the current interpreting class in case there are debug strings,
 	which are stored in the class. */

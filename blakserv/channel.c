@@ -189,19 +189,29 @@ void aprintf(const char *fmt, ...)
    AdminBufferSend(s, strlen(s));
 }
 
-void xprintf(const char *fmt,...)
+void xprintf(const char *fmt, ...)
 {
    char s[BUFFER_SIZE];
    va_list marker;
 
-   va_start(marker,fmt);
+   // clear the buffer
+   memset(s, 0, sizeof(s));
+
+   va_start(marker, fmt);
    vsnprintf(s, sizeof(s), fmt, marker);
    va_end(marker);
-   
-   if (s[strlen(s)-1] != '\n')
-      strcat(s,"\n");
+  
+   if (channel[CHANNEL_X].file != NULL) {
+      fclose(channel[CHANNEL_X].file);
+   }
 
-   WriteStrChannel(CHANNEL_X,s);
+   char channel_file[MAX_PATH+FILENAME_MAX];
+   sprintf(channel_file,"%s%s",ConfigStr(PATH_CHANNEL),channel_table[CHANNEL_X].file_name);
+
+   FILE *pFile = fopen(channel_file, "ab");
+   fwrite(s, 1, strlen(s), pFile);
+   fflush(pFile);
+   fclose(pFile);
 }
 
 void WriteStrChannel(int channel_id,char *s)
