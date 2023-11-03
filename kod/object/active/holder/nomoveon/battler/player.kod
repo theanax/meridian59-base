@@ -3496,6 +3496,18 @@ messages:
          return;
       }
 
+      foreach i in plOverTimeEffects
+      {
+         oSpell = Nth(i,5);
+
+         if IsClass(oSpell,&RadiusEnchantment)
+            OR IsClass(oSpell,&MultiCastSpell)
+            OR IsClass(oSpell,&Silence)
+         {
+            Send(self,@DeleteOverTimeEffect,#who=self,#what=oSpell,#removal=REMOVE_INTERNAL); 
+         } 
+      }
+
       foreach i in plEnchantments
       {
          oSpell = Nth(i,2);
@@ -3504,8 +3516,7 @@ messages:
          if IsClass(oSpell,&Spectate)
          {
             Send(oSpell,@RemoveEnchantmentEffects,#who=self,#report=FALSE);
-            Send(self,@ShowRemoveEnchantment,#what=oSpell,
-                  #type=ENCHANTMENT_PLAYER);
+            Send(self,@ShowRemoveEnchantment,#what=oSpell,#type=ENCHANTMENT_PLAYER);
             plEnchantments = DelListElem(plEnchantments,i);
             Send(self,@ResetPlayerFlagList,#who=self);
 
