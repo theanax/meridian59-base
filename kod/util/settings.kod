@@ -406,7 +406,7 @@ properties:
 
    // The duration of basic and advanced buffs can me tweaked now.
    // duration in minutes.
-   piBuffDurationFactorAdvanced = 2
+   piBuffDurationFactorAdvanced = 3
    piBuffDurationFactorBasic = 15
 
 messages:
