@@ -18,7 +18,7 @@ resources:
 
    include manaconv.lkod
 
-   ManaConvergence_name_rsc = "witless ditty"
+   ManaConvergence_name_rsc = "mana convergence"
    ManaConvergence_icon_rsc = imanacon.bgf
    ManaConvergence_desc_rsc = \
       "The ruthlessly vexing lyrics and annoyingly catchy melody of this most devious "
@@ -58,7 +58,8 @@ classvars:
    vrDesc = ManaConvergence_desc_rsc
 
    viMana = 10          // Mana is amount used upon inititiation
-   viManaDrain = 1800    // Mana drained per second (10^3)
+   viManaDrain = 1800   // Mana drained per second (10^3)
+   viManaGainAmount = 5 // 1 
    viSpell_num = SID_MANA_CONVERGENCE
 
    viSchool = SS_JALA
@@ -90,7 +91,7 @@ messages:
       if (IsClass(who,&Player)
          AND NOT (who = oCaster))
       {
-         iManaGain = Send(who,@LoseMana,#amount=1);
+         iManaGain = Send(who,@LoseMana,#amount=viManaGainAmount);
 
          if (iManaGain > 0)
          {

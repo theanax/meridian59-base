@@ -253,7 +253,7 @@ resources:
       "shield in %i %s."
    user_guild_shield_error_disabled = \
       "Your guild is unable to claim a different heraldic design at this "
-      "time – you have already claimed one."
+      "time ? you have already claimed one."
    user_time_days = "days"
    user_time_hours = "hours"
    user_time_minutes = "minutes"
@@ -1003,7 +1003,7 @@ messages:
 
    UserLogoff()
    {
-      local i;
+      local i, oSpell;
 
       piTimeLoggedIn = Send(self,@GetTimeLoggedIn);
       Send(self,@BreakTrance);
@@ -7065,12 +7065,12 @@ messages:
          string = psPlayerDescription;
       }
 
-      if StringContain(psPlayerDescription,"¶")
+      if StringContain(psPlayerDescription,"?")
       {
          iCount = 0;
-         while StringContain(psPlayerDescription,"¶")
+         while StringContain(psPlayerDescription,"?")
          {
-            StringSubstitute(psPlayerDescription,"¶","");
+            StringSubstitute(psPlayerDescription,"?","");
             if ++iCount > 10
             {
                // At this point, it's malicious.
