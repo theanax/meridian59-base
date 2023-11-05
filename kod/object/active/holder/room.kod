@@ -933,7 +933,8 @@ messages:
 
          if IsClass(what,&Player) AND NOT IsClass(what,&DM)
          {
-            Send(what,@WipeUnboundEnergy);
+            // Do not wipe unbound anymore.
+            // Send(what,@WipeUnboundEnergy);
          }
 
          return TRUE;
