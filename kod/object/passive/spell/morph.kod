@@ -69,19 +69,19 @@ messages:
       return;
    }
 
-   CanPayCosts(who = $, lTargets = $)
-   {
+   //CanPayCosts(who = $, lTargets = $)
+   //{
       // Check for enchantment already applied
-      if Send(who,@CheckPlayerFlag,#flag=PFLAG_MORPHED)
-      {
-         Send(who,@MsgSendUser,#message_rsc=morph_already_enchanted,
-               #parm1=Send(self,@GetIndef),#parm2=Send(self,@GetName));
+     // if Send(who,@CheckPlayerFlag,#flag=PFLAG_MORPHED)
+     // {
+        // Send(who,@MsgSendUser,#message_rsc=morph_already_enchanted,
+        //       #parm1=Send(self,@GetIndef),#parm2=Send(self,@GetName));
 
-         return FALSE;
-      }
+         //return FALSE;
+     // }
 
-      propagate;
-   }
+      //propagate;
+   //}
 
    GetTranceTime(iSpellpower=0,who=$)
    {
@@ -121,6 +121,13 @@ messages:
       {
          // Remove Illusionary form
          Send(oTarget,@RemoveEnchantmentClass,#class=&IllusionaryForm);
+      }
+
+            // Are they already enchanted by Morph?
+      if Send(oTarget,@IsEnchanted,#byClass=&Morph)
+      {
+         // Remove Morph
+         Send(oTarget,@RemoveEnchantmentClass,#class=&Morph);
       }
 
       oRoom = Send(oTarget,@GetOwner);

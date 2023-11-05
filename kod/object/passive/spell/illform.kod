@@ -61,9 +61,7 @@ messages:
       if Send(who,@IsEnchanted,#what=self)
          OR Send(who,@CheckPlayerFlag,#flag=PFLAG_MORPHED)
       {
-         Send(who,@MsgSendUser,#message_rsc=illusionaryform_already_affected);
-
-         return FALSE;
+         return TRUE;
       }
 
       propagate;
@@ -112,6 +110,20 @@ messages:
       {
          iIllusion_type = Send(self,@CalculateIllusionType,
                                  #iSpellpower=iSpellPower);
+      }
+
+      // Are they already enchanted by Illusionary form?
+      if Send(oTarget,@IsEnchanted,#byClass=&IllusionaryForm)
+      {
+         // Remove Illusionary form
+         Send(oTarget,@RemoveEnchantmentClass,#class=&IllusionaryForm);
+      }
+
+            // Are they already enchanted by Morph?
+      if Send(oTarget,@IsEnchanted,#byClass=&Morph)
+      {
+         // Remove Morph
+         Send(oTarget,@RemoveEnchantmentClass,#class=&Morph);
       }
 
       oIllusion = Nth(Send(SYS,@GetMonsterTemplates),iIllusion_type);

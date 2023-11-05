@@ -419,6 +419,9 @@ resources:
    user_say_survival_opt_pvpon = "--pvpon"
    user_say_survival_opt_starthere = "--thisbase"
 
+   //Phased Yield command.
+   user_say_yield = "i yield"
+
    guild_survival_too_late = \
       "Your guild is already running a survival room. You will have to wait."
    public_survival_too_late = \
@@ -6191,6 +6194,16 @@ messages:
             }
          }
 
+         if StringContain(string,user_say_yield)
+            AND (piFlags & PFLAG_PHASED)
+         {
+            // If UserSayYield handles the string, don't keep checking.
+            if Send(self,@UserSayYield,#string=string)
+            {
+               return;
+            }
+         }
+
          // Run additional checks if user drank a beta potion
          if Send(self,@CheckPlayerFlag,#flag=PFLAG2_BETA_POTION,#flagset=2)
          {
@@ -6532,6 +6545,12 @@ messages:
       }
 
       return FALSE;
+   }
+
+   UserSayYield()
+   {
+      Send(self,@InstantPenIfUnsafe);
+      return;
    }
 
    UserSaySurvival(string = $)

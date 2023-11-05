@@ -6151,9 +6151,9 @@ messages:
       {
          each_obj = Send(self,@HolderExtractObject,#data=i);
          if (IsClass(each_obj,&ActiveWallElement)
-            or IsClass(each_obj,&Brambles))
-            or IsClass(each_obj,&ActiveSporeCloud)
-            or IsClass(each_obj,&Web)
+            or IsClass(each_obj,&Brambles)
+            or IsClass(each_obj,&Web))
+            AND NOT IsClass(each_obj,&ActiveSporeCloud)
          {
             if Send(who,@SquaredDistanceTo,#what=each_obj)
                <= (WALL_DELETE_RADIUS * WALL_DELETE_RADIUS)
