@@ -190,5 +190,13 @@ messages:
       return TRUE;
    }
 
+   SkillCanceled(who=$)
+   "Canceling a skill will refund half of the skills cost."
+   {
+      Send(who,@GainVigor,#precision=TRUE,#amount=(10*viSkillExertion));
+
+      return;
+   }
+
 end
 ////////////////////////////////////////////////////////////////////////////////
