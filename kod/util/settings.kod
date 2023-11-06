@@ -388,7 +388,7 @@ properties:
 
    // No honor points are awarded if the player has this many penalty points.
    // (1 pen = 1 point, decays by 1 every 12 hours)
-   piHonorMaxPenalty = 5
+   piHonorMaxPenalty = 200
 
    //// AI related
    // How much hatred do harmful spells cause?
