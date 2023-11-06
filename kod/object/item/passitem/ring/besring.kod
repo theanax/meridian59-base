@@ -54,10 +54,8 @@ classvars:
 
 properties:
 
-   piDamage_min = 1
-   piDamage_max = 4
    piOffense = -200
-   pbCanPenetrateGort = FALSE
+   pbCanPenetrateGort = TRUE
 
 messages:
 
@@ -113,7 +111,7 @@ messages:
 
       if oWeapon = $ OR NOT IsClass(oWeapon,&RangedWeapon)
       {
-         return damage + random(piDamage_min,piDamage_max);
+         return (damage + 1 + random(0,Send(who,@GetMight) / 20));
       }
 
       return damage;
