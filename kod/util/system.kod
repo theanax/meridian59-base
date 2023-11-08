@@ -1968,11 +1968,16 @@ messages:
          Send(i,@WaveSendUser,#wave_rsc=system_message_sound,#what=self);
       }
 
-      Broadcast(
-        Send(what,@GetName)," was killed by ",
-        Send(killer,@GetName)," at ",
-        Send(oRoom,@GetName)
-      );
+      if NOT Send(what,@FindUsing,#class=&Token)
+         AND NOT Send(what,@DoesPlayerTakeNewbieDeath)
+         AND NOT IsClass(killer,&Monster)
+      {
+         Broadcast(
+            Send(what,@GetName)," was killed by ",
+            Send(killer,@GetName)," at ",
+            Send(oRoom,@GetName)
+         );
+      }
 
       return;
    }
