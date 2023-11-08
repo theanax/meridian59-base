@@ -1970,6 +1970,7 @@ messages:
 
       if NOT Send(what,@FindUsing,#class=&Token)
          AND NOT Send(what,@DoesPlayerTakeNewbieDeath)
+         AND NOT IsClass(killer,&Monster)
       {
          Broadcast(
             Send(what,@GetName)," was killed by ",
