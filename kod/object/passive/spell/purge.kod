@@ -174,7 +174,7 @@ messages:
    "at/below 0 spellpower. Returns TRUE if any buffs were lost."
    {
       local i, lEnchantments, iTime, oSpell, iCastPower, iNewPower,
-            bRemovedSomething, iRemove, tTimer;
+            bRemovedSomething, iRemove, tTimer, oRoom;
 
       // Can't do this to nobody or to non-players.
       if who = $
@@ -182,6 +182,8 @@ messages:
       {
          return FALSE;
       }
+
+      oRoom = Send(who,@GetOwner);
 
       // A spellpower of $ means that we want to remove it all.
       if iSpellPower = $
@@ -233,6 +235,7 @@ messages:
             AND Send(who,@IsAdvancedBuff,#what=oSpell)
          {
             Send(who,@RemoveEnchantment,#what=oSpell,#report=FALSE);
+            Send(oSpell,@PlaySpellSound,#room_obj=oRoom,#what=who);
 
             return TRUE;
          }
