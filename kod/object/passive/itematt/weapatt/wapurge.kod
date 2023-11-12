@@ -81,7 +81,7 @@ messages:
          if Send(target,@IsEnchanted)
          {
             // Purge casts at piSpellPower
-            if Send(oSpell,@DoPurge,#who=target,#iSpellPower=piSpellPower)
+            if Send(oSpell,@DoPurge,#who=target,#iSpellPower=piSpellPower,#bWeapon=TRUE)
             {
                // Only tell our victim if they lost enchantments.
                Send(target,@MsgSendUser,#message_rsc=purger_worked_target,

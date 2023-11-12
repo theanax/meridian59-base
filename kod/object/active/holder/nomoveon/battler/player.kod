@@ -16068,5 +16068,31 @@ messages:
       return;
    }
 
+   GetAdvancedBuffs()
+   {
+      local lBuffs;
+
+      lBuffs = [
+         &AntiMagicAura, &Deflect, &Paralyze, &ArmorOfGort, &Invisibility, &KaraholsCurse, &ResistMagic
+      ];
+
+      return lBuffs;
+   }
+
+   IsAdvancedBuff(what=$)
+   {
+      local i;
+
+      foreach i in Send(self,@GetAdvancedBuffs)
+      {
+         if IsClass(what,i)
+         {
+            return TRUE;
+         }
+      }
+
+      return FALSE;
+   }
+
 end
 ////////////////////////////////////////////////////////////////////////////////

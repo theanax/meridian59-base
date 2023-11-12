@@ -169,7 +169,7 @@ messages:
       propagate;
    }
 
-   DoPurge(who=$,iSpellPower=$)
+   DoPurge(who=$,iSpellPower=$,bWeapon=FALSE)
    "Recasts the target's PEs at the new spellpower, or removes them "
    "at/below 0 spellpower. Returns TRUE if any buffs were lost."
    {
@@ -226,6 +226,15 @@ messages:
                   tTimer," for timer! Skipping this spell.");
 
             continue;
+         }
+
+         // A purger weapon works different. It removes one of the advanced buffs on proc.
+         if bWeapon
+            AND Send(who,@IsAdvancedBuff,#what=oSpell)
+         {
+            Send(who,@RemoveEnchantment,#what=oSpell,#report=FALSE);
+
+            return TRUE;
          }
 
          // Get the cast power from the target, as it checks the right
