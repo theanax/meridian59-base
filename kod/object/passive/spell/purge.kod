@@ -235,7 +235,7 @@ messages:
             AND Send(who,@IsAdvancedBuff,#what=oSpell)
          {
             Send(who,@RemoveEnchantment,#what=oSpell,#report=FALSE);
-            Send(oSpell,@PlaySpellSound,#room_obj=oRoom,#what=who);
+            Send(self,@PlaySpellSound,#room_obj=oRoom,#what=who);
 
             return TRUE;
          }
