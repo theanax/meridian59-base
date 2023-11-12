@@ -42,7 +42,7 @@ classvars:
    viItem_type = ITEMTYPE_ROD
 
    viStartHits = 0
-   viStartMaxHits = 5
+   viStartMaxHits = 1
    viConsumesHits = 1
 
    vrGoodDesc = Rod_desc_rsc
@@ -185,6 +185,19 @@ messages:
 
       return FALSE;
    }
+
+   FullySpendCharges()
+   {
+      if Send(self,@GetHits) = Send(self,@GetMaxHits)
+      {
+         Send(self,@SetHits,#number=0);
+
+         return TRUE;
+      }
+
+      return FALSE;
+   }
+
 
    SetHits(number = $)
    {

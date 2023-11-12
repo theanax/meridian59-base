@@ -9238,6 +9238,7 @@ messages:
             Send(oToken,@UserPhased,#where=poOwner);
          }
 
+         
          Send(self,@RemoveAllMinions);
 
          // Evil twin attacking us.
@@ -9249,6 +9250,9 @@ messages:
          // Delete evil twins we created.
          Send(self,@RemoveAllCreatedEvilTwins);
 
+         // Spend Rods
+         Send(self,@SpendAllRods);
+         
          Send(self,@MsgSendUser,#message_rsc=user_self_phase_out,
                #parm1=(Send(self,@GetRemainingPhaseTime)/1000));
       }
