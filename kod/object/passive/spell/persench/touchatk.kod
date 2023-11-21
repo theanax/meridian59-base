@@ -132,7 +132,7 @@ messages:
 
    GetNumSpellTargets()
    {
-      return 0;
+      return 1;
    }
 
    CheckWeaponAndDoAnimation(who=$,weapon_used=$,victim=$)
@@ -239,7 +239,7 @@ messages:
       return TRUE;
    }
 
-   // Can this touch attack be blocked?
+   // Can this touch attack be dodged?
    CanDodge()
    {
       return TRUE;
