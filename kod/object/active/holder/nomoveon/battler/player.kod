@@ -5830,7 +5830,7 @@ messages:
       precision=FALSE)
    {
       local i, j, iResistance, oSoldierShield, gainchance, color_rsc,
-            iDuration, oSpell, oGort,iLimit, origdamage, oWeapon, shrunken;
+            iDuration, oSpell, oGort,iLimit, origdamage, oWeapon, shrunken, oRing;
 
       if NOT precision
       {
@@ -5854,6 +5854,15 @@ messages:
             damage = Send(oGort,@PriorityModifyDefenseDamage,#who=self,
                            #what=what,#damage=damage,
                            #atype=atype,#stype=stype);
+         }
+
+         // Berserker ring is able to penetrate Armor of Gort on players.
+         oRing = Send(self,@FindUsing,#class=&BerserkerRing);
+         if oRing <> $
+            AND IsClass(what,&Player)
+            AND Send(oRing,@CanPenetrateGort)
+         {
+            damage += 10 * Send(oRing,@ModifyDamage,#who=what,#damage=origdamage);
          }
          
          foreach i in plDefense_modifiers

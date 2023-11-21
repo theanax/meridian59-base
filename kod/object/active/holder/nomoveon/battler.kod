@@ -2383,13 +2383,6 @@ messages:
             #atype=Send(self,@GetAttackType),#stype=Send(self,@GetSpellType),
             #scalefactor=iScalefactor,#precision=TRUE);
 
-         oBerserker = GetListElemByClass(Send(self,@GetHolderActive),&BerserkerRing);
-         if oBerserker <> $
-            AND Send(oBerserker,@CanPenetrateGort)
-         {
-           iDamage = Send(oBerserker,@ModifyDamage,#who=self,#damage=iDamage);
-         }
-
          Send(self,@AssessHit,#what=what,#stroke_obj=stroke_obj,#damage=iDamage);
 
          if iDamage = $
