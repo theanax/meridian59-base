@@ -256,7 +256,7 @@ properties:
    pbRiijaSwordDropOnDeath = TRUE
 
    // Replaces old constant
-   piPKillEnableHP = 30
+   piPKillEnableHP = 50
    
    // Replaces old constant
    piIntrigueEnableHP = 50
