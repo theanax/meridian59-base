@@ -54,6 +54,8 @@ classvars:
 
 properties:
 
+   piDamage_max = 4
+   piDamage_min = 1
    piOffense = -200
    pbCanPenetrateGort = TRUE
 
