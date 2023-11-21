@@ -49,7 +49,7 @@ classvars:
 
 properties:
 
-   pbCan_cast_on_others = FALSE
+   pbCan_cast_on_others = TRUE
 
 messages:
 
@@ -74,7 +74,7 @@ messages:
 
    CanPayCosts(who = $, lTargets = $, bItemCast = FALSE)
    {
-      local oTarget, i, oEffect;
+      local oTarget, i, oEffect, oSoldierShield, oTargetSoldierShield;
 
       // If it's only self cast, spoof self as target for following code
       if NOT pbCan_Cast_on_others
@@ -101,15 +101,22 @@ messages:
          return FALSE;
       }
 
-      // Can only cast purify on yourself, to curb massive mule abuse.
-      if NOT pbCan_cast_on_others
-         AND oTarget <> who
+      if pbCan_Cast_on_others
+         AND who <> oTarget
       {
-         Send(who,@WaveSendUser,#wave_rsc=spell_fail_wav);
-         Send(who,@MsgSendUser,#message_rsc=purify_spell_self_cast_rsc,
-               #parm1=vrName);
+         oSoldierShield = Send(who,@FindUsing,#class=&SoldierShield);
+         oTargetSoldierShield = Send(oTarget,@FindUsing,#class=&SoldierShield);
 
-         return FALSE;
+         if (oSoldierShield <> $ AND oTargetSoldierShield = $)
+            OR (oSoldierShield = $ AND oTargetSoldierShield <> $)
+         {
+            
+            Send(who,@WaveSendUser,#wave_rsc=spell_fail_wav);
+            Send(who,@MsgSendUser,#message_rsc=purify_spell_self_cast_rsc,
+                   #parm1=vrName);
+
+            return FALSE;
+         }
       }
 
       // The target must have a debuff.
