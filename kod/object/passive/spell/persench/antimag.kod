@@ -90,7 +90,7 @@ properties:
    // The effectiveness of purge on the target spell as a percentage.
    // 100 will cause purge to remove its entire spellpower, 0 will
    // prevent purge from removing this spell.
-   viPurgeFactor = 40
+   viPurgeFactor = 10
 
    piBlindResist = 5 // percent, includes dazzle
    piHoldResist = 5 // percent
