@@ -45,7 +45,7 @@ properties:
    //
 
    // XP percent awarded, can be raised to give a bonus.
-   piXPPercent = 5000
+   piXPPercent = 1250
 
    // piAdvancementRate: Determines how fast or slow advancement goes for all
    //  spells and skills.  This is a percent of normal, and only affects the
