@@ -29,7 +29,7 @@ classvars:
 
 properties:
 
-   piBaseDuration = 15000
+   piBaseDuration = 20000
    piSpellPowerModifier = 0
 
 messages:
