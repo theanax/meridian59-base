@@ -56,7 +56,7 @@ classvars:
 properties:
 
    piBaseDuration = 5000
-   piSpellPowerModifier = 200
+   piSpellPowerModifier = 150
    piDeviation = 10
 
 messages:
