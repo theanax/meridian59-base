@@ -132,7 +132,7 @@ messages:
 
    GetNumSpellTargets()
    {
-      return 1;
+      return 0;
    }
 
    CheckWeaponAndDoAnimation(who=$,weapon_used=$,victim=$)

@@ -5416,12 +5416,13 @@ messages:
       }
 
       // See if target is in a reasonable viewing area.
-      // Only applies to weapon strokes and single-target spells.
+      // Only applies to weapon strokes and single-target spells
+      // or touch attacks.
       if IsClass(oFinalTarget,&Battler)
          AND stroke_obj <> $
          AND (IsClass(stroke_obj,&Stroke)
-            OR (IsClass(stroke_obj,&Spell)
-               AND Send(stroke_obj,@GetNumSpellTargets) = 1))
+            OR (IsClass(stroke_obj,&Spell) AND Send(stroke_obj,@GetNumSpellTargets) = 1))
+            OR (IsClass(stroke_obj,&TouchAttackSpell))
       {
          if iDist > 1
             AND NOT LineOfSightView(Send(self,@GetAngle), piRow, piCol, piFine_row,
