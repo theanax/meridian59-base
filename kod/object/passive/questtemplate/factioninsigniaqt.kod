@@ -70,7 +70,7 @@ resources:
       "me.  Fortunately, I have spies in place which keep an eye on their "
       "connivings.  Reportedly, %NPC has been conferring with %CARGO, and I "
       "am naturally quite intrigued by whatever they talked about.  Do me a "
-      "favor, mention that person’s name to our friend %NPC, and repeat for "
+      "favor, mention that person?s name to our friend %NPC, and repeat for "
       "me word for word what is told to you."
    factioninsignia_trigger_3a = "Esseldi"
    factioninsignia_trigger_3b = "Drechx"
@@ -79,7 +79,7 @@ resources:
    factioninsignia_trigger_3e = "Alzahakar"
    factioninsignia_trigger_3f = "Priestess Qerti'nya"
    factioninsignia_trigger_3g = "Priestess Xiana"
-   factioninsignia_trigger_3h = "Jonas d’Accor"
+   factioninsignia_trigger_3h = "Jonas d?Accor"
    factioninsignia_failure_3 = \
       "Subject: Insignia mission\n"
       "My disappointment is profound.  I had thought that certainly, you "
@@ -87,7 +87,7 @@ resources:
       "that make up my spy network.  Apparently, you are below them."
    factioninsignia_assign_4 = "%CARGO."
    factioninsignia_trigger_4a = \
-      "Uh... I don’t really know what you're talking about"
+      "Uh... I don?t really know what you're talking about"
    factioninsignia_trigger_4b = \
       "An outstanding citizen.  It's been a while since we last had a good talk"
    factioninsignia_trigger_4c = \
@@ -131,7 +131,6 @@ properties:
    piPlayerRestrict = Q_PLAYER_NOTTRIED_RECENTLY | Q_PLAYER_FACTION_SAME
    piMaxPlayers = 40
    piSchedulePct = 100
-   piTimeLimit = 12 * 3600 // 12 hours.
 
 messages:
 

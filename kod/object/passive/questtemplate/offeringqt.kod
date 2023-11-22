@@ -48,7 +48,6 @@ properties:
    piNumPlayers = 1
    piMaxPlayers = 1
    piSchedulePct = 10
-   piTimeLimit = 60 // 60 seconds.
 
 messages:
 

@@ -53,8 +53,8 @@ resources:
 
    // Quest resources.
    polishquest_assign = \
-      "Excuse me.  I’ve been honing my jeweling skills, and I was wondering "
-      "if you have any uncut gems of any sort.  If you do, I’d be happy to "
+      "Excuse me.  I?ve been honing my jeweling skills, and I was wondering "
+      "if you have any uncut gems of any sort.  If you do, I?d be happy to "
       "polish them and give you one of the result."
    polishquest_success = \
       "Ah, thank you.  Allow me to reward you."
@@ -83,7 +83,6 @@ properties:
    plSpecialRestrict = $
    piMaxPlayers = 10
    piSchedulePct = 100
-   piTimeLimit = 2 * 3600 // 2 hours.
 
 messages:
 
