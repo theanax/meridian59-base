@@ -169,7 +169,7 @@ properties:
    // 1 hr - defines what 'recently' means in history restrictions.
    piQuestHistoryRecentTime = 3600
 
-   piTimeLimit = 3 * 3600 // 3 hour default timelimit.
+   piTimeLimit = 0 // default timelimit = none.
 
 messages:
 

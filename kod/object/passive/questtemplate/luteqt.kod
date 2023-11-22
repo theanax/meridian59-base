@@ -118,7 +118,6 @@ properties:
    plSpecialRestrict = $
    piMaxPlayers = 20
    piSchedulePct = 4
-   piTimeLimit = 2 * 3600 // 2 hours.
 
 messages:
 

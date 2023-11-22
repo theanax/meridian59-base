@@ -127,8 +127,6 @@ properties:
    piMaxPlayers = 10
    piSchedulePct = 4
 
-   piTimeLimit = 2 * 24 * 3600 // 2 days
-
 messages:
 
    Constructor()

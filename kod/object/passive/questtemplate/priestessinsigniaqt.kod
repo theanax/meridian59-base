@@ -95,7 +95,6 @@ properties:
    piPlayerRestrict = Q_PLAYER_NOTTRIED_RECENTLY
    piMaxPlayers = 80
    piSchedulePct = 100
-   piTimeLimit = 12 * 3600 // 12 hours.
 
 messages:
 
