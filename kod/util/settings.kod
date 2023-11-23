@@ -409,6 +409,13 @@ properties:
    piBuffDurationFactorAdvanced = 3
    piBuffDurationFactorBasic = 15
 
+   // Training Points related
+   piTrainingPointsAtStart = 1000
+   piTrainingPointsPerClaim = 5000
+   piTrainingPointsPerQuest = 500
+   piTrainingPointsPerKillRate = 5       // 5% of the XP gained as TP
+   piTrainingPointsShareRate = 20        // 20% of the TPs gained are shared
+
 messages:
 
    Constructor()
@@ -1028,6 +1035,31 @@ messages:
    GetBuffDurationFactorBasic()
    {
       return piBuffDurationFactorBasic;
+   }
+
+   GetTrainingPointsAtStart()
+   {
+      return piTrainingPointsAtStart;
+   }
+
+   GetTrainingPointsperClaim()
+   {
+      return piTrainingPointsPerClaim;
+   }
+
+   GetTrainingPointsPerQuest()
+   {
+      return piTrainingPointsPerQuest;
+   }
+
+   GetTrainingPointsPerKillRate()
+   {
+      return piTrainingPointsPerKillRate;
+   }
+
+   GetTrainingPointsShareRate()
+   {
+      return piTrainingPointsShareRate;
    }
 
 end
