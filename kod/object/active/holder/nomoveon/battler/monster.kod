@@ -5300,8 +5300,8 @@ messages:
                }
             }
             Send(self,@CreateTreasure,#who=what,#corpse=oBody);
-	    
-	    val = viLevel * Send(SETTINGS,@GetTrainingPointsPerKillRate) / 100;
+	   
+	    val = viLevel * Send(SETTINGS_OBJECT,@GetTrainingPointsPerKillRate) / 100;
 	    val = Bound(val, 1, 20);
             Send(what,@AddTrainingPoints,#points=val,#report=TRUE);
          }
