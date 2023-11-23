@@ -2771,7 +2771,8 @@ messages:
       }
 
       // Add Training Points for boosted character building
-      Send(self,@AddTrainingPoints,#points=100000,#bCap=FALSE);
+      Send(self,@AddTrainingPoints,#points=Send(SETTINGS,@GetTrainingPointsAtStart),#bCap=FALSE);
+
       // Add All Mana Nodes
       Send(self,@ConnectManaNode,#all=TRUE);
       Send(self,@SetInitialHomeroom);
