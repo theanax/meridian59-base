@@ -45,12 +45,12 @@ properties:
    //
 
    // XP percent awarded, can be raised to give a bonus.
-   piXPPercent = 1000
+   piXPPercent = 200
 
    // piAdvancementRate: Determines how fast or slow advancement goes for all
    //  spells and skills.  This is a percent of normal, and only affects the
    //  secondary chance.
-   piAdvancementRate = 250
+   piAdvancementRate = 200
 
    piKillKarmaSwingNeutral = 3
    piKillKarmaSwingMonster = 6
