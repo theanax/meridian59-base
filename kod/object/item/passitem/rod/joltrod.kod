@@ -58,13 +58,12 @@ messages:
 
    CastSpell()
    "Casts the spell Flash, possibly disrupting enemy trances in the room."
-   "Also deletes walls around battler dependent on SETTINGS.kod."
    {
       local oFlash, lGoodTargets, oOwner, oRoom, oPlayer;
 
-      oPlayer = Send(self,@GetOwner);
-      oRoom = Send(oPlayer,@GetOwner);
-      Send(oRoom,@StaffDeleteWallsAroundBattler,#who=oPlayer);
+      // oPlayer = Send(self,@GetOwner);
+      // oRoom = Send(oPlayer,@GetOwner);
+      // Send(oRoom,@StaffDeleteWallsAroundBattler,#who=oPlayer);
 
       oFlash = Send(SYS,@FindSpellByNum,#num=SID_FLASH);
       lGoodTargets = Send(oFlash,@GetGoodTargets,#who=poOwner,#report=FALSE);

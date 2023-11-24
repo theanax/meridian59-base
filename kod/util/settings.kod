@@ -28,13 +28,13 @@ properties:
 
    // piMoneyFactor: How much money should be given out?  Raise this number to
    //  increase the amount of money given out.
-   piMoneyFactor = 5000
+   piMoneyFactor = 2000
 
    // Increase this to increase the number of items dropped from monster deaths.
-   piItemFactor = 400
+   piItemFactor = 200
 
    // Modifier to the chance for items to be generated.
-   piMagicItemModifier = 100
+   piMagicItemModifier = 50
 
    // Changed the wait for monsters to spawn.  A decrease means things
    //  spawn faster (less time waiting between spawns).
@@ -50,7 +50,7 @@ properties:
    // piAdvancementRate: Determines how fast or slow advancement goes for all
    //  spells and skills.  This is a percent of normal, and only affects the
    //  secondary chance.
-   piAdvancementRate = 1000
+   piAdvancementRate = 250
 
    piKillKarmaSwingNeutral = 3
    piKillKarmaSwingMonster = 6
@@ -82,10 +82,10 @@ properties:
    piLogonBonus = 500
 
    // The maximum amount of unbound energy we can absorb
-   piUnboundMax = 3000
+   piUnboundMax = 2000
 
    // The maximum percentage of XP we can absorb as unbound energy.
-   piUnboundAbsorption = 100
+   piUnboundAbsorption = 500
 
    // The permillage of unbound energy that is lost every second. 50 means 5 percent.
    piUnboundDecay = 1
@@ -128,10 +128,10 @@ properties:
    // Can't cast a teleport spell until this long after attacking someone.  Prevents
    // hit-and-run.  If 0, there's no restriction on when the spell can be cast.
    // Time in seconds.
-   piTeleportAttackDelaySec = 240
+   piTeleportAttackDelaySec = 30
 
    // Rescue always takes at least this long to cast
-   piRescueBaseDelaySec = 20
+   piRescueBaseDelaySec = 10
 
    // If true, spellpower and duration are displayed for all spells cast.
    pbDisplaySpellData = FALSE
