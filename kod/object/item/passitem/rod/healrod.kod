@@ -42,8 +42,8 @@ classvars:
 
 properties:
 
-   piHeal_min = 30   
-   piHeal_max = 30
+   piHeal_min = 4
+   piHeal_max = 8
 
 messages:
 

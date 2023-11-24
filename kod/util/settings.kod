@@ -28,24 +28,24 @@ properties:
 
    // piMoneyFactor: How much money should be given out?  Raise this number to
    //  increase the amount of money given out.
-   piMoneyFactor = 2000
+   piMoneyFactor = 5000
 
    // Increase this to increase the number of items dropped from monster deaths.
-   piItemFactor = 200
+   piItemFactor = 100
 
    // Modifier to the chance for items to be generated.
    piMagicItemModifier = 50
 
    // Changed the wait for monsters to spawn.  A decrease means things
    //  spawn faster (less time waiting between spawns).
-   piSpawnRate = 200
+   piSpawnRate = 50
 
    //
    // Player advancement
    //
 
    // XP percent awarded, can be raised to give a bonus.
-   piXPPercent = 1250
+   piXPPercent = 1000
 
    // piAdvancementRate: Determines how fast or slow advancement goes for all
    //  spells and skills.  This is a percent of normal, and only affects the
@@ -303,7 +303,7 @@ properties:
    piRodMax = 5
 
    // Do safe rooms recharge rods?
-   pbInnsRechargeRods = TRUE
+   pbInnsRechargeRods = FALSE
 
    // Determines whether players lose faction for attacking each other
    // in a way that requires turning safety off.
