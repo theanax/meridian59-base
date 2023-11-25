@@ -233,7 +233,6 @@ messages:
             {
                Broadcast( Send(who,@GetName)," phased out at ", Send(oRoom,@GetName) );
             }
-
          }
          // Post this because FreezeAllEnchantments checks for phase applied
          Post(who,@StartEnchantment,#what=self);

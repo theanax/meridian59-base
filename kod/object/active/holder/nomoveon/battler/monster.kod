@@ -1859,6 +1859,11 @@ messages:
          Send(self,@Delete);
       }
 
+      if Send(self,@GetMaster) = what
+      {
+         Send(self,@Delete);
+      }
+
       return;
    }
 
