@@ -42,7 +42,7 @@ classvars:
    viItem_type = ITEMTYPE_ROD
 
    viStartHits = 0
-   viStartMaxHits = 1
+   viStartMaxHits = 5
    viConsumesHits = 1
 
    vrGoodDesc = Rod_desc_rsc

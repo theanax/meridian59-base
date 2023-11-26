@@ -384,7 +384,7 @@ resources:
 
    user_guildofficer_rsc = "guildofficer"
 
-   user_default_url = "https://www.m59eternals.com/"
+   user_default_url = "https://m59.org/"
 
    user_safety_on_wav_rsc = safety_on.ogg
    user_safety_off_wav_rsc = safety_off.ogg
@@ -6563,7 +6563,7 @@ messages:
          return FALSE;
       }
 
-      /*if StringContain(string,user_say_start_solo_survival)
+      if StringContain(string,user_say_start_solo_survival)
       {
          if NOT Send(poOwner,@CheckRoomFlag,#flag=ROOM_SAFELOGOFF)
             OR Send(poOwner,@GetRoomNum) = RID_UNDERWORLD
@@ -6578,7 +6578,7 @@ messages:
                #who=self,#sString=string);
 
          return TRUE;
-      }*/
+      }
 
       if StringEqual(string,user_say_join_pub_survival)
       {

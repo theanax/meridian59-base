@@ -110,11 +110,7 @@ config_table_type config_table[] =
 { INACTIVE_OVERRIDE,      T, "Override",      CONFIG_BOOL,  "Yes" },
 
 { MOTD_GROUP,             F, "[MessageOfTheDay]", CONFIG_GROUP, "" },
-{ MOTD_DEFAULT,           F, "Default",       CONFIG_STR,
-      "Welcome to Meridian 59 Eternals \n \n"
-      "https://m59eternals.com/ \n"
-      "Discord: https://discord.gg/4N2nrF9cQQ \n\n"
-      "To create an account, simply enter a new user/password." },
+{ MOTD_DEFAULT,           F, "Default",       CONFIG_STR, "Welcome to Meridian 59." },
 
 { SESSION_GROUP,          F, "[Session]",     CONFIG_GROUP, "" },
 { SESSION_MAX_ACTIVE,     T, "MaxActive",     CONFIG_INT,   "300" },
@@ -186,9 +182,9 @@ config_table_type config_table[] =
    
 { ADVERTISE_GROUP,        F, "[Advertise]",   CONFIG_GROUP, "" },
 { ADVERTISE_FILE1,        T, "File1",         CONFIG_STR,   "ad1.avi" },
-{ ADVERTISE_URL1,         T, "Url1",          CONFIG_STR,   "https://www.m59eternals.com/" },
+{ ADVERTISE_URL1,         T, "Url1",          CONFIG_STR,   "https://m59.org/" },
 { ADVERTISE_FILE2,        T, "File2",         CONFIG_STR,   "ad2.avi" },
-{ ADVERTISE_URL2,         T, "Url2",          CONFIG_STR,   "https://www.m59eternals.com/" },
+{ ADVERTISE_URL2,         T, "Url2",          CONFIG_STR,   "https://m59.org/" },
 
 
 { DEBUG_GROUP,            F, "[Debug]",       CONFIG_GROUP, "" },
@@ -202,14 +198,10 @@ config_table_type config_table[] =
 { SECURITY_LOG_SPOOFS,    T, "LogSpoofs",     CONFIG_BOOL,  "Yes" }, 
 { SECURITY_HANGUP_SPOOFS, T, "HangupSpoofs",  CONFIG_BOOL,  "Yes" }, 
 { SECURITY_REDBOOK_RSC,   T, "RedbookRsc",    CONFIG_STR,   "system_success_rsc" },
-	/* RedbookRsc is dynamic, but changes only take effect on garbage collection */
+/* RedbookRsc is dynamic, but changes only take effect on garbage collection */
 
 { SERVICE_GROUP,          F, "[Service]",     CONFIG_GROUP, "" },
 { SERVICE_ENABLED,        T, "Enabled",       CONFIG_BOOL,  "No" },
-{ SERVICE_MACHINE,        T, "Machine",       CONFIG_STR,   "ftp.neardeathstudios.com" },
-{ SERVICE_DIRECTORY,      T, "Directory",     CONFIG_STR,   "/private/m59/service" },
-{ SERVICE_USERNAME,       T, "Username",      CONFIG_STR,   "m59ftp" },
-{ SERVICE_PASSWORD,       T, "Password",      CONFIG_STR,   "b58Iz3xp" },
 
 { MYSQL_GROUP,            F, "[MySQL]",       CONFIG_GROUP, "" },
 { MYSQL_ENABLED,          F, "Enabled",       CONFIG_BOOL,  "yes" },
