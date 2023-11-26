@@ -5305,7 +5305,8 @@ messages:
                }
             }
             Send(self,@CreateTreasure,#who=what,#corpse=oBody);
-	  
+        }
+
 	    if NOT IsClass(self,&BrambleWall)
 	    {
 	       val = viLevel * Send(SETTINGS_OBJECT,@GetTrainingPointsPerKillRate) / 100;
