@@ -4953,7 +4953,6 @@ messages:
          if actual = TRUE
          {
             piTimeAttackedPlayer = GetTime();
-            piUnbound_energy = 0;
          }
 
          return TRUE;
@@ -5023,7 +5022,6 @@ messages:
       if actual = TRUE
       {
          piTimeAttackedPlayer = GetTime();
-         piUnbound_energy = 0;
       }
 
       return TRUE;
