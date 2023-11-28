@@ -297,13 +297,14 @@ BOOL CALLBACK LoginDialogProc(HWND hDlg, UINT message, UINT wParam, LONG lParam)
          Edit_GetText(hUser, config.username, MAXUSERNAME + 1);
          Edit_GetText(hPasswd, config.password, MAXPASSWORD + 1);
 
+         /*
          value = GetDlgItemInt(hDlg, IDC_SERVERNUM, &success, FALSE);
          if (!success)
          {
             ClientError(hInst, hDlg, IDS_NOSERVERNUM);
             return TRUE;
          }
-
+       
          // If value changed, set server name and socketport
          if (value != config.comm.server_num)
          {
@@ -311,6 +312,7 @@ BOOL CALLBACK LoginDialogProc(HWND hDlg, UINT message, UINT wParam, LONG lParam)
             ConfigSetSocketPortByNumber(value);
             config.comm.server_num = value;
          }
+         */
 
          /* Kill off dialog */
          EndDialog(hDlg, IDOK);

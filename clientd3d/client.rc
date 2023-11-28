@@ -19,7 +19,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// German resources
+// German (Neutral) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_DEU)
 LANGUAGE LANG_GERMAN, SUBLANG_NEUTRAL
@@ -34,12 +34,12 @@ IDR_MAINMENU MENU
 BEGIN
     POPUP "&Spiel"
     BEGIN
-        MENUITEM "&Einw�hlen",                  3061
+        MENUITEM "&Einw�hlen",                3061
         MENUITEM "&Auflegen",                   3062
         MENUITEM "&Voreinstellungen",           3060
         MENUITEM "&Grafik Optionen",            3518
         MENUITEM "Konfiguration",               186
-        MENUITEM "Pass&wort �ndern",            3506
+        MENUITEM "Pass&wort �ndern",          3506
         MENUITEM "Logout timer",                3052
         MENUITEM SEPARATOR
         MENUITEM "&Drucke Karte",               3507
@@ -48,7 +48,7 @@ BEGIN
     END
     POPUP "&Optionen"
     BEGIN
-        MENUITEM "&Gro�es Sichtfenster",        3057
+        MENUITEM "&Gro�es Sichtfenster",      3057
         MENUITEM "&Musik",                      3034
         MENUITEM "&Sounds",                     3033
         MENUITEM SEPARATOR
@@ -57,18 +57,18 @@ BEGIN
             POPUP "Basis Fenster"
             BEGIN
                 MENUITEM "&Spielefenster",              3024
-                MENUITEM "&Gew�hlte Zauber",            3030
+                MENUITEM "&Gew�hlte Zauber",          3030
                 MENUITEM "&Zahlen im Inventar",         3050
                 MENUITEM "&Eigenschaften",              3047
-                MENUITEM "&Quest �bersicht",            3517
+                MENUITEM "&Quest �bersicht",          3517
                 MENUITEM "System &Nachrichten",         3504
                 MENUITEM "&Textfeld",                   3032
             END
             POPUP "Auswahlfenster"
             BEGIN
-                MENUITEM "Getragene Gegenst�nde",       3042
-                MENUITEM "Ausgew�hlte Gegenst�nde",     3027
-                MENUITEM "Magische Gegenst�nde",        3513
+                MENUITEM "Getragene Gegenst�nde",     3042
+                MENUITEM "Ausgew�hlte Gegenst�nde", 3027
+                MENUITEM "Magische Gegenst�nde",      3513
             END
             POPUP "Fensterbalken"
             BEGIN
@@ -77,7 +77,7 @@ BEGIN
                 MENUITEM "&Hintergrund",                3502
                 MENUITEM "Nu&mmern",                    3505
             END
-            MENUITEM "&K�sten editieren",           3039
+            MENUITEM "&K�sten editieren",         3039
             MENUITEM "Post && Nachrichten",         3028
             MENUITEM SEPARATOR
             MENUITEM "&Grundeinstellung",           3025
@@ -92,13 +92,13 @@ BEGIN
             END
             MENUITEM "Benutzereingaben",            3043
             MENUITEM "Inventarfenster",             3015
-            MENUITEM "�berschriften",               3017
+            MENUITEM "�berschriften",             3017
             MENUITEM "Post && Nachrichten",         3014
             POPUP "Karten drucken"
             BEGIN
                 MENUITEM "Kommentare",                  3510
                 MENUITEM SEPARATOR
-                MENUITEM "�berschrift",                 3508
+                MENUITEM "�berschrift",               3508
             END
             MENUITEM SEPARATOR
             MENUITEM "&Grundeinstellung",           3026
@@ -115,7 +115,7 @@ BEGIN
         MENUITEM "Wiki",                        3515
         MENUITEM "Newsletter Anmeldung",        3519
         MENUITEM SEPARATOR
-        MENUITEM "&�ber Meridian 59",           3037
+        MENUITEM "&�ber Meridian 59",         3037
     END
 END
 
@@ -130,9 +130,11 @@ STYLE DS_SETFONT | DS_MODALFRAME | DS_3DLOOK | WS_POPUP | WS_VISIBLE | WS_CAPTIO
 CAPTION "Grafik Optionen"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    CONTROL         "&MipMaps aktivieren (detailliertere Texturen)",1217,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,11,12,152,19
+    CONTROL         "&MipMaps aktivieren (detailliertere Texturen)",1217,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,11,12,152,19
     CONTROL         "Dynamische Beleuchtung",1219,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,11,26,152,19
-    CONTROL         "Zeichne Gitternetze (entfernt Risse in der Raumgeometrie)",1218,"Button",BS_AUTOCHECKBOX | BS_TOP | BS_MULTILINE | WS_TABSTOP,11,45,152,19
+    CONTROL         "Zeichne Gitternetze (entfernt Risse in der Raumgeometrie)",1218,
+                    "Button",BS_AUTOCHECKBOX | BS_TOP | BS_MULTILINE | WS_TABSTOP,11,45,152,19
     LTEXT           "Anti Aliasing",1221,65,68,46,8
     COMBOBOX        1115,11,67,48,62,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     DEFPUSHBUTTON   "OK",IDOK,31,90,45,14,WS_GROUP
@@ -376,7 +378,8 @@ BEGIN
     CONTROL         "Schrittschwankungen anzeigen",1163,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,129,19,118,9
     CONTROL         "Schmerzen bei Treffern anzeigen",1146,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,129,31,118,9
     CONTROL         "Lichteffekt beim Markieren anzeigen",1157,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,129,43,136,9
-    CONTROL         "Stapelgr��e bei Gegenst�nden anzeigen",1148,"Button",BS_AUTOCHECKBOX | BS_MULTILINE | WS_TABSTOP,129,55,114,18
+    CONTROL         "Stapelgr��e bei Gegenst�nden anzeigen",1148,
+                    "Button",BS_AUTOCHECKBOX | BS_MULTILINE | WS_TABSTOP,129,55,114,18
     CONTROL         "Spielernamen anzeigen",1143,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,259,19,91,9
     CONTROL         "Namen der NPC anzeigen",1156,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,259,31,101,9
     CONTROL         "Namen der Schilder anzeigen",1149,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,259,43,104,9
@@ -405,7 +408,8 @@ BEGIN
     GROUPBOX        "Oberfl�che",IDC_STATIC,5,218,360,59,WS_GROUP
     CONTROL         "Toolbar anzeigen",1165,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,231,70,9
     CONTROL         "Tooltips anzeigen",1147,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,242,65,9
-    CONTROL         "Textfenster beim zur�ckscrollen einfrieren",1145,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,253,163,9
+    CONTROL         "Textfenster beim zur�ckscrollen einfrieren",1145,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,253,163,9
     CONTROL         "Zeitstempel im Chat anzeigen",1166,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,264,107,9
     CONTROL         "�bertragungsrate anzeigen",147,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,88,231,100,9
     CONTROL         "XP Darstellung in Prozent",1174,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,88,242,97,9
@@ -580,6 +584,10 @@ END
 #ifdef APSTUDIO_INVOKED
 GUIDELINES DESIGNINFO
 BEGIN
+    1166, DIALOG
+    BEGIN
+    END
+
     181, DIALOG
     BEGIN
         RIGHTMARGIN, 248
@@ -588,6 +596,10 @@ BEGIN
     155, DIALOG
     BEGIN
         BOTTOMMARGIN, 201
+    END
+
+    120, DIALOG
+    BEGIN
     END
 
     118, DIALOG
@@ -849,7 +861,7 @@ BEGIN
     168                     "FPS: %d (%dms)"
 END
 
-#endif    // German resources
+#endif    // German (Neutral) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
@@ -1195,7 +1207,6 @@ BEGIN
     PUSHBUTTON      "Sign up for an account...",IDC_HOMEPAGE,137,63,100,14
     EDITTEXT        IDC_USERNAME,93,107,143,13,ES_AUTOHSCROLL
     EDITTEXT        IDC_PASSWORD,93,121,143,13,ES_PASSWORD | ES_AUTOHSCROLL
-    EDITTEXT        IDC_SERVERNUM,93,137,143,13,ES_AUTOHSCROLL
     DEFPUSHBUTTON   "Log In",IDC_OK,137,155,100,14
     ICON            IDI_ICON,IDC_STATIC,6,6,20,20
     LTEXT           "Meridian 59 is a game played over the Internet.  To play, you must have an account with the central server.",IDC_STATIC,36,6,206,18
@@ -1203,7 +1214,6 @@ BEGIN
     LTEXT           "If you don't have an account, here's how you can get started today!",IDC_STATIC,45,47,87,29
     LTEXT           "Login name:",IDC_STATIC,43,110,45,10
     LTEXT           "Password:",IDC_STATIC,43,123,45,8
-    LTEXT           "Server:",IDC_STATIC,43,139,44,8
 END
 
 IDD_DOWNLOAD DIALOG 0, 0, 252, 146
@@ -1421,9 +1431,11 @@ STYLE DS_SETFONT | DS_MODALFRAME | DS_3DLOOK | WS_POPUP | WS_VISIBLE | WS_CAPTIO
 CAPTION "Graphics Options"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    CONTROL         "&Enable MipMaps (more accurate texturing)",IDC_MIPMAPS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,11,12,152,19
+    CONTROL         "&Enable MipMaps (more accurate texturing)",IDC_MIPMAPS,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,11,12,152,19
     CONTROL         "Dynamic Lighting",IDC_DYNLIGHTS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,11,26,152,19
-    CONTROL         "&Draw wireframe (removes cracks in room geometry)",IDC_WIREFRAME,"Button",BS_AUTOCHECKBOX | BS_TOP | BS_MULTILINE | WS_TABSTOP,11,45,152,19
+    CONTROL         "&Draw wireframe (removes cracks in room geometry)",IDC_WIREFRAME,
+                    "Button",BS_AUTOCHECKBOX | BS_TOP | BS_MULTILINE | WS_TABSTOP,11,45,152,19
     LTEXT           "Anti Aliasing",IDC_AA_TEXT,65,68,46,8
     COMBOBOX        IDC_ANTI_ALIAS,11,67,48,62,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     DEFPUSHBUTTON   "OK",IDOK,31,90,45,14,WS_GROUP
@@ -1502,6 +1514,10 @@ BEGIN
         RIGHTMARGIN, 369
         TOPMARGIN, 6
         BOTTOMMARGIN, 283
+    END
+
+    IDD_OFFERSEND, DIALOG
+    BEGIN
     END
 
     IDD_OFFERRECEIVE, DIALOG
@@ -1764,6 +1780,11 @@ BEGIN
 END
 
 IDD_DESC AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_LOGIN AFX_DIALOG_LAYOUT
 BEGIN
     0
 END
