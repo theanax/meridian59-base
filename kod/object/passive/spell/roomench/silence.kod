@@ -48,7 +48,7 @@ classvars:
    viSpell_num = SID_SILENCE
    viSchool = SS_QOR
    viMana = 10
-   viSpell_level = 3
+   viSpell_level = 6
 
    viManaDrain = 10000            // Mana drained per second (10^3)
    
