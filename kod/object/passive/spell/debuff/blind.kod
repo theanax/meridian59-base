@@ -134,6 +134,8 @@ messages:
             #parm1=Send(oTarget,@GetCapDef),#parm2=Send(oTarget,@GetName));
       Send(oTarget,@StartEnchantment,#what=self,#time=iDuration);
 
+      Send(SYS,@DoPostAnimation,#class=&BlindAnimation,#target=oTarget);
+
       propagate;
    }
 

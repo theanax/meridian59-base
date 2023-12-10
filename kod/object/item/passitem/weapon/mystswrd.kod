@@ -59,6 +59,14 @@ properties:
 
 messages:
 
+   Constructor()
+   {
+      local oWeapAtt;
+
+      Send(self,@SetSpellFlag,#flag=SPL_TYPE_ALL,#value=TRUE);
+
+      propagate;
+   }
 
 end
 ////////////////////////////////////////////////////////////////////////////////

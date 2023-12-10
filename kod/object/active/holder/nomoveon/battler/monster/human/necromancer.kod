@@ -13,6 +13,8 @@ Necromancer is Human
 constants:
 
    include blakston.khd
+   
+   MAGIC_RESIST = 50
 
 resources:
 
@@ -200,6 +202,26 @@ messages:
    CountsAsMonster()
    {
       return TRUE;
+   }
+
+   SpellResist(oSpell=$,who=$,iSpellpower=$)
+   {
+      if IsClass(who,&DM)
+      {
+         return FALSE;
+      }
+
+      if Send(oSpell,@IsHarmful)
+      {
+         if (IsClass(oSpell,&Debuff)
+            AND (iSpellPower < 40
+               OR Random(0,100) < MAGIC_RESIST))
+         {
+            return TRUE;
+         }
+      }
+
+      return FALSE;
    }
 
 end

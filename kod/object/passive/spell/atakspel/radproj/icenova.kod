@@ -95,9 +95,24 @@ messages:
 
    SendProjectileAnimation()
    {
-      AddPacket(1, ANIMATE_CYCLE, 4, 40, 2, 2, 2, 2);  // 40ms between animations
+      AddPacket(1,ANIMATE_CYCLE, 4,40, 2,2, 2,2);  // 40ms between animations
 
       return;
+   }
+   
+   DoSpellEffects(who=$)
+   {
+      local oTarget;
+
+      foreach oTarget in Send(self,@GetTargets,#who=who)
+      {
+         if IsClass(oTarget,&Battler)
+         {
+            Post(SYS,@DoPostAnimation,#class=&IceNovaAnimation,#target=oTarget);
+         }   
+      }
+      
+      propagate;
    }
 
 end

@@ -154,6 +154,8 @@ messages:
                #parm1=Send(oTarget,@GetCapDef),#parm2=Send(oTarget,@GetName));
       }
 
+      Send(SYS,@DoPostAnimation,#class=&HoldAnimation,#target=oTarget);
+
       propagate;
    }
 

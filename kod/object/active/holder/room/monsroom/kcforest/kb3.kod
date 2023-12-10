@@ -59,8 +59,7 @@ messages:
 
    Constructed()
    {
-      plMonsters = [ [&Avar, 50], [&AvarShaman, 18],
-                     [&AvarChieftain, 5],[&Kriipa,27] ];
+      plMonsters = [ [&FireElemental, 50], [&NeruElemental, 50] ];
 
       propagate;
    }

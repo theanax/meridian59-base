@@ -3336,15 +3336,10 @@ messages:
             // Release captured evil twins/reflections.
             Send(i,@SetMaster,#oMaster=$);
          }
-         else if (Send(i,@IsIllusion))
-         {
-            // Delete illusions.
-            Send(i,@Delete);
-         }
          else
          {
-            // Release anything else.
-            Send(i,@SetMaster,#oMaster=$);
+            // Delete illusions and animates.
+            Send(i,@Delete);
          }
       }
 

@@ -190,6 +190,12 @@ messages:
                      #parm3=Send(who,@GetHisHer));
                }
             }
+
+            if IsClass(each_obj,&Battler)
+               AND Send(self,@ComputeDamage,#who=who,#target=each_obj,#iDamage=3000) > 0
+            {
+               Send(SYS,@DoPostAnimation,#class=&EarthquakeAnimation,#target=each_obj);
+            }
          }
       }
 

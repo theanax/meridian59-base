@@ -56,7 +56,7 @@ classvars:
 properties:
 
    piBaseDuration = 5000
-   piSpellPowerModifier = 150
+   piSpellPowerModifier = 300
    piDeviation = 10
 
 messages:
@@ -99,6 +99,8 @@ messages:
          Send(oTarget,@StartDementia);
          Send(oTarget,@StartEnchantment,#what=self,#time=iDuration);
       }
+
+      Send(SYS,@DoPostAnimation,#class=&DementAnimation,#target=oTarget);
 
       propagate;
    }

@@ -14,6 +14,8 @@ constants:
 
    include blakston.khd
 
+   RESPAWN_TIMER = 6 * 60 * 60000  // 6 hours
+
 resources:
 
    include e2.lkod
@@ -26,6 +28,11 @@ resources:
       "You decide you don't like saltwater enough to go swimming "
       "in the Great Ocean."
    E2_icewalk = "The ice looks a bit too thin to risk going any farther out."
+
+   boss_spawn_rsc = "Queen Venya'cyr has been spotted with her soldiers on the Great Ocean! "
+      "To arms! Gather your forces and stand against the invasion before it's too late..."
+   boss_killed_rsc = "Queen Venya'cyr has been killed! The good citizens "
+      "of Meridian can walk the land in safety once again."
 
 classvars:
 
@@ -61,11 +68,59 @@ properties:
    piInit_count_max = 5
    piMonster_count_max = 15
 
+   ptBoss_gen = $
+   
 messages:
 
    Constructed()
    {
-      plMonsters = [ [&FungusBeast, 50], [&Slime, 50] ];
+      plMonsters = [ [&Necromancer, 80], [&DarkAngel, 20] ];
+
+      Send(self,@BossGenTimer);
+      
+      propagate;
+   }
+
+   BossGenTimer()
+   {
+      local i, bFound, each_obj;
+
+      ptBoss_gen = $;
+      bFound = FALSE;
+
+      foreach i in plActive
+      {
+         each_obj = Send(self,@HolderExtractObject,#data=i);
+         if IsClass(each_obj,&Lich)
+         {
+            bFound = TRUE;
+         }
+      }
+
+      if plActive <> $
+         AND bFound=FALSE
+         AND pbGenerateMonsters
+      {
+         Send(self,@NewHold,#what=Create(&Lich),
+               #new_row=viTeleport_row,
+               #new_col=viTeleport_col,
+               #new_angle=ANGLE_SOUTH_EAST);
+
+         Broadcast(boss_spawn_rsc);
+      }
+
+      ptBoss_gen = CreateTimer(self,@BossGenTimer,1*RESPAWN_TIMER);
+
+      return;
+   }
+
+   Delete()
+   {
+      if ptBoss_gen <> $
+      {
+         DeleteTimer(ptBoss_gen);
+         ptBoss_gen = $;
+      }
 
       propagate;
    }
@@ -125,6 +180,18 @@ messages:
       Send(self,@NewHold,#what=Create(&OrnamentalObject,#type=OO_TALLTREE2),
            #new_row=40,#new_col=71);
 
+      propagate;
+   }
+
+   SomethingKilled(what=$,victim=$)
+   {
+      if victim <> $ AND what <> $
+         AND IsClass(victim,&Lich)
+         AND IsClass(what,&Player)
+      {
+         Broadcast();
+      }
+         
       propagate;
    }
 

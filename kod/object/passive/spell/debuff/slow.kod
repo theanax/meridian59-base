@@ -113,6 +113,8 @@ messages:
       Send(oTarget,@StartEnchantment,#what=self,#time=iDuration,#report=report,
             #state=[iSpeed]);
 
+      Send(SYS,@DoPostAnimation,#class=&SlowAnimation,#target=oTarget);
+
       propagate;
    }
 

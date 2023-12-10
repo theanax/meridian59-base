@@ -290,6 +290,7 @@ messages:
 
    NewOwner(what=$)
    {
+      /*
       // This should never happen, but if it does...
       if what <> $
          AND NOT IsClass(what,&GuildHall15)
@@ -297,13 +298,14 @@ messages:
          Debug("Bad Dead Lich!  Go to your room!");
          Post(self,@GoBackToGuildhall);
       }
+      */
 
       propagate;
    }
 
    LastUserLeft(what = $)
    {
-      Post(self,@GoBackToGuildhall);
+      // Post(self,@GoBackToGuildhall);
 
       propagate;
    }

@@ -69,12 +69,6 @@ classvars:
    viSpell_level = 2
    viMana = 4
 
-   viMin_Damage = 5         /// touch spells typically do good damage    
-   viMax_Damage = 8         /// but are unaffected by weapon or strength bonuses
-
-   // Max amount of damage that punch or 2*myst can add
-   viMaxProficiencyDamage = 7
-
    viSpell_type = SPL_TYPE_COLD + SPL_TYPE_ALL
    viStroke = STROKE_ICY_FINGERS
 

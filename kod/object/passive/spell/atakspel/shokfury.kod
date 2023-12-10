@@ -64,5 +64,16 @@ messages:
       return;
    }
 
+   DoSpellEffects(who = $, lTargets = $)
+   {
+      local oTarget;
+
+      oTarget = First(lTargets);
+
+      Send(SYS,@DoPostAnimation,#class=&ShockingFuryAnimation,#target=oTarget);
+
+      propagate;
+   }
+
 end
 ////////////////////////////////////////////////////////////////////////////////

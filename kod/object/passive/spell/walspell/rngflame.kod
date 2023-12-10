@@ -48,7 +48,7 @@ classvars:
    vbCanCastOnOthers = TRUE
 
    //// Seed parameters
-   viElementSpellpower = 200
+   viElementSpellpower = 150
    viElementDuration = 5000
    viElementCharges = 100
    viElementSpeed = 75

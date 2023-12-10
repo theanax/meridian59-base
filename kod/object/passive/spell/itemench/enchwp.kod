@@ -100,8 +100,8 @@ messages:
 
    DoSpellEffects(who=$,lTargets=$,iSpellPower=0)
    {
-      local iCurrentSpell, oWeapon, oWeapAtt, iDuration, iSpellDamageType,
-            oSpellWeapAtt;
+      local iCurrentSpell, oWeapon, oWeapAtt, iDuration, oEnchantedWeapAtt,
+            iEnchanted;
 
       oWeapon = First(lTargets);
 
@@ -114,44 +114,46 @@ messages:
          return FALSE;
       }
 
-      if NOT Send(oWeapon,@CanEnchant,#oSpell = self)
+      if NOT Send(oWeapon,@CanEnchant,#oSpell=self)
       {
-         Send(who,@MsgSendUser,#message_rsc=spell_resists, 
-               #parm1=Send(oWeapon,@GetCapDef),#parm2=Send(oWeapon,@GetName));
-          return FALSE;
-      }
-
-      if NOT Send(self,@IsTargetInRange,#who=who,#target=oWeapon)
-      {
-         Send(who, @MsgSendUser,#message_rsc=spell_out_of_range,
+        Send(who,@MsgSendUser,#message_rsc=spell_resists,
                #parm1=Send(oWeapon,@GetCapDef),#parm2=Send(oWeapon,@GetName));
 
          return FALSE;
       }
 
-      oWeapAtt = Send(SYS,@FindItemAttByNum,#num=WA_ENCHANTED);
-      oSpellWeapAtt = Send(SYS,@FindItemAttByNum,#num=WA_ATTACKSPELLTYPE);
+      if NOT Send(self,@IsTargetInRange,#who=who,#target=oWeapon)
+      {
+         Send(who,@MsgSendUser,#message_rsc=spell_out_of_range,
+               #parm1=Send(oWeapon,@GetCapDef),#parm2=Send(oWeapon,@GetName));
+
+         return FALSE;
+      }
+
+      oWeapAtt = Send(SYS,@FindItemAttByNum,#num=WA_ATTACKSPELLTYPE);
+      oEnchantedWeapAtt = Send(SYS,@FindItemAttByNum,#num=WA_ENCHANTED);
 
       // Remove any existing enchants before we go on.
-      iCurrentSpell = Send(oWeapon,@GetAttributeData,#ItemAtt=WA_ENCHANTED);
-      iSpellDamageType = Send(oWeapon,@GetAttributeData,#ItemAtt=WA_ATTACKSPELLTYPE);
+      iCurrentSpell = Send(oWeapon,@GetAttributeData,#ItemAtt=WA_ATTACKSPELLTYPE);
+      iEnchanted = Send(oWeapon,@GetAttributeData,#ItemAtt=WA_ENCHANTED);
 
       if iCurrentSpell <> $
       {
          Send(oWeapAtt,@RemoveFromItem,#oItem=oWeapon);
       }
 
-      if iSpellDamageType <> $
+      if iEnchanted <> $
       {
-         Send(oSpellWeapAtt,@RemoveFromItem,#oItem=oWeapon);
+         Send(oEnchantedWeapAtt,@RemoveFromItem,#oItem=oWeapon);
       }
 
       Send(oWeapAtt,@AddToItem,#oItem=oWeapon,#random_gen=FALSE,
-            #timer_duration =Send(self,@GetDuration,#iSpellPower=iSpellPower),
+            #state1=SPL_TYPE_ALL,
+            #timer_duration=Send(self,@GetDuration,#iSpellPower=iSpellPower),
             #state3=Send(self,@GetMakerInfo,#who=who));
 
       Send(who,@MsgSendUser,#message_rsc=enchantedweapon_cast_rsc,
-            #parm1=Send(oWeapon,@GetName));
+             #parm1=Send(oWeapon,@GetName));
 
       return TRUE;
    }

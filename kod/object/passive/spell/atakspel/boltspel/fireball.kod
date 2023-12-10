@@ -18,7 +18,7 @@ resources:
    include fireball.lkod
 
    fireball_name_rsc = "fireball"
-   fireball_icon_rsc = fireball.bgf
+   fireball_icon_rsc = animation_fireball.bgf
    fireball_look_icon = ifirebal.bgf
    fireball_desc_rsc = "Sends a ball of flames at the target."
    fireball_hit_rsc = "A ball of fire strikes %s%s!"
@@ -70,7 +70,7 @@ messages:
 
    GetProjectileSpeed()
    {
-      return 10;
+      return 14;
    }
 
    SendLookAnimation()
@@ -82,8 +82,8 @@ messages:
 
    SendProjectileAnimation()
    {
-      // 40ms between animations, between frames 1-2
-      AddPacket(1,ANIMATE_CYCLE, 4,40, 2,1, 2,2);   
+      // 40ms between animations, between frames 1-6
+      AddPacket(1,ANIMATE_CYCLE, 4,40, 2,1, 2,6);   
 
       return;
    }

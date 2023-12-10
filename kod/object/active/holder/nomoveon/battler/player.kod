@@ -16118,6 +16118,19 @@ messages:
       return FALSE;
    }
 
+   SomethingAttacked(what = $,victim = $,use_weapon = $)
+   {
+      if what <> victim
+      AND IsClass(what,&Player)
+      AND IsClass(victim,&Player)
+      {
+         Send(what,@WipeUnboundEnergy);
+         Send(victim,@WipeUnboundEnergy);
+      }
+
+      propagate;
+   }
+
    DoQuestXP()
    {
       local iXP, iLvl, iXPMIN, iXPMAX;
@@ -16132,7 +16145,7 @@ messages:
       return;
    }
 
-      DoQuestTP()
+   DoQuestTP()
    {
       local iTP, iLvl, iTPMIN, iTPMAX;
 
@@ -16142,7 +16155,6 @@ messages:
       iTP = Random(iTPMIN,iTPMAX);
       iTP = iTP + 75;
       Send(self,@AddTrainingPoints,#points=iTP,#bCap=FALSE);
-      Debug(iTP);
 
       return;
    }

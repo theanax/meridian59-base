@@ -152,6 +152,8 @@ messages:
 
       Send(self,@DoPurge,#who=oTarget,#iSpellPower=iSpellPower);
 
+      Send(SYS,@DoPostAnimation,#class=&PurgeAnimation,#target=oTarget);
+
       return TRUE;
    }
 

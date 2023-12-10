@@ -56,7 +56,7 @@ classvars:
 properties:
 
    piBaseDuration = 5000
-   piSpellPowerModifier = 150
+   piSpellPowerModifier = 300
    piDeviation = 10
 
 messages:
@@ -103,6 +103,8 @@ messages:
          Send(oTarget,@StartEnchantment,#what=self,#time=iDuration,
                #state=[-iAgil,-iMight,-iAim]);
       }
+
+      Send(SYS,@DoPostAnimation,#class=&VertigoAnimation,#target=oTarget);
 
       propagate;
    }

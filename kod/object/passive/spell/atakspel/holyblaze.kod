@@ -153,6 +153,8 @@ messages:
                #Swing_factor=1));
       }
 
+      Send(SYS,@DoPostAnimation,#class=&HolyBlazeAnimation,#target=oTarget);
+
       propagate;
    }
 

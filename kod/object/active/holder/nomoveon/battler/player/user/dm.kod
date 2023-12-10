@@ -2720,14 +2720,6 @@ messages:
       {
          oObject = Create(&OrcTorch);
       }
-      else if StringContain(string,"place explosion")
-      {
-         oObject = Create(&ExplosionBoom);
-      }
-      else if StringContain(string,"place fireflame")
-      {
-         oObject = Create(&Fireflame);
-      }
       else if StringContain(string,"place skull brazier")
       {
          oObject = Create(&SkullBrazier);

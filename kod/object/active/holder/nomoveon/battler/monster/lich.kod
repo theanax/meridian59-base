@@ -925,7 +925,6 @@ messages:
                AND (iRandom < 10 OR iDistance < iBestDistance)
                AND NOT Send(self,@isAlly,#target=each_obj)
             {
-               Debug("Lich target change:",each_obj);
                iBestDistance = iDistance;
                Send(self,@TargetSwitch,#what=each_obj,#iHatred=60);
 
@@ -1363,6 +1362,7 @@ messages:
 
    NewOwner(what=$)
    {
+      /* 
       // This should never happen, but if it does...
       if what <> $
          AND NOT IsClass(what,&GuildHall15)
@@ -1370,13 +1370,14 @@ messages:
          Debug("Bad Lich!  Go to your room!");
          Post(self,@GoBackToGuildhall);
       }
+      */
 
       propagate;
    }
 
    LastUserLeft(what = $)
    {
-      Post(self,@GoBackToGuildhall);
+      // Post(self,@GoBackToGuildhall);
 
       propagate;
    }

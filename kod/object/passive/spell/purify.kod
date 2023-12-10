@@ -186,6 +186,8 @@ messages:
 
       Send(self,@DoPurify,#who=oTarget,#iSpellPower=iSpellPower);
 
+      Send(SYS,@DoPostAnimation,#class=&PurifyAnimation,#target=oTarget);
+
       return TRUE;
    }
 

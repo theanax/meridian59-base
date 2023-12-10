@@ -66,12 +66,6 @@ classvars:
    viSpellExertion = 1
    viMana = 4
 
-   viMin_Damage = 4
-   viMax_Damage = 9
-
-   // Max amount of damage that punch or 2*myst can add
-   viMaxProficiencyDamage = 4
-
    viSpell_type = SPL_TYPE_FIRE + SPL_TYPE_ALL
    viStroke = STROKE_TOUCH_OF_FLAME
 

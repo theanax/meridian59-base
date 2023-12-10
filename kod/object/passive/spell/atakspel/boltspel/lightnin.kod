@@ -18,7 +18,7 @@ resources:
    include lightnin.lkod
 
    lightning_name_rsc = "lightning bolt"
-   lightning_icon_rsc = lightnin.bgf
+   lightning_icon_rsc = animation_lightning.bgf
    lightning_look_icon = ilitning.bgf
    lightning_hit_rsc = "Lightning strikes %s%s!"
    lightning_desc_rsc = "Hurls a bolt of lightning at the target."
@@ -57,18 +57,12 @@ properties:
    piDamageMin = 13
    piDamageMax = 18
    prSpellHit = lightning_hit_rsc
-   plBoltflashes = $
-   plBoltTimers = $
-   ptBoltTimer = $
-   poNewBolt = $
 
 messages:
 
 
    ResetReagents()
    {
-      // separate message so can change, then set from admin mode
-
       plReagents = $;
       plReagents = Cons([&BlueMushroom,2],plReagents);
 
@@ -77,61 +71,15 @@ messages:
 
    GetProjectileSpeed()
    {
-      return 12;
+      return 14;
    }
 
    SendProjectileAnimation()
    {
-      //AddPacket(1, ANIMATE_CYCLE, 4, 40, 2, 2, 2, 3);   // 40ms between animations
-      AddPacket(1, ANIMATE_NONE, 2,1);   // 40ms between animations
+      AddPacket(1,ANIMATE_CYCLE, 4,40, 2,1, 2,3);
 
       return;
    }
-
-
-   DoSpellEffects(what=$,who=$, lTargets=$, state=$,iSpellPower=$,iPowerLevel=100,
-             bItemCast=FALSE, bRing=FALSE, bStun=FALSE,report=TRUE, iDamage=$)
-   {
-      local oTargeted, oRoom, poNewBolt, oElement;
-
-   oTargeted = First(lTargets);
-   oRoom = Send(oTargeted,@GetOwner);
-
-               poNewBolt = Create(&Boltflash,#seed=[oTargeted,1,500,0,0,0,0,0,0]);
-               Send(oRoom,@NewHold,#what=poNewBolt,#new_row=Send(oTargeted,@GetRow),#new_col=Send(oTargeted,@GetCol),
-               #fine_row=Send(oTargeted,@GetFineRow),#fine_col=Send(oTargeted,@GetFineCol));
-   
-   Send(oRoom,@SomethingWaveRoom,#what=poNewBolt,#wave_rsc=vrSucceed_wav);
-   
-   propagate;
-   }
-   
-   Delete()
-   {
-      propagate;
-   }
-//overrides bolt projectile
-   GetProjectileIcon()
-   {
-      return FALSE;
-   }
-
-   GetProjectileLightFlags()
-   {
-      return FALSE;
-   }
-
-   GetProjectileLightIntensity()
-   {
-      return FALSE;
-   }
-
-   GetProjectileLightColor()
-   {
-      return FALSE;
-   }
-
-
 
 end
 

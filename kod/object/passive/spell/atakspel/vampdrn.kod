@@ -105,5 +105,16 @@ messages:
       propagate;
    }
 
+   DoSpellEffects(who = $, lTargets = $)
+   {
+      local oTarget;
+
+      oTarget = First(lTargets);
+
+      Send(SYS,@DoPostAnimation,#class=&VampiricDrainAnimation,#target=oTarget);
+
+      propagate;
+   }
+
 end
 ////////////////////////////////////////////////////////////////////////////////

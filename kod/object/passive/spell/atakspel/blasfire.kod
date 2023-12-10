@@ -62,20 +62,15 @@ messages:
       return;
    }
 
-   DoSpellEffects(what=$,who=$, lTargets=$, state=$,iSpellPower=$,iPowerLevel=100,
-             bItemCast=FALSE, bRing=FALSE, bStun=FALSE,report=TRUE, iDamage=$)
+   DoSpellEffects(who = $, lTargets = $)
    {
-      local oTargeted, oRoom, poNewFlame;
+      local oTarget;
 
-   oTargeted = First(lTargets);
-   oRoom = Send(oTargeted,@GetOwner);
+      oTarget = First(lTargets);
 
+      Send(SYS,@DoPostAnimation,#class=&BlastOfFireAnimation,#target=oTarget);
 
-               poNewFlame = Create(&Fireflame,#seed=[oTargeted,1,1000,0,0,0,0,0,0]);
-               Send(oRoom,@NewHold,#what=poNewFlame,#new_row=Send(oTargeted,@GetRow),#new_col=Send(oTargeted,@GetCol),
-               #fine_row=Send(oTargeted,@GetFineRow),#fine_col=Send(oTargeted,@GetFineCol));
-   
-   propagate;
+      propagate;
    }
 
 end

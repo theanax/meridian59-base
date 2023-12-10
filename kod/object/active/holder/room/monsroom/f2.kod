@@ -74,7 +74,7 @@ messages:
 
    Constructed()
    {
-      plMonsters = [ [&FungusBeast, 50], [&Slime, 50] ];
+      plMonsters = [ [&IceElemental, 100] ];
 
       plLooping_sounds = [[ waterfall_soundF2, 1, 101 ],[ ocean_soundF2, 1, 59, 200, 100 ]];
 
