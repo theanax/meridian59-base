@@ -52,8 +52,8 @@ classvars:
    viDifficulty = 4
    viVisionDistance = 14
    viKarma = -10
-   viCashmin = 100
-   viCashmax = 300
+   viCashmin = -100
+   viCashmax = 50
    viDefault_behavior = AI_FIGHT_AGGRESSIVE
    viAttributes = MOB_SPASM
 

@@ -91,6 +91,7 @@ messages:
             SID_FIREWALL,
             SID_MARTYRS_BATTLEGROUND,
             SID_BRAMBLEWALL,
+            SID_SILENCE,
             SID_BOND,
             SID_SLOW,
             SID_HOLY_BLAZE,
@@ -100,7 +101,7 @@ messages:
       return;
    }
 
-   SetPossessed(bValue=FALSE)
+   SetPossessed(bValue=TRUE)
    {
       if bValue
       {

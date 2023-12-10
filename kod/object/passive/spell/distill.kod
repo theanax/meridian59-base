@@ -60,7 +60,7 @@ properties:
    // spell are multiplied to get ingredient requirements.  1 to 4
    // (based on spellpower) is subtracted from this number to get
    // the final multiple.
-   piMultipleBase = 50
+   piMultipleBase = 8
 
 messages:
 

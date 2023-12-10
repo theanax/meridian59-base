@@ -69,20 +69,20 @@ classvars:
 properties:
 
    // Are there node attacks?
-   pbAttackEnabled = FALSE
+   pbAttackEnabled = TRUE
    // Base number of Meridian days to use when figuring frequency of attacks.
-   piAttackFrequency = 24
+   piAttackFrequency = 18
    // Number of minutes the whole attack lasts.
    //  Divided into 1/3 time that node holders know, 2/3 time everyone knows.
    piAttackDuration = 60
 
    // Number of users that must be on before a node attack goes on.
-   piNumIPsOnForAttack = 10
+   piNumIPsOnForAttack = 8
    // piAttackMin is the base number of Xeochicatl spawned during an attack,
    // with 10 IPs online. Further players online raises this number up to
    // piAttackMax.
-   piAttackMin = 4
-   piAttackMax = 10
+   piAttackMin = 6
+   piAttackMax = 12
    // piXeosToSpawn tracks how many xeos we need for the attack (between the
    // above min/max) and piXeosSpawnedSoFar is our progress towards that.
    piXeosToSpawn = 0
@@ -123,9 +123,9 @@ properties:
    // This indicates if Xeochicatl can respawn from dropped heartstones.
    pbXeoRespawn = FALSE
    // This indicates if Miriana even goes to view node attacks.
-   pbMirianaAppears = FALSE
+   pbMirianaAppears = TRUE
    // This indicates if Miriana gets that possessed look during attacks.
-   pbMirianaPossessed = FALSE
+   pbMirianaPossessed = TRUE
 
    // Timer for the attack.
    ptAttack = $

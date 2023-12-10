@@ -51,8 +51,8 @@ classvars:
    viVisionDistance = 50
    viKarma = 0
    viDefault_behavior = AI_FIGHT_AGGRESSIVE | AI_FIGHT_SWITCHALOT
-   viCashmin = 150
-   viCashmax = 250
+   viCashmin = -50
+   viCashmax = 10
 
    vrSound_hit = smallratsound_hit
    vrSound_miss = smallratsound_miss

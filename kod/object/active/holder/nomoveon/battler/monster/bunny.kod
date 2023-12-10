@@ -47,8 +47,8 @@ classvars:
    viDifficulty = 4
    viLevel = 30
    viKarma = 30
-   viCashmin = 150
-   viCashmax = 300
+   viCashmin = -50
+   viCashmax = 10
    vrSound_hit = bunny_sound_hit
    vrSound_miss = bunny_sound_miss
    vrSound_aware = bunny_sound_aware

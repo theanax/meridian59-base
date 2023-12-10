@@ -56,8 +56,8 @@ classvars:
    viKarma = 0
    vbIsUndead = TRUE
    viDefault_behavior = AI_FIGHT_AGGRESSIVE | AI_MOVE_FLEE_FRIGHTENERS
-   viCashmin = 50
-   viCashmax = 100
+   viCashmin = -50
+   viCashmax = 50
    vrSound_hit = mummy_sound_hit
    vrSound_miss = mummy_sound_miss
    vrSound_aware = mummy_sound_aware

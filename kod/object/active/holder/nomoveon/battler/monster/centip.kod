@@ -51,8 +51,8 @@ classvars:
    viDifficulty = 5
    viVisionDistance = 8
    viKarma = 25
-   viCashmin = 150
-   viCashmax = 300
+   viCashmin = -50
+   viCashmax = 10
    vrSound_hit = centipede_sound_hit
    vrSound_miss = centipede_sound_miss
    vrSound_aware = centipede_sound_aware
