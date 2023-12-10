@@ -1298,6 +1298,8 @@ messages:
       // switch on prize type
       if iPrizeType = QN_PRIZETYPE_ITEM
       {
+            Send(oQuester,@DoQuestTP);
+            Send(oQuester,@DoQuestXP);
          return;
       }
 
@@ -1311,6 +1313,8 @@ messages:
          {
             oPrize = Create(cPrizeClass,#number=iAmount,#guildMember=oQuester,
                             #quester=oQuester);
+            Send(oQuester,@DoQuestTP);
+            Send(oQuester,@DoQuestXP);
             Send(oQuester,@NewHold,#what=oPrize);
          }
 
@@ -1341,8 +1345,9 @@ messages:
          {
          case QN_PRIZE_ITEM_KRANROBE:
             foreach oQuester in recipients
-            //ADDED TRAINING POINTS TO THE REWARDS
             {
+               Send(oQuester,@DoQuestTP);
+               Send(oQuester,@DoQuestXP);
                oPrize = Create(&DiscipleRobe,#school=SS_KRAANAN);
                Send(oQuester,@NewHold,#what=oPrize);
             }
@@ -1350,6 +1355,8 @@ messages:
          case QN_PRIZE_ITEM_SHALROBE:
             foreach oQuester in recipients
             {
+               Send(oQuester,@DoQuestTP);
+               Send(oQuester,@DoQuestXP);
                oPrize = Create(&DiscipleRobe,#school=SS_SHALILLE);
                Send(oQuester,@NewHold,#what=oPrize);
             }
@@ -1357,6 +1364,8 @@ messages:
          case QN_PRIZE_ITEM_FARENROBE:
             foreach oQuester in recipients
             {
+               Send(oQuester,@DoQuestTP);
+               Send(oQuester,@DoQuestXP);
                oPrize = Create(&DiscipleRobe,#school=SS_FAREN);
                Send(oQuester,@NewHold,#what=oPrize);
             }
@@ -1364,6 +1373,8 @@ messages:
          case QN_PRIZE_ITEM_QORROBE:
             foreach oQuester in recipients
             {
+               Send(oQuester,@DoQuestTP);
+               Send(oQuester,@DoQuestXP);
                oPrize = Create(&DiscipleRobe,#school=SS_QOR);
                Send(oQuester,@NewHold,#what=oPrize);
             }
@@ -1371,6 +1382,8 @@ messages:
          case QN_PRIZE_ITEM_RIIJAROBE:
             foreach oQuester in recipients
             {
+               Send(oQuester,@DoQuestTP);
+               Send(oQuester,@DoQuestXP);
                oPrize = Create(&DiscipleRobe,#school=SS_RIIJA);
                Send(oQuester,@NewHold,#what=oPrize);
             }
@@ -1378,6 +1391,8 @@ messages:
          case QN_PRIZE_ITEM_JALAROBE:
             foreach oQuester in recipients
             {
+               Send(oQuester,@DoQuestTP);
+               Send(oQuester,@DoQuestXP);
                oPrize = Create(&DiscipleRobe,#school=SS_JALA);
                Send(oQuester,@NewHold,#what=oPrize);
             }
@@ -1385,6 +1400,8 @@ messages:
          case QN_PRIZE_ITEM_DURABLESCIM:
             foreach oQuester in recipients
             {
+               Send(oQuester,@DoQuestTP);
+               Send(oQuester,@DoQuestXP);
                oPrize = Create(&Scimitar);
                Send(Send(SYS,@FindItemAttByNum,#num=IA_DURABLE),@AddToItem,#oItem=oPrize);
                Send(oPrize,@RevealHiddenAttributes);
@@ -1575,16 +1592,22 @@ messages:
             {
                // Post these prize types, because the player will cancel any
                // faction quests they have open in ResignFaction
+               Send(oQuester,@DoQuestTP);
+               Send(oQuester,@DoQuestXP);
                Post(oQuester,@ResignFaction);
                Post(oQuester,@JoinFaction,#new_faction=FACTION_DUKE);
             }
             else if iPrizeFaction = QN_PRIZE_FACTION_PRINCESS
             {
+               Send(oQuester,@DoQuestTP);
+               Send(oQuester,@DoQuestXP);
                Post(oQuester,@ResignFaction);
                Post(oQuester,@JoinFaction,#new_faction=FACTION_PRINCESS);
             }
             else if iPrizeFaction = QN_PRIZE_FACTION_REBEL
             {
+               Send(oQuester,@DoQuestTP);
+               Send(oQuester,@DoQuestXP);
                Post(oQuester,@ResignFaction);
                Post(oQuester,@JoinFaction,#new_faction=FACTION_REBEL);
             }
@@ -1616,6 +1639,8 @@ messages:
          return Send(self,@AwardPrizeOrPenaltyInsignia,
                      #prize=prize,#recipients=recipients,
                      #oQuestEngine=oQuestEngine);
+               Send(oQuester,@DoQuestTP);
+               Send(oQuester,@DoQuestXP);
       }
 
       if iPrizeType = QN_PRIZETYPE_PASS_NPC
@@ -2047,7 +2072,7 @@ messages:
               #success=FALSE);
       }
 
-      Post(poQuest,@Cancel);
+         Post(poQuest,@Cancel);
 
       return;
    }

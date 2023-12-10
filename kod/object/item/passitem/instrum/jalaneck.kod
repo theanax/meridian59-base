@@ -41,7 +41,7 @@ classvars:
 
    vrIcon = JalaNecklace_icon_rsc
    vrInstrument_overlay = $
-   viInstrument_strength = 5
+   viInstrument_strength = 15 // Long quest and rare item should be rewarded with power.
 
    viUse_type = ITEM_USE_NECK
    viItem_type = ITEMTYPE_NECKLACE
@@ -55,6 +55,8 @@ classvars:
 
 properties:
 
+piHpWorthyThreshold = 50 /// Let's restrict angeled characters for using this necklace.
+
 messages:
 
    ReqUseSomething(what = $)
@@ -62,6 +64,7 @@ messages:
       if IsClass(what,&Necklace)
       {
          if Send(poOwner,@TryUnuseItem,#what=self)
+         AND Send(poOwner,@GetBaseMaxHealth) > piHpWorthyThreshold
          {
             propagate;
          }

@@ -9247,17 +9247,17 @@ messages:
 
             // Not awarding any unbound energy to players who have recently been involved
             // in PvP.
-            //if Send(self,@GetLastPlayerAttackTime)
-            //    + Send(SETTINGS_OBJECT,@UnboundEnergyAttackDelaySec)
-            //   > GetTime()
-            //// {
-            //   if iUnbound > 0
-            //   {
-            //      Send(self,@MsgSendUser,#message_rsc=player_unbound_energy_wasted);
-            //   }
-            // }
-            // else
-            // {
+            if Send(self,@GetLastPlayerAttackTime)
+                + Send(SETTINGS_OBJECT,@UnboundEnergyAttackDelaySec)
+               > GetTime()
+             {
+               if iUnbound > 0
+               {
+                  Send(self,@MsgSendUser,#message_rsc=player_unbound_energy_wasted);
+               }
+             }
+             else
+             {
             
                // Grant only one fourth of the energy if the mob didn't attack the player.
                if ((piFlags & PFLAG_TOOK_DAMAGE) OR (piFlags & PFLAG_DODGED))
@@ -9268,7 +9268,7 @@ messages:
                {
                   Send(self,@AddUnboundEnergy,#iAmount=iUnbound / 4);
                }
-            // }
+             }
          }
 
          // Here, we work out if the player deserves a training point.
@@ -9278,19 +9278,32 @@ messages:
             AND killing_blow
             AND piTraining_points < 1000
          {
-            piTraining_points = piTraining_points + 1
+            piTraining_points = piTraining_points
                + (Send(what,@GetBoostedLevel)
                / Send(Send(SYS,@GetSurvivalRoomMaintenance),@GetSurvivalTP));
 
-            if monster_level > 150
+            if monster_level > 149
+            {
+               piTraining_points = piTraining_points + 5;
+            }
+            else if monster_level > 119
+            {
+               piTraining_points = piTraining_points + 4;
+            }
+             else if monster_level > 99
             {
                piTraining_points = piTraining_points + 3;
             }
-            else if monster_level > 120
+             else if monster_level > 74
             {
                piTraining_points = piTraining_points + 2;
             }
-            else if monster_level > 75
+             else if monster_level > 50
+            {
+               piTraining_points = piTraining_points + 1;
+            }
+            else if monster_level > 49
+            
             {
                ++piTraining_points;
             }
@@ -16103,6 +16116,35 @@ messages:
       }
 
       return FALSE;
+   }
+
+   DoQuestXP()
+   {
+      local iXP, iLvl, iXPMIN, iXPMAX;
+
+      ilvl = send(self,@GetMaxHealth);
+      iXPMAX = ilvl*ilvl/4;
+      iXPMIN = ilvl*ilvl/6;
+      iXP = Random(iXPMIN,iXPMAX);
+      iXP = iXP + 1000;
+      Send(self,@AddXP,#iAmount=iXP);
+
+      return;
+   }
+
+      DoQuestTP()
+   {
+      local iTP, iLvl, iTPMIN, iTPMAX;
+
+      ilvl = send(self,@GetMaxHealth);
+      iTPMAX = ilvl + 20;
+      iTPMIN = ilvl - 20;
+      iTP = Random(iTPMIN,iTPMAX);
+      iTP = iTP + 75;
+      Send(self,@AddTrainingPoints,#points=iTP,#bCap=FALSE);
+      Debug(iTP);
+
+      return;
    }
 
 end

@@ -40,6 +40,7 @@ classvars:
    viOccupation = MOB_ROLE_BARD
 
 properties:
+
    viQuestID = QST_ID_TRUTH_SPELL
 
 messages:
@@ -93,7 +94,10 @@ messages:
    SetForSale()
    {
       plFor_Sale = [
-         $,$,
+         [
+            Create(&OfferingJala)
+         ],
+         $,
          [
             SID_TRUTH,
             SID_MIRTH,
@@ -104,6 +108,7 @@ messages:
             SID_MANA_CONVERGENCE,
             SID_REJUVENATE,
             SID_DISHARMONY
+            SID_LULLABY
          ],
      $];
 

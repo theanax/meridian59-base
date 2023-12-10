@@ -107,7 +107,8 @@ messages:
             SID_JIG,
             SID_MANA_CONVERGENCE,
             SID_REJUVENATE,
-            SID_DISHARMONY
+            SID_DISHARMONY,
+            SID_LULLABY
          ],
      $];
 
