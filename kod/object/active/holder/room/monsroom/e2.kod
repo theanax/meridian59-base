@@ -189,7 +189,7 @@ messages:
          AND IsClass(victim,&Lich)
          AND IsClass(what,&Player)
       {
-         Broadcast();
+         Broadcast(boss_killed_rsc);
       }
          
       propagate;
