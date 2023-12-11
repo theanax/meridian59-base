@@ -1971,7 +1971,8 @@ messages:
          Send(i,@WaveSendUser,#wave_rsc=system_message_sound,#what=self);
       }
 
-      if NOT Send(what,@FindUsing,#class=&Token)
+      // Send kill message to discord.
+      if Send(what,@FindUsing,#class=&Token) = $
          AND NOT Send(what,@DoesPlayerTakeNewbieDeath)
          AND NOT IsClass(killer,&Monster)
       {
