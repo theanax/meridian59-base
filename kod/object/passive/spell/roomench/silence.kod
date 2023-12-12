@@ -63,6 +63,10 @@ properties:
    pbAccessible = TRUE
    pbEnabled = TRUE
 
+   poCaster = $
+   poRoom = $
+   ptPeriodicCheck = $
+
 messages:
 
    ResetReagents()
@@ -86,8 +90,12 @@ messages:
       Send(oRoom,@RoomStartEnchantment,#what=self,#state=[who,iSpellPower],
             #time=Send(self,@GetDuration,#iSpellPower=iSpellPower),
             #iSpellPower=iSpellPower,#lastcall=FALSE);
-      Send(who,@SetTranceFlag);
-
+      
+      poCaster = who;
+      poRoom = oRoom;
+      ptPeriodicCheck = CreateTimer(self,@PeriodicCheck, 500);
+      Send(poRoom,@SetRoomFlag,#flag=ROOM_NO_MAGIC,#value=TRUE);
+      
       // See if there's a Jala song going on and try to kill it
       // Format of lJalaInfo is: [timer, spell object, state]
       lJalaInfo = Send(oRoom,@GetJalaInfo);
@@ -115,10 +123,28 @@ messages:
       return TRUE;
    }
 
+   PeriodicCheck()
+   {
+      if poRoom <> Send(poCaster,@GetOwner)        // 1) left the room
+         OR Send(poCaster,@GetMana) <= 10          // 2) no mana
+         OR Send(poCaster,@IsInCannotInteractMode) // 3) phased
+      {
+         Send(poRoom,@RemoveEnchantment,#what=self);
+         Send(self,@EndEnchantment,#who=poCaster);
+         Send(self,@EndSpell,#where=poRoom);
+         Send(poRoom,@SetRoomFlag,#flag=ROOM_NO_MAGIC,#value=FALSE);
+
+         return;
+      }
+
+      ptPeriodicCheck = CreateTimer(self,@PeriodicCheck,500);
+      return;
+   }
+
    StartPeriodicEnchantment(where=$, state=$)
    "Sends enchantment message to room like CastSpell for most room enchantments, "
    "but silent, and done as often as necessary"
-    {
+   {
       local oCaster;
 
       oCaster = First(state);
@@ -137,16 +163,6 @@ messages:
       return;
    }
 
-   BreakTrance(event=$)
-   {
-      if event = EVENT_ATTACK
-      {
-         return FALSE;
-      }
-
-      propagate;
-   }
-
    EndSpell(where = $, state = $)
    "Called when spell expires."
    {
@@ -158,25 +174,6 @@ messages:
    SpellBannedInArena()
    {
       return TRUE;
-   }
-
-   TranceEnding(who=$,location=$)
-   "Allow maintained spells to do something when their trance breaks."
-   {
-      local oRoom;
-
-      if location = $
-      {
-         oRoom = Send(who,@GetOwner);
-      }
-      else
-      {
-         oRoom = location;
-      }
-
-      Send(oRoom,@RemoveEnchantment,#what=self);
-
-      propagate;
    }
 
 end
