@@ -14,7 +14,7 @@ constants:
 
    include blakston.khd
    
-   MAGIC_RESIST = 50
+   MAGIC_RESIST = 60
 
 resources:
 
@@ -46,7 +46,7 @@ classvars:
 
    viDefault_behavior = AI_FIGHT_AGGRESSIVE | AI_FIGHT_HYPERAGGRESSIVE \
       | AI_FIGHT_SWITCHALOT
-   viVisionDistance = 30
+   viVisionDistance = 1000
    viBaseDifficulty = 8
    viBaseLevel = 250
    viCashmin = 5000

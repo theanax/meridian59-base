@@ -33,6 +33,8 @@ resources:
       "There are too many monsters present here to risk summoning another."
    summonapparition_failed_inanimate = \
       "%s%s has no mind to be tinkered with by your illusion magic."
+   summonapparition_failed_lich = \
+      "Queen Venya'Cyr prevents you from casting this spell here."
    apparition_fizzle = "Your apparition spell fizzles!"
 
    summonapparition_sound = rapparit.ogg
@@ -76,7 +78,7 @@ messages:
 
    CanPayCosts(who=$,lTargets=$,bItemCast = FALSE)
    {
-      local oRoom, oTarget;
+      local i, oRoom, oTarget;
 
       if lTargets  = $
       {
@@ -108,11 +110,21 @@ messages:
       {
          if NOT bItemCast
          {
-            Send(who,@MsgSendUser,#message_rsc=spell_no_self_target,
-                  #parm1=vrName);
+            Send(who,@MsgSendUser,#message_rsc=spell_no_self_target,#parm1=vrName);
          }
 
          return FALSE;
+      }
+
+      foreach i in Send(oRoom,@GetHolderActive)
+      {
+         oTarget = First(i);
+         if IsClass(oTarget,&Lich)
+         {
+            Send(who,@MsgSendUser,#message_rsc=summonapparition_failed_lich);
+
+            return FALSE;
+         }      
       }
 
       propagate;

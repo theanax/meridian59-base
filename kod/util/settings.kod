@@ -26,6 +26,11 @@ properties:
    // Economy controls
    //
 
+   piLichBonusHonorPoints = 1000
+   piLichBonusTrainingPoints = 10000
+   piLichDropRate = 10                 // 10% is default for a god gift
+   piLichSpawnTime = 6 * 60 * 60000    // 6 hours
+   
    // piMoneyFactor: How much money should be given out?  Raise this number to
    //  increase the amount of money given out.
    piMoneyFactor = 2000
@@ -1059,6 +1064,26 @@ messages:
    GetTrainingPointsShareRate()
    {
       return piTrainingPointsShareRate;
+   }
+
+   GetLichBonusHonorPoints()
+   {
+      return piLichBonusHonorPoints;
+   }
+
+   GetLichBonusTrainingPoints()
+   {
+      return piLichBonusTrainingPoints;
+   }
+
+   GetLichDropRate()
+   {
+      return piLichDropRate;
+   }
+
+   GetLichSpawnTime()
+   {
+      return piLichSpawnTime;
    }
 
 end

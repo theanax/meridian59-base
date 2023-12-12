@@ -27,7 +27,7 @@ constants:
    HS_WINGS = 1
 
    // Base percent chance to resist spells.
-   MAGIC_RESIST = 50
+   MAGIC_RESIST = 60
 
 resources:
 
@@ -70,7 +70,7 @@ classvars:
    viSpell_type = SPL_TYPE_FIRE
    viLevel = 200
    viDifficulty = 9
-   viVisionDistance = 28
+   viVisionDistance = 1000
 
    viMeleeRange = 0
 

@@ -14,25 +14,18 @@ constants:
 
    include blakston.khd
 
-   RESPAWN_TIMER = 6 * 60 * 60000  // 6 hours
-
 resources:
 
    include e2.lkod
 
    room_name_OutdoorsE2 = "The Great Ocean"
    room_OutdoorsE2 = e2.roo
-   OutdoorsE2_music = walk7.ogg
+   OutdoorsE2_music = fight.ogg
 
    E2_oceanwalk = \
       "You decide you don't like saltwater enough to go swimming "
       "in the Great Ocean."
    E2_icewalk = "The ice looks a bit too thin to risk going any farther out."
-
-   boss_spawn_rsc = "Queen Venya'cyr has been spotted with her soldiers on the Great Ocean! "
-      "To arms! Gather your forces and stand against the invasion before it's too late..."
-   boss_killed_rsc = "Queen Venya'cyr has been killed! The good citizens "
-      "of Meridian can walk the land in safety once again."
 
 classvars:
 
@@ -41,12 +34,12 @@ classvars:
    viTeleport_row = 19
    viTeleport_col = 32
 
-   viTerrain_type = TERRAIN_FOREST | TERRAIN_BEACH
+   viTerrain_type = TERRAIN_NECROPOLIS | TERRAIN_LAIR
 
    viFlag_row = 63
    viFlag_col = 5
 
-   viWeatherZone = WEATHER_ZONE_BARLOQUE
+   viWeatherZone = WEATHER_ZONE_CV
 
 properties:
 
@@ -83,7 +76,7 @@ messages:
 
    BossGenTimer()
    {
-      local i, bFound, each_obj;
+      local i, bFound, each_obj, iTime;
 
       ptBoss_gen = $;
       bFound = FALSE;
@@ -105,11 +98,10 @@ messages:
                #new_row=viTeleport_row,
                #new_col=viTeleport_col,
                #new_angle=ANGLE_SOUTH_EAST);
-
-         Broadcast(boss_spawn_rsc);
       }
 
-      ptBoss_gen = CreateTimer(self,@BossGenTimer,1*RESPAWN_TIMER);
+      iTime = Send(SETTINGS_OBJECT,@GetLichSpawnTime);
+      ptBoss_gen = CreateTimer(self,@BossGenTimer,iTime);
 
       return;
    }
@@ -180,18 +172,6 @@ messages:
       Send(self,@NewHold,#what=Create(&OrnamentalObject,#type=OO_TALLTREE2),
            #new_row=40,#new_col=71);
 
-      propagate;
-   }
-
-   SomethingKilled(what=$,victim=$)
-   {
-      if victim <> $ AND what <> $
-         AND IsClass(victim,&Lich)
-         AND IsClass(what,&Player)
-      {
-         Broadcast(boss_killed_rsc);
-      }
-         
       propagate;
    }
 
