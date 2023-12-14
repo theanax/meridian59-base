@@ -142,17 +142,7 @@ messages:
 
    AddToTreasureTable()
    {
-      /// 10// chance at every level of getting a cursed weapon
-      local i;
-
-      i = 1;
-      while i < 11
-      {
-         Send(SYS,@AddToItemAttTreasureTable,#diff=i,#percent=10,
-               #iItemAtt=viItem_Att_Num);
-         ++i;
-      }
-
+      // Attribute will not be added to normal treasure tables.
       return;
    }
 
