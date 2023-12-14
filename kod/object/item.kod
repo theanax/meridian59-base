@@ -1043,7 +1043,7 @@ messages:
 
    NewUsed()
    {
-      local i, iNum, iSpeed;
+      local i, iNum, iBonus;
 
       Send(self,@DoPlayerArt);
       if IsClass(poOwner,&Player)
@@ -1054,12 +1054,14 @@ messages:
       foreach i in plItem_Attributes
       {
          iNum = Send(self,@GetNumFromCompound,#compound=First(i));
-         if (iNum = IA_MOVESPEED)
+         iBonus = (First(i) / 10) % 10;
+         if iNum = IA_MOVESPEED
          {
-            // TranslatePowerFromCompound from ItemAtt.
-            // Avoid looking up the itematt object here.
-            iSpeed = (First(i) / 10) % 10;
-            Send(poOwner,@AddMovementSpeedPercent,#iSpeed=iSpeed);
+            Send(poOwner,@AddMovementSpeedPercent,#iSpeed=iBonus);
+         }
+         else if iNum = IA_RESIST
+         {
+            Send(poOwner,@AddMagicResistPercent,#iResist=iBonus);
          }
       }
 
@@ -1118,19 +1120,22 @@ messages:
 
    NewUnused()
    {
-      local i, iNum, iSpeed;
+      local i, iNum, iBonus;
 
       Send(self,@UndoPlayerArt);
 
       foreach i in plItem_Attributes
       {
          iNum = Send(self,@GetNumFromCompound,#compound=First(i));
+         iBonus = (First(i) / 10) % 10;
+
          if (iNum = IA_MOVESPEED)
          {
-            // TranslatePowerFromCompound from ItemAtt.
-            // Avoid looking up the itematt object here.
-            iSpeed = (First(i) / 10) % 10;
-            Send(poOwner,@AddMovementSpeedPercent,#iSpeed=-iSpeed);
+            Send(poOwner,@AddMovementSpeedPercent,#iSpeed=-iBonus);
+         }
+         else if (iNum = IA_RESIST)
+         {
+            Send(poOwner,@AddMagicResistPercent,#iResist=-iBonus);
          }
       }
 

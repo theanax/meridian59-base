@@ -7,7 +7,7 @@
 DEPEND = ..\monsroom.bof
 
 BOFS =  badland1.bof a5.bof a6.bof c4.bof c6.bof castle1b.bof d4.bof d5.bof \
-        e2.bof e4.bof e5.bof e7.bof f2.bof f3.bof f4.bof f6.bof f7.bof \
+        e4.bof e5.bof e7.bof f2.bof f3.bof f4.bof f6.bof f7.bof \
         forest2.bof forest3.bof forest4.bof g4.bof g5.bof g6.bof g8.bof \
         g9.bof h3.bof h5.bof h6.bof h7.bof i3.bof i6.bof i7.bof i8.bof i9.bof \
         nest1.bof objroom.bof throne1.bof toscrypt.bof tosgrave.bof \

@@ -262,6 +262,9 @@ properties:
    // Keeps track of the summoning magic the player is currently maintaining.
    piActiveSummons = 0
 
+   // Active magic resistance from special gear
+   piMagicResistancePercent = 0
+
 messages:
 
    // The first lump of code here deals with resistances and immunities/etc.
@@ -394,6 +397,11 @@ messages:
                            #resistance_list=lCurResist,
                            #iState=Nth(Nth(oEnchantment,3),5));
       }
+
+      lCurResist = Send(SYS,@AddResistance,
+         #what=-SPL_TYPE_ALL, 
+         #value=piMagicResistancePercent,
+         #resistance_list=lCurResist);
 
       return lCurResist;
    }
@@ -4146,6 +4154,25 @@ messages:
 
    GetIllusionSet()
    {
+      return;
+   }
+
+   AddMagicResistPercent(iResist=0)
+   {
+      piMagicResistancePercent += iResist;
+
+      return;
+   }
+
+   GetMagicResistancePercent()
+   {
+      return piMagicResistancePercent;
+   }
+
+   ResetMagicResistancePercent()
+   {
+      piMagicResistancePercent = 0;
+
       return;
    }
 

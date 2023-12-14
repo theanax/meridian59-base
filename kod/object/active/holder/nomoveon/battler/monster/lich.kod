@@ -120,25 +120,36 @@ classvars:
    vbCanPoison = FALSE
    vbCanBleed = FALSE
 
-   // Very, very used to dark places.
    viNightVision = 255
 
 properties:
 
    piAnimation = ANIM_NONE
-   plAttackers = $  // [player,player....]
+   plAttackers = $
 
    pbIllusioned = TRUE
    ptGoIllusioned = $
 
    piReputationGroup = REP_LICH
 
+   plTreasure = $
+
 messages:
 
    Constructed()
    {
+      local iCharmDropRate;
+
       piMax_Health = piMax_Health * 2;
       piHealth = piMax_Health * 100;
+
+      plActions =  [ [SID_VAMPIRIC_DRAIN,100,0,65536,0,200,99,COMBAT_ACTION_HARM],
+                     [SID_HOLD,100,0,16384,0,600,99,COMBAT_ACTION_HARM],
+                     [SID_BLIND,500,0,MAX_KOD_INT,0,1200,99,COMBAT_ACTION_HARM],
+                     [SID_CURSE_WEAPON,200,0,16384,0,600,99,COMBAT_ACTION_HARM],
+                     [SID_DARKNESS,0,0,MAX_KOD_INT,1000,0,99,COMBAT_ACTION_NEUTRAL] ];
+      
+      plReputationEnemies = [REP_FAROL];
 
       plResistances = [ [-SPL_TYPE_ALL, 60],
                         [ATK_TYPE_ALL, 60],
@@ -153,15 +164,25 @@ messages:
                         [-SPL_TYPE_HOLY, -40 ],
                         [-SPL_TYPE_HUNTERSWORD, -90 ]
                       ];
-
-      plReputationEnemies = [REP_FAROL];
-
-      plActions =  [ [SID_VAMPIRIC_DRAIN,100,0,65536,0,200,99,COMBAT_ACTION_HARM],
-                     [SID_HOLD,100,0,16384,0,600,99,COMBAT_ACTION_HARM],
-                     [SID_BLIND,500,0,MAX_KOD_INT,0,1200,99,COMBAT_ACTION_HARM],
-                     [SID_CURSE_WEAPON,200,0,16384,0,600,99,COMBAT_ACTION_HARM],
-                     [SID_DARKNESS,0,0,MAX_KOD_INT,1000,0,99,COMBAT_ACTION_NEUTRAL] ];
                      
+      iCharmDropRate = Send(SETTINGS_OBJECT,@GetLichCharmDropRate);
+      plTreasure = [ [ &LeatherArmor,  30 ],
+                     [ &ChainArmor,    25 ],
+                     [ &ScaleArmor,    20 ],
+                     [ &PlateArmor,    15 ],
+                     [ &OrcShield,     10 ],
+                     [ &GuildShield,   10 ],
+                     [ &Circlet,       30 ],
+                     [ &IvyCirclet,    20 ],
+                     [ &Scimitar,      25 ],
+                     [ &MysticSword,   20 ],
+                     [ &FarenCharm,    iCharmDropRate ],
+                     [ &KraananCharm,  iCharmDropRate ],
+                     [ &QorCharm,      iCharmDropRate ],
+                     [ &RiijaCharm,    iCharmDropRate ],
+                     [ &ShalilleCharm, iCharmDropRate ]
+                   ];
+
       Broadcast(lich_spawn_rsc);
 
       propagate;
@@ -192,6 +213,95 @@ messages:
       return FALSE;
    }
    
+   CreateTreasure(who=$,corpse=$)
+   {
+      local i, oType, iChance, oItem, iCount, iMax, iNum;
+
+      iCount = 0;
+      iMax = Send(SETTINGS_OBJECT,@GetLichItemDropCount);
+      
+      while iCount < iMax
+      {
+         foreach i in plTreasure
+         {
+            oType = Nth(i,1); 
+            iChance = Nth(i,2);
+            iNum = 0;
+
+            if Random(1,100) <= iChance
+            {   
+               oItem = Create(oType);
+               
+               if IsClass(oItem,&DefenseModifier)
+                  OR IsClass(oItem,&Necklace)
+               {
+                  iNum = IA_RESIST;
+               }
+               else if IsClass(oItem,&Weapon)
+               {
+                  if Random(1,100) <= 33
+                  {
+                     iNum = WA_BLINDER;
+                  }
+                  if Random(1,100) <= 33
+                  {
+                     iNum = WA_PARALYZER;
+                  }
+                  if Random(1,100) <= 33
+                  {
+                     iNum = WA_PURGER;
+                  }
+               }
+
+               Send(self,@CreateTreasureBonus,#what=oItem,#itemAttNum=iNum);
+               Send(self,@CreateTreasureDrop,#what=oItem,#corpse=corpse);
+               ++iCount;
+            }
+         }
+      }
+
+      propagate;
+   }
+
+   CreateTreasureBonus(what=$,itemAttNum=0,corpse=$)
+   {
+      local oAttr;
+
+      if itemAttNum > 0
+      {
+         oAttr = Send(SYS,@FindItemAttByNum,#num=itemAttNum);
+         if oAttr <> $
+         AND Send(oAttr,@ReqAddToItem,#oItem=what)
+         {
+            Send(oAttr,@AddToItem,#oItem=what,#state1=corpse);
+         }
+      }
+
+      return;
+   }
+
+   CreateTreasureDrop(what=$)
+   {
+      if Send(poOwner,@ReqNewHold,
+            #what=what,
+            #new_row=piRow,
+            #new_col=piCol)
+      {
+         Send(poOwner,@NewHold,
+            #what=what,
+            #new_row=piRow,
+            #new_col=piCol,
+            #fine_row=piFine_row,
+            #fine_col=piFine_col);
+      }
+      else
+      {
+         Send(what,@Delete);
+      }
+
+      return;
+   }
+
    Delete()
    {
       plAttackers = $;
@@ -312,24 +422,6 @@ messages:
       Send(poOwner,@SomethingChanged,#what=self);
 
       return;
-   }
-
-   ReqLeaveHold(what=$)
-   {
-      local i;
-
-      if plAttackers <> $
-      {
-         foreach i in plAttackers
-         {
-            if what = i
-            {
-               return TRUE;
-            }
-         }
-      }
-
-      return FALSE;
    }
 
    SendProjectileAnimation()

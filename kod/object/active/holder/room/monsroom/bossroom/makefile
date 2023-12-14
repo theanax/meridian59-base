@@ -6,7 +6,7 @@
 
 DEPEND = ..\bossroom.bof
 
-BOFS =  orcpit1.bof sewking.bof
+BOFS =  orcpit1.bof sewking.bof e2.bof
 
 
 !include $(KODDIR)\kod.mak

@@ -20,31 +20,10 @@ classvars:
 
 properties:
 
-   piItem_att_chance = 400
+   piItem_att_chance = 80
    piDiff_seed = 10
 
 messages:
-
-   Constructed()
-   {
-      local iDropRate;
-
-      iDropRate = Send(SETTINGS_OBJECT,@GetLichDropRate);
-
-      plTreasure = [ [ &Circlet,       10 ],
-                     [ &IvyCirclet,    10 ],
-                     [ &Scimitar,      10 ],
-                     [ &MysticSword,   10 ],
-                     [ &PlateArmor,    10 ],
-                     [ &TrueLute,      10 ],
-                     [ &JalaNecklace,  10 ],
-                     [ &OrcShield,     10 ],
-                     [ &GuildShield,   10 ],
-                     [ &Gift,          iDropRate ]
-                   ];
-
-      propagate;
-   }
 
 end
 ////////////////////////////////////////////////////////////////////////////////

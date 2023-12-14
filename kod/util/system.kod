@@ -3676,6 +3676,9 @@ messages:
       Send(self,@CreateOneItemAttIfNew,#num=IA_PKPOINTER,#class=&ItemAttPKPointer);
       Send(self,@CreateOneItemAttIfNew,#num=IA_CORPSEPOINTER,#Class=&ItemAttCorpsePointer);
 
+      // Add epic sstuff ;-)
+      Send(self,@CreateOneItemAttIfNew,#num=IA_RESIST,#class=&ItemAttResist);
+
       return;
    }
 
