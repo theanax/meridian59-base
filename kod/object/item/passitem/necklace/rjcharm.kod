@@ -18,7 +18,7 @@ constants:
    include blakston.khd
 
    AGILITY_CHANGE = 5
-   INTELLECT_CHANGE = 2
+   MYSTICISM_CHANGE = 2
 
 resources:
 
@@ -52,7 +52,7 @@ properties:
 
    pbIn_use = FALSE
 
-   piIntellect_change = INTELLECT_CHANGE
+   piMysticism_change = MYSTICISM_CHANGE
    piAgility_change = AGILITY_CHANGE
 
    piDisp_hits = 0
@@ -75,10 +75,10 @@ messages:
 
    NewUsed(what = $)
    "When the charm is put on, the wearer gets a moderate bonus to both "
-   "Intellect and Agility."
+   "Mysticism and Agility."
    {
       piAgility_change = Send(what,@AddAgility,#points=AGILITY_CHANGE);
-      piIntellect_change = Send(what,@AddIntellect,#points = INTELLECT_CHANGE);
+      piMysticism_change = Send(what,@AddMysticism,#points = MYSTICISM_CHANGE);
 
       if Random(1,5) = 3   /// 20// chance
       {
@@ -92,7 +92,7 @@ messages:
    "When something that can break the curse unuses the item"
    {
       Send(what,@AddAgility,#points=-piAgility_change);
-      Send(what,@AddIntellect,#points=-piIntellect_change);
+      Send(what,@AddMysticism,#points=-piMysticism_change);
 
       propagate;
    }
