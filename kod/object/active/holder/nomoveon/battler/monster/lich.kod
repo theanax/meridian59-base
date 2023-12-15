@@ -387,7 +387,7 @@ messages:
       return FALSE;
    }
 
-   Killed(what=$)
+   Killed(what=$,resetScenario=FALSE,guildDisbandDeath=FALSE)
    {
       local i, iBonusTP, iBonusHP;
 
@@ -406,6 +406,11 @@ messages:
       Broadcast(lich_killed_rsc);
       
       propagate;
+   }
+
+   NecroMancerRosterReply(oNecro=$)
+   {
+      return;
    }
 
    ReplaceIllusions()

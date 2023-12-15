@@ -81,7 +81,7 @@ resources:
       "I asked of you?  Oh yes, you were to slay %INDEF_MONSTER%MONSTER.  Go "
       "do that and I will teach you.  No arguing now.  Go now or we shall "
       "both grow old and die before you can learn the majesty of the "
-      "scimitar.  Slay another %MONSTER."
+      "scimitar.  Slay a %MONSTER."
    scimitarlearn_success_4 = \
       "Finally.  The first thing I must teach you is to snap to it.  Come "
       "to me and we shall begin to learn how to effectively use the greatest "
@@ -161,10 +161,10 @@ messages:
       {
          Debug("Error building QN: QNT_ID_SCIMITAR_PUPIL_TWO");
       }
-      // Template #47 is scimitar learn quest, kill Yeti
+      // Template #47 is scimitar learn quest, kill troll
       // QNT_ID_SCIMITAR_PUPIL_THREE
       if Send(oQE,@AddQuestNodeTemplate,#questnode_type=QN_TYPE_MONSTER,
-               #NPC_modifier=QN_NPCMOD_SAME,#monsterlist=[&Yeti],
+               #NPC_modifier=QN_NPCMOD_SAME,#monsterlist=[&Troll],
                #timelimit=piTimeLimit,#quest_node_index=QNT_ID_SCIMITAR_PUPIL_THREE)
       {
          Send(oQE,@SetQuestNodeAssignHint,#index=QNT_ID_SCIMITAR_PUPIL_THREE,
@@ -177,10 +177,10 @@ messages:
          Debug("Error building QN: QNT_ID_SCIMITAR_PUPIL_THREE");
       }
 
-      // Template #48 is scimitar learn quest, kill Yeti... again.
+      // Template #48 is scimitar learn quest, kill tusked skeleton
       // QNT_ID_SCIMITAR_PUPIL_FOUR
       if Send(oQE,@AddQuestNodeTemplate,#questnode_type=QN_TYPE_MONSTER,
-               #NPC_modifier=QN_NPCMOD_SAME,#monsterlist=[&Yeti],
+               #NPC_modifier=QN_NPCMOD_SAME,#monsterlist=[&TuskedSkeleton],
                #prizelist=[ [ QN_PRIZETYPE_ITEM_ENUM, QN_PRIZE_ITEM_DURABLESCIM ] ],
                #timelimit=piTimeLimit,#quest_node_index=QNT_ID_SCIMITAR_PUPIL_FOUR)
       {
