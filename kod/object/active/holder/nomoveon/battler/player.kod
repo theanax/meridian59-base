@@ -9284,15 +9284,23 @@ messages:
 
             if monster_level > 149
             {
-               piTraining_points = piTraining_points + 5;
+               piTraining_points = piTraining_points + 8;
+            }
+            else if monster_level > 139
+            {
+               piTraining_points = piTraining_points + 7;
             }
             else if monster_level > 119
             {
-               piTraining_points = piTraining_points + 4;
+               piTraining_points = piTraining_points + 6;
             }
              else if monster_level > 99
             {
-               piTraining_points = piTraining_points + 3;
+               piTraining_points = piTraining_points + 5;
+            }
+            else if monster_level > 89
+            {
+               piTraining_points = piTraining_points + 4;
             }
              else if monster_level > 74
             {

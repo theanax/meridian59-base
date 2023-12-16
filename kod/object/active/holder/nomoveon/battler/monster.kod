@@ -5310,13 +5310,15 @@ messages:
 	    if NOT IsClass(self,&Brambles)
 	    {
 	       val = viLevel * Send(SETTINGS_OBJECT,@GetTrainingPointsPerKillRate) / 100;
-	       val = Bound(val, 1, 20);
-          vaL = val - 1; //stop afk farming abuse
-          Send(what,@AddTrainingPoints,#points=val,#report=TRUE);
-        }
+         if viLevel < 50  
+         {
+            val = 0;  
+         }
+	       val = Bound(val, 0, 20);
+         Send(what,@AddTrainingPoints,#points=val,#report=TRUE);
 
          // Delete here so we don't accidentally "kill" then delete system
-         //  template monsters.
+         // template monsters.
          Send(self,@Delete);
       }
 
