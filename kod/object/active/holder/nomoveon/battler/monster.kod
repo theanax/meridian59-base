@@ -5305,21 +5305,22 @@ messages:
                }
             }
             Send(self,@CreateTreasure,#who=what,#corpse=oBody);
-        }
-
-	    if NOT IsClass(self,&Brambles)
-	    {
-	       val = viLevel * Send(SETTINGS_OBJECT,@GetTrainingPointsPerKillRate) / 100;
-         if viLevel < 50  
-         {
-            val = 0;  
          }
-	       val = Bound(val, 0, 20);
-         Send(what,@AddTrainingPoints,#points=val,#report=TRUE);
 
-         // Delete here so we don't accidentally "kill" then delete system
-         // template monsters.
-         Send(self,@Delete);
+	      if NOT IsClass(self,&Brambles)
+	      {
+	         val = viLevel * Send(SETTINGS_OBJECT,@GetTrainingPointsPerKillRate) / 100;
+            if viLevel < 50  
+            {
+               val = 0;  
+            }
+	         val = Bound(val, 0, 20);
+            Send(what,@AddTrainingPoints,#points=val,#report=TRUE);
+
+            // Delete here so we don't accidentally "kill" then delete system
+            // template monsters.
+            Send(self,@Delete);
+         }
       }
 
       return;
