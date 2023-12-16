@@ -1647,6 +1647,7 @@ messages:
       local oTarget;
 
       if (piRoom_flags & ROOM_NO_MAGIC)
+         AND NOT IsClass(oSpell,&Phase)
       {
          Send(who,@MsgSendUser,#message_rsc=room_no_magic_allowed);
 
