@@ -93,7 +93,7 @@ messages:
       
       poCaster = who;
       poRoom = oRoom;
-      ptPeriodicCheck = CreateTimer(self,@PeriodicCheck, 500);
+      ptPeriodicCheck = CreateTimer(self,@PeriodicCheck, 50);
       Send(poRoom,@SetRoomFlag,#flag=ROOM_NO_MAGIC,#value=TRUE);
       
       // See if there's a Jala song going on and try to kill it
@@ -137,7 +137,7 @@ messages:
          return;
       }
 
-      ptPeriodicCheck = CreateTimer(self,@PeriodicCheck,500);
+      ptPeriodicCheck = CreateTimer(self,@PeriodicCheck,50);
       return;
    }
 
