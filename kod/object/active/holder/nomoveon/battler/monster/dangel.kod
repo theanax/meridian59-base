@@ -114,8 +114,8 @@ messages:
                         [ ATK_TYPE_MAGIC, -5 ]
                       ];
       plActions =  [ [SID_BLIND],[SID_EVIL_TWIN], [SID_HOLD],
-                     [SID_REFLECTION], [SID_DISCORDANCE],
-                     [SID_ENFEEBLE], [SID_FORGET],
+                     [SID_DISCORDANCE],
+                     [SID_ENFEEBLE],
                      [SID_DARKNESS,0,0,MAX_KOD_INT,1000,0,99,COMBAT_ACTION_NEUTRAL] ];
       propagate;
    }

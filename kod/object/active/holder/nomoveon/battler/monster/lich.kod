@@ -89,7 +89,7 @@ classvars:
    viTreasure_type = TID_LICH
    viSpeed = SPEED_FAST
    viSpell_type = SPL_TYPE_UNHOLY
-   viLevel = 300
+   viLevel = 400
    viDifficulty = 10
    viVisionDistance = 1000
    viMeleeRange = 128
@@ -106,16 +106,16 @@ classvars:
    vrSound_aware = lich_sound_aware
    vrSound_death = lich_sound_death
 
-   viPoisonChance = 5
-   viPoisonStrength = 1000
-   viPoisonDuration = 3600000
+   viPoisonChance = 20
+   viPoisonStrength = 4000
+   viPoisonDuration = 4000
    viPoisonHealth = 100
    viPoisonVigor = 20
    viBleedChance = 20
    viBleedStrength = 4000
    viBleedDuration = 4000
    viMovePriority = 300
-   viPowerLevel = 200
+   viPowerLevel = 300
 
    vbCanPoison = FALSE
    vbCanBleed = FALSE
@@ -140,7 +140,7 @@ messages:
    {
       local iCharmDropRate;
 
-      piMax_Health = piMax_Health * 2;
+      piMax_Health = piMax_Health * 3;
       piHealth = piMax_Health * 100;
 
       plActions =  [ [SID_VAMPIRIC_DRAIN,100,0,65536,0,200,99,COMBAT_ACTION_HARM],
@@ -389,9 +389,8 @@ messages:
 
    Killed(what=$,resetScenario=FALSE,guildDisbandDeath=FALSE)
    {
-      local i, iBonusTP, iBonusHP;
+      local i, iBonusTP;
 
-      iBonusHP = Send(SETTINGS_OBJECT,@GetLichBonusHonorPoints);
       iBonusTP = Send(SETTINGS_OBJECT,@GetLichBonusTrainingPoints);
 
       foreach i in plAttackers
@@ -399,7 +398,6 @@ messages:
          if IsClass(i,&Player)
          {
             Send(i,@AddTrainingPoints,#points=iBonusTP,#bCap=FALSE);
-            Send(i,@AddHonorPoints,#who=i,#honor=iBonusHP);
          }
       }
 
