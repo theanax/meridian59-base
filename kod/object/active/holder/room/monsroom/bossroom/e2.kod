@@ -54,15 +54,16 @@ properties:
 
    piDirectional_percent = DIRECTIONAL_PERCENT_OUTDOORS
 
-   piGen_time = 10000
+   piGen_time = 20000
    piGen_percent = 100
 
-   piInit_count_min = 10
-   piInit_count_max = 15
+   piInit_count_min = 6
+   piInit_count_max = 10
 
    piMonster_count_max = 15
 
    pbRespawnMonsters = TRUE
+   piChaosZone = TRUE
 
 messages:
 
@@ -81,20 +82,48 @@ messages:
 
       propagate;
    }
+
+   LastUserLeft()
+   {
+      local i, oBoss, oMob, oSpell, iRow, iCol, iIndex;
+
+      Send(self,@Teleport,#what=First(plBoss));
+
+      while plHenchmen <> $
+      {
+         Post(First(plHenchmen),@Delete);
+         plHenchmen = Rest(plHenchmen);
+      }
+
+      iIndex = Length(plGenerators);
+      foreach i in plHenchmenTemplate
+      {
+         oMob = Create(First(i));
+         iRow = Nth(i,2);
+         iCol = Nth(i,3);
+         ++iIndex;
+         Send(self,@NewHold,#what=oMob,#new_row=iRow,#new_col=iCol);
+         Send(oMob,@SetMaster,#oMaster=First(plBoss));
+         Send(oMob,@SetSpawnLoc,#iRow=iRow,#iCol=iCol,#iIndex=iIndex);
+         plHenchmen = Cons(oMob, plHenchmen);
+      }
    
+      propagate;
+   }
+
    SetupBossTemplates()
    {
       plBossTemplate = [ 
          [&Lich,        viTeleport_row, viTeleport_col] 
       ];
 
-      plHenchmenTemplate = [ 
+      plHenchmenTemplate = [
          [&Ghost,       viTeleport_row + 1, viTeleport_col + 1], 
          [&Ghost,       viTeleport_row - 1, viTeleport_col - 1],
          [&DarkAngel,   viTeleport_row + 2, viTeleport_col + 2], 
          [&DarkAngel,   viTeleport_row - 2, viTeleport_col - 2], 
          [&Necromancer, viTeleport_row + 3, viTeleport_col + 3], 
-         [&Necromancer, viTeleport_row - 4, viTeleport_col - 4] 
+         [&Necromancer, viTeleport_row - 3, viTeleport_col - 3] 
       ];
 
       return;
@@ -102,16 +131,8 @@ messages:
 
    SetMonsterGenPoints()
    {
-      plGenerators = [ 
-         [viTeleport_row - 4, viTeleport_col - 4], 
-         [viTeleport_row - 2, viTeleport_col - 2], 
-         [viTeleport_row + 2, viTeleport_col + 2], 
-         [viTeleport_row + 4, viTeleport_col + 4], 
-         [viTeleport_row + 2, viTeleport_col - 2], 
-         [viTeleport_row - 2, viTeleport_col + 2], 
-         [viTeleport_row + 4, viTeleport_col - 4], 
-         [viTeleport_row - 4, viTeleport_col + 4]
-      ];
+      plGenerators = [ [40, 6], [45, 13], [58, 28], [34, 34], [32, 53],
+                       [53, 50], [40, 67], [14, 66], [15, 46], [4, 68] ];
 
       return;
    }
