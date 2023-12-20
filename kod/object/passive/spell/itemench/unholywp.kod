@@ -43,7 +43,7 @@ classvars:
 
    vrEnchantment_type = unholyweapon_label_rsc
 
-   vrSpell_intro =unholyweapon_spell_intro
+   vrSpell_intro = unholyweapon_spell_intro
    viSpell_num = SID_UNHOLY_WEAPON
    viSchool = SS_QOR
 
@@ -58,8 +58,6 @@ messages:
 
    ResetReagents()
    {
-      // Separate message so can change, then set from admin mode
-
       plReagents = $;
       plReagents = Cons([&OrcTooth,1],plReagents);
 
@@ -96,7 +94,7 @@ messages:
          return False;
       }
 
-      propagate;   // Check other things higher up
+      propagate;
    }
 
    DoSpellEffects(who=$,lTargets=$,iSpellPower=0)
@@ -115,7 +113,7 @@ messages:
          return FALSE;
       }
 
-      if NOT Send(oWeapon,@CanEnchant,#oSpell = self)
+      if NOT Send(oWeapon,@CanEnchant,#oSpell=self)
       {
          Send(who,@MsgSendUser,#message_rsc=spell_resists,
                #parm1=Send(oWeapon,@GetCapDef),#parm2=Send(oWeapon,@GetName));
@@ -125,7 +123,7 @@ messages:
 
       if NOT Send(self,@IsTargetInRange,#who=who,#target=oWeapon)
       {
-         Send(who, @MsgSendUser,#message_rsc=spell_out_of_range,
+         Send(who,@MsgSendUser,#message_rsc=spell_out_of_range,
                #parm1=Send(oWeapon,@GetCapDef),#parm2=Send(oWeapon,@GetName));
 
          return FALSE;
@@ -134,7 +132,6 @@ messages:
       oWeapAtt = Send(SYS,@FindItemAttByNum,#num=WA_ATTACKSPELLTYPE);
       oEnchantedWeapAtt = Send(SYS,@FindItemAttByNum,#num=WA_ENCHANTED);
 
-      // Remove any existing enchants before we go on.
       iCurrentSpell = Send(oWeapon,@GetAttributeData,#ItemAtt=WA_ATTACKSPELLTYPE);
       iEnchanted = Send(oWeapon,@GetAttributeData,#ItemAtt=WA_ENCHANTED);
 

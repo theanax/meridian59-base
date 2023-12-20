@@ -57,7 +57,7 @@ classvars:
    viSpell_level = 1
    viMana = 8
    viSpellExertion = 1
-   viCast_time = 0
+   viCast_time = 10000
 
    viChance_To_Increase = 20
    viMeditate_ratio = 10
@@ -93,10 +93,16 @@ messages:
       lPassiveItems = Send(oRoom,@GetplPassive);
       iLenBefore = Length(lPassiveItems);
 
+      if Send(oRoom,@GetChaosZone)
+      {
+         Send(who,@MsgSendUser,#message_rsc=Sweep_Nothing);
+
+         return TRUE;
+      }
+
       if iSpellPower = $
       {
          iSpellPower = 99;
-         Debug("Spell passed iSpellpower = $.  BOO HISS");
       }
 
       iNumDel = Send(self,@GetNumDeleted,#iSpellPower=iSpellPower);
@@ -155,7 +161,6 @@ messages:
       }
 
       iLenAfter = Length(Send(oRoom,@GetplPassive));
-
       if iLenAfter >= iLenBefore
       {
          Send(who,@MsgSendUser,#message_rsc=Sweep_Nothing);

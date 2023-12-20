@@ -41,7 +41,7 @@ classvars:
 
    viWeatherZone = WEATHER_ZONE_CV
 
-   viBossResetTime = 1000 * 60 * 60 * 6 // 6 hours
+   viBossResetTime = 1000 * 60 * 60 * 6
 
 properties:
 
@@ -55,12 +55,12 @@ properties:
    piDirectional_percent = DIRECTIONAL_PERCENT_OUTDOORS
 
    piGen_time = 20000
-   piGen_percent = 100
+   piGen_percent = 70
 
-   piInit_count_min = 6
-   piInit_count_max = 10
+   piInit_count_min = 3
+   piInit_count_max = 5
 
-   piMonster_count_max = 15
+   piMonster_count_max = 10
 
    pbRespawnMonsters = TRUE
    piChaosZone = TRUE
@@ -118,12 +118,9 @@ messages:
       ];
 
       plHenchmenTemplate = [
-         [&Ghost,       viTeleport_row + 1, viTeleport_col + 1], 
-         [&Ghost,       viTeleport_row - 1, viTeleport_col - 1],
+         [&Ghost,       viTeleport_row + 1, viTeleport_col + 1],
          [&DarkAngel,   viTeleport_row + 2, viTeleport_col + 2], 
-         [&DarkAngel,   viTeleport_row - 2, viTeleport_col - 2], 
-         [&Necromancer, viTeleport_row + 3, viTeleport_col + 3], 
-         [&Necromancer, viTeleport_row - 3, viTeleport_col - 3] 
+         [&Necromancer, viTeleport_row + 3, viTeleport_col + 3]
       ];
 
       return;

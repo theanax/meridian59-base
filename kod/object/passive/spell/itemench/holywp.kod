@@ -57,8 +57,6 @@ messages:
 
    ResetReagents()
    {
-      // Separate message so can change, then set from admin mode
-
       plReagents = $;
       plReagents = Cons([&OrcTooth,1],plReagents);
 
@@ -95,7 +93,7 @@ messages:
          return FALSE;
       }
 
-      propagate;   // Check other things higher up
+      propagate;
    }
 
    DoSpellEffects(who=$,lTargets=$,iSpellPower=0)
@@ -133,7 +131,6 @@ messages:
       oWeapAtt = Send(SYS,@FindItemAttByNum,#num=WA_ATTACKSPELLTYPE);
       oEnchantedWeapAtt = Send(SYS,@FindItemAttByNum,#num=WA_ENCHANTED);
 
-      // Remove any existing enchants before we go on.
       iCurrentSpell = Send(oWeapon,@GetAttributeData,#ItemAtt=WA_ATTACKSPELLTYPE);
       iEnchanted = Send(oWeapon,@GetAttributeData,#ItemAtt=WA_ENCHANTED);
 
@@ -148,9 +145,8 @@ messages:
       }
 
       Send(oWeapAtt,@AddToItem,#oItem=oWeapon,#random_gen=FALSE,
-            #state1=SPL_TYPE_HOLY,
             #timer_duration=Send(self,@GetDuration,#iSpellPower=iSpellPower),
-            #state3=Send(self,@GetMakerInfo,#who=who));
+            #state1=SPL_TYPE_HOLY,#state3=Send(self,@GetMakerInfo,#who=who));
 
       Send(who,@MsgSendUser,#message_rsc=holyweapon_cast_rsc,
              #parm1=Send(oWeapon,@GetName));

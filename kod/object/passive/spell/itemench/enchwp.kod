@@ -57,10 +57,8 @@ messages:
 
    ResetReagents()
    {
-      // Separate message so can change, then set from admin mode
-
       plReagents = $;
-      plReagents = Cons([&orctooth,1],plReagents);
+      plReagents = Cons([&OrcTooth,1],plReagents);
 
       return;
    }
@@ -116,7 +114,7 @@ messages:
 
       if NOT Send(oWeapon,@CanEnchant,#oSpell=self)
       {
-        Send(who,@MsgSendUser,#message_rsc=spell_resists,
+         Send(who,@MsgSendUser,#message_rsc=spell_resists,
                #parm1=Send(oWeapon,@GetCapDef),#parm2=Send(oWeapon,@GetName));
 
          return FALSE;
@@ -133,7 +131,6 @@ messages:
       oWeapAtt = Send(SYS,@FindItemAttByNum,#num=WA_ATTACKSPELLTYPE);
       oEnchantedWeapAtt = Send(SYS,@FindItemAttByNum,#num=WA_ENCHANTED);
 
-      // Remove any existing enchants before we go on.
       iCurrentSpell = Send(oWeapon,@GetAttributeData,#ItemAtt=WA_ATTACKSPELLTYPE);
       iEnchanted = Send(oWeapon,@GetAttributeData,#ItemAtt=WA_ENCHANTED);
 
@@ -148,9 +145,8 @@ messages:
       }
 
       Send(oWeapAtt,@AddToItem,#oItem=oWeapon,#random_gen=FALSE,
-            #state1=SPL_TYPE_ALL,
             #timer_duration=Send(self,@GetDuration,#iSpellPower=iSpellPower),
-            #state3=Send(self,@GetMakerInfo,#who=who));
+            #state1=SPL_TYPE_ALL,#state3=Send(self,@GetMakerInfo,#who=who));
 
       Send(who,@MsgSendUser,#message_rsc=enchantedweapon_cast_rsc,
              #parm1=Send(oWeapon,@GetName));

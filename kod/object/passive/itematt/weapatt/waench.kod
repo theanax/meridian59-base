@@ -54,14 +54,10 @@ properties:
 
 messages:
 
-   // Effect Functions
-
    AddSelfToRandomItem(oItem=$,who=$)
    {
       if oItem = $ OR who = $
       {
-         Debug("BAD BAD BAD");
-
          return FALSE;
       }
 
@@ -94,7 +90,7 @@ messages:
 
    TimerExpired(oItem=$,lData=$)
    {
-      SetNth(lData,2,$);   /// timer is gone, now remove reference
+      SetNth(lData,2,$);
       Send(self,@RemoveFromItem,#oItem=oItem,#lData=lData);
 
       return;
@@ -106,15 +102,11 @@ messages:
 
       if oItem = $ OR lData = $
       {
-         Debug("AddEffects failed!");
-
          return FALSE;
       }
 
       if Send(oItem,@CheckTypeFlag,#flag=ATK_TYPE_MAGIC)
       {
-         Debug("This shouldn't have happened!  Adding effect already here!");
-
          return;
       }
 
@@ -130,15 +122,11 @@ messages:
 
       if oItem = $ OR lData = $
       {
-         // Debug("RemoveEffects failed!");
-
          return FALSE;
       }
 
       if not Send(oItem,@CheckTypeFlag,#flag=ATK_TYPE_MAGIC)
       {
-         Debug("This shouldn't have happened!  Removing effect not here!");
-
          return;
       }
 
@@ -149,18 +137,11 @@ messages:
                #parm1=Send(oItem,@GetName));
       }
 
-      Send(oItem,@SetTypeFlag,#flag=ATK_TYPE_MAGIC,#value=False);
-      Send(oItem,@SetTypeFlag,#flag=ATK_TYPE_NONMAGIC,#value=True);
+      Send(oItem,@SetTypeFlag,#flag=ATK_TYPE_MAGIC,#value=FALSE);
+      Send(oItem,@SetTypeFlag,#flag=ATK_TYPE_NONMAGIC,#value=TRUE);
 
       return;
    }
-
-/// moved up to the ItemAtt superclass, where it belongs!!
-//   RemoveFromItem(oItem=$,lData=$)
-//   {
-//      Send(self,@RemoveEffects,#oItem=oItem,#lData=lData);
-//      propagate;
-//   }
 
    InitiallyIdentified()
    {
