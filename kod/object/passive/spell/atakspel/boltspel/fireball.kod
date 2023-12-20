@@ -52,8 +52,8 @@ classvars:
 
 properties:
    
-   piDamageMin = 8
-   piDamageMax = 12
+   piDamageMin = 11
+   piDamageMax = 15
    prSpellHit = fireball_hit_rsc
 
 messages:

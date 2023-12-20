@@ -56,7 +56,7 @@ properties:
 
    piDamage_max = 4
    piDamage_min = 1
-   piOffense = -200
+   piOffense = -100
    pbCanPenetrateGort = TRUE
 
 messages:

@@ -56,16 +56,16 @@ messages:
       return;
    }
 
-   CanPayCosts(who = $, lTargets = $)
-   {
-      if Send(who,@IsEnchanted,#what=self)
-         OR Send(who,@CheckPlayerFlag,#flag=PFLAG_MORPHED)
-      {
-         return TRUE;
-      }
-
-      propagate;
-   }
+   \\CanPayCosts(who = $, lTargets = $)
+   \\{
+   \\  if Send(who,@IsEnchanted,#what=self)
+   \\      OR Send(who,@CheckPlayerFlag,#flag=PFLAG_MORPHED)
+   \\   {
+   \\      return TRUE;
+   \\   }
+\\
+\\      propagate;
+\\   }
 
    GetTranceTime(iSpellpower=0,who=$)
    {
