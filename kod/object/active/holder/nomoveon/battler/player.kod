@@ -13835,7 +13835,7 @@ messages:
          return FALSE;
       }
 
-      if IsClass(oRoom,&GuildHall)
+      if (IsClass(oRoom,&GuildHall) OR RID = RID_E2)
          AND (NOT Send(self,@CanPlayerPvP))
       {
          Send(self,@MsgSendUser,#message_rsc=player_no_enter);

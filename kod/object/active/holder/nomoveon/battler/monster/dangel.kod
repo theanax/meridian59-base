@@ -70,7 +70,7 @@ classvars:
    viSpell_type = SPL_TYPE_FIRE
    viLevel = 200
    viDifficulty = 9
-   viVisionDistance = 1000
+   viVisionDistance = 36
 
    viMeleeRange = 0
 
