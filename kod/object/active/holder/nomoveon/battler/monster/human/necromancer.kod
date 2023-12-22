@@ -158,32 +158,6 @@ messages:
       return;
    }
 
-   DoMeleeAnimation()
-   {
-      local oSpell, lTargets;
-
-      // 10% chance of area attack.
-      if (Random(1,10) = 1)
-      {
-         oSpell = Send(SYS,@FindSpellByNum,#num=SID_SPIRIT_BLAST);
-         lTargets = [poTarget];
-         lTargets = Send(oSpell,@GetTargets,#who=self,#lTargets=lTargets);
-         if Send(oSpell,@CanPayMonsterCosts,#who=self,#lTargets=lTargets,
-                  #iSpellPower=piSpellPower)
-            AND Send(poOwner,@ReqSpellCast,#who=self,#oSpell=oSpell,
-                     #lItems=lTargets)
-         {
-            Send(self,@MonsterCastAnimation);
-            Send(oSpell,@CastSpell,#who=self,#lTargets=lTargets,
-                  #iSpellPower=piSpellPower);
-
-            return;
-         }
-      }
-
-      propagate;
-   }
-
    CreateTreasure(who = $, corpse = $)
    {
       local oItem;

@@ -89,13 +89,12 @@ classvars:
    viTreasure_type = TID_LICH
    viSpeed = SPEED_FAST
    viSpell_type = SPL_TYPE_UNHOLY
-   viLevel = 300
+   viLevel = 350
    viDifficulty = 10
    viVisionDistance = 36
    viMeleeRange = 192
    viFireRange = 640
-   vbSpin = TRUE
-   viSpinAnimationTime = 200
+   vbSpin = FALSE
    viKarma = -100
    vbIsUndead = TRUE
    viDefault_behavior = \
