@@ -35,7 +35,7 @@ classvars:
 
    viSpell_type = SPL_TYPE_ALL+SPL_TYPE_FIRE
 
-   viMana = 7
+   viMana = 8
    viSchool = SS_FAREN
    viSpell_level = 4
 

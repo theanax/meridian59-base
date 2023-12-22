@@ -140,7 +140,7 @@ messages:
    {
       local iCharmDropRate;
 
-      piMax_Health = piMax_Health * 2;
+      piMax_Health = piMax_Health * 3;
       piHealth = piMax_Health * 100;
 
       plActions =  [ [SID_VAMPIRIC_DRAIN,100,0,65536,0,200,99,COMBAT_ACTION_HARM],
