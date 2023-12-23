@@ -1,0 +1,227 @@
+// Meridian 59, Copyright 1994-2012 Andrew Kirmse and Chris Kirmse.
+// All rights reserved.
+//
+// This software is distributed under a license that is described in
+// the LICENSE file that accompanies it.
+//
+// Meridian is a registered trademark.
+
+
+////////////////////////////////////////////////////////////////////////////////
+OutdoorsE2 is MonsterRoom
+
+constants:
+
+   include blakston.khd
+
+resources:
+
+   include e2.lkod
+
+   room_name_OutdoorsE2 = "The Great Ocean"
+   room_OutdoorsE2 = e2.roo
+   OutdoorsE2_music = fight.ogg
+
+   E2_oceanwalk = \
+      "You decide you don't like saltwater enough to go swimming "
+      "in the Great Ocean."
+   E2_icewalk = "The ice looks a bit too thin to risk going any farther out."
+
+classvars:
+
+   vrName = room_name_OutdoorsE2
+
+   viTeleport_row = 19
+   viTeleport_col = 32
+
+   viTerrain_type = TERRAIN_NECROPOLIS | TERRAIN_LAIR
+
+   viFlag_row = 63
+   viFlag_col = 5
+
+   viWeatherZone = WEATHER_ZONE_CV
+
+   viBossResetTime = 1000 * 60 * 60 * 6
+
+properties:
+
+   prRoom = room_OutdoorsE2
+   prMusic = OutdoorsE2_music
+   piRoom_num = RID_E2
+
+   piBaseLight = LIGHT_VERY_DARK
+   piOutside_factor = 0
+
+   piDirectional_percent = DIRECTIONAL_PERCENT_OUTDOORS
+
+   piGen_time = 20000
+   piGen_percent = 70
+
+   piInit_count_min = 4
+   piInit_count_max = 8
+
+   piMonster_count_max = 15
+
+   ptBoss_gen = $
+   pbBossCanSpawn = TRUE
+
+messages:
+
+   Constructor()
+   {
+      plMonsters = [ [&Necromancer, 50], [&DarkAngel, 25], [&Ghost, 25] ];
+
+      propagate;
+   }
+
+   BossCanSpawn()
+   {
+      pbBossCanSpawn = TRUE;
+   
+      return;
+   }
+
+   CreateBoss()
+   {
+      local i, bFound, oTarget;
+      
+      bFound = FALSE;
+      foreach i in plActive
+      {
+         oTarget = Send(self,@HolderExtractObject,#data=i);
+         if IsClass(oTarget,&Lich)
+         {
+            bFound = TRUE;
+         }
+      }
+
+      if plActive <> $
+         AND bFound=FALSE
+         AND pbBossCanSpawn
+      {
+         Send(self,@NewHold,#what=Create(&Lich),
+               #new_row=viTeleport_row,
+               #new_col=viTeleport_col,
+               #new_angle=ANGLE_SOUTH_EAST);
+               
+         pbBossCanSpawn = FALSE;
+      }
+      
+      return;
+   }
+
+   CreateHenchmen()
+   {
+      local i, iIndex, iNum, oTarget;
+
+      iNum = 0;
+      foreach i in plActive
+      {
+         oTarget = Send(self,@HolderExtractObject,#data=i);
+         if IsClass(oTarget,&Monster)
+         {
+            ++iNum;
+         }
+      }
+      iNum = piInit_count_min - iNum;
+
+      iIndex = 0;      
+      while iNum > 0
+      {
+
+         if iIndex = 0
+         {
+            oTarget = Create(&Necromancer);
+         } 
+         else if iIndex = 1
+         {
+            oTarget = Create(&DarkAngel);
+         }
+         else if iIndex = 2
+         {
+            oTarget = Create(&Ghost);
+            iIndex = 0;
+         }
+         
+         Send(self,@NewHold,
+            #what=oTarget,
+            #new_row=viTeleport_row + Random(1,5),
+            #new_col=viTeleport_col + Random(1,5)
+         );
+
+         ++iIndex;
+         --iNum;
+      }
+
+      return;
+   }
+
+   CreateStandardExits()
+   {
+      plEdge_Exits = $;
+      plEdge_Exits = Cons([LEAVE_EAST, RID_F2, 21, 3, ROTATE_NONE], plEdge_exits);
+      plEdge_Exits = Cons([LEAVE_SOUTH, RID_D4, 1, 23, ROTATE_NONE], plEdge_exits);
+
+      propagate;
+   }
+
+   Delete()
+   {
+      if ptBoss_gen <> $
+      {
+         DeleteTimer(ptBoss_gen);
+         ptBoss_gen = $;
+      }
+
+      propagate;
+   }
+
+   FirstUserEntered()
+   {
+      Send(self,@CreateBoss);
+      Send(self,@CreateHenchmen);
+
+      propagate;
+   }
+
+   LastUserLeft()
+   {
+      local i, oTarget;
+
+      foreach i in plActive
+      {
+         oTarget = Send(self,@HolderExtractObject,#data=i);
+         if IsClass(oTarget,&Lich)
+         {
+            Send(self,@Teleport,#what=oTarget);
+            Send(oTarget,@SetMaxHitPoints,#amount=Send(oTarget,@GetMaxHealth));
+         }   
+      }
+
+      propagate;
+   }
+
+   SetMonsterGenPoints()
+   {
+      plGenerators = [ [40, 6], [45, 13], [58, 28], [34, 34], [32, 53],
+                       [53, 50], [40, 67], [14, 66], [15, 46], [4, 68] ];
+
+      return;
+   }
+
+   SomethingKilled(what = $,victim = $)
+   {
+      if IsClass(victim,&Lich)
+      {
+         if ptBoss_gen <> $
+         {
+            DeleteTimer(ptBoss_gen);
+            ptBoss_gen = CreateTimer(self,@BossCanSpawn,viBossResetTime);
+         }  
+      }
+
+      propagate;
+   }
+
+end
+////////////////////////////////////////////////////////////////////////////////

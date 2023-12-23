@@ -20,19 +20,16 @@ classvars:
 
 properties:
 
-   piItem_att_chance = 20
+   piItem_att_chance = 80
    piDIff_seed = 9
 
 messages:
 
    Constructed()
    {
-      plTreasure = [ [ &YellowMushroom, 10 ],
-                     [ &GrayMushroom, 30 ],
-                     [ &CyanMushroom, 10 ],
-                     [ &GreenMushroom, 30 ],
-                     [ &PurpleMushroom, 20 ]
-                  ];
+      plTreasure = [
+         [ &IceArrow, 5 ]
+      ];
 
       propagate;
    }

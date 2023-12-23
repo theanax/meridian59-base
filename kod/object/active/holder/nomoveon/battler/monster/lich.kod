@@ -43,30 +43,17 @@ resources:
    lich_respel = \
       "The lich queen's ghastly appearance is once more cloaked in illusion."
 
-   lich_dead_icon_rsc = lichbx.bgf
-   lich_dead_name_rsc = "The ghost of Queen Venya'cyr"
-
    lich_sound_miss = lich_atk.ogg
    lich_sound_death = lich_dth.ogg
    lich_sound_aware = lich_awr.ogg
 
    lich_cast_sound = necro01.ogg
 
-   lich_blank = ""
-   lich_comma = ", "
-   lich_and = " and "
-   lich_has = "has"
-   lich_have = "have"
-   lich_killed_world_saved = \
-      "~B%s has struck down the Dark Queen Venya'cyr, ridding Meridian of "
-      "the evil Order of Necromancers!\nThanks to %q%s%q, the good citizens "
-      "of Meridian can walk the land in safety once again, knowing that "
-      "%q%s%q %s perished along with the undead queen."
-
    lich_spit = lightnin.bgf
 
    lich_spawn_rsc = "Queen Venya'cyr has been spotted with her soldiers on the Great Ocean! "
       "To arms! Gather your forces and stand against the invasion before it's too late..."
+   
    lich_killed_rsc = "Queen Venya'cyr has been killed! The good citizens "
       "of Meridian can walk the land in safety once again."
 
@@ -80,8 +67,7 @@ classvars:
    vrName2 = lich_name_rsc
    vrIcon2 = lich_icon_rsc
    vrDesc2 = lich_desc_rsc
-   vrDead_icon = lich_dead_icon_rsc
-   vrDead_name = lich_dead_name_rsc
+   
    viDefinite = ARTICLE_NONE
    viIndefinite = ARTICLE_NONE
    viGender = GENDER_FEMALE
