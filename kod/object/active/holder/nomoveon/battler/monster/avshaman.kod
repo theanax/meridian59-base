@@ -79,8 +79,8 @@ classvars:
    viSpell_type = SPL_TYPE_QUAKE
    viSpeed = SPEED_SLOW
    viDefault_behavior = AI_FIGHT_AGGRESSIVE | AI_MOVE_OPTIMAL_RANGE
-   viLevel = 120
-   viDifficulty = 8
+   viLevel = 140
+   viDifficulty = 7
    viVisionDistance = 22
 
    // Attack range of 320, or 5 row/col.

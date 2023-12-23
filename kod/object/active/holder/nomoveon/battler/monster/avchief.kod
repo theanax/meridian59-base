@@ -81,7 +81,7 @@ classvars:
    viAttack_type = ATK_TYPE_PIERCE
    viSpeed = SPEED_FAST
    viDefault_behavior = AI_FIGHT_AGGRESSIVE | AI_MOVE_OPTIMAL_RANGE
-   viLevel = 135
+   viLevel = 145
    viDifficulty = 9
    viVisionDistance = 28
 

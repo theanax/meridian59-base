@@ -91,6 +91,7 @@ classvars:
 
    // Mollusks very rarely team up.
    viSocial = 2
+   viBonusXP = 100
 
    vbCanSiphon = FALSE
 
@@ -109,7 +110,7 @@ messages:
    Constructed()
    {
       plResistances = [ [ATK_TYPE_MAGIC, -5 ],
-                        [ATK_TYPE_ALL, 15 ],
+                        [ATK_TYPE_ALL, 5 ],
                         [-SPL_TYPE_QUAKE, 50 ]
                       ];
 
