@@ -44,6 +44,9 @@ classvars:
    viSpellExertion = 3
    viMeditate_ratio = 30
 
+   viHarmful = TRUE
+   viOutlaw = TRUE
+   viNoNewbieOffense = TRUE
    vbIsAreaEffect = TRUE
 
 properties:
