@@ -77,7 +77,7 @@ classvars:
    viSpell_type = SPL_TYPE_UNHOLY
    viLevel = 350
    viDifficulty = 10
-   viVisionDistance = 36
+   viVisionDistance = 360
    viMeleeRange = 192
    viFireRange = 640
    vbSpin = FALSE
@@ -138,34 +138,34 @@ messages:
 
       plResistances = [ [-SPL_TYPE_ALL, 60],
                         [ATK_TYPE_ALL, 60],
-                        [ATK_TYPE_NERUDITE, -20 ],
-                        [ATK_TYPE_BLUDGEON, -20 ],
-                        [ATK_TYPE_SILVER, -60 ],
+                        [ATK_TYPE_NERUDITE, -20],
+                        [ATK_TYPE_BLUDGEON, -20],
+                        [ATK_TYPE_SILVER, -60],
                         [-SPL_TYPE_COLD, 90],
-                        [-SPL_TYPE_UNHOLY, 90 ],
-                        [-SPL_TYPE_ACID, 30 ],
+                        [-SPL_TYPE_UNHOLY, 90],
+                        [-SPL_TYPE_ACID, 30],
                         [-SPL_TYPE_SHOCK, -20],
-                        [-SPL_TYPE_FIRE, -20 ],
-                        [-SPL_TYPE_HOLY, -40 ],
-                        [-SPL_TYPE_HUNTERSWORD, -90 ]
+                        [-SPL_TYPE_FIRE, -20],
+                        [-SPL_TYPE_HOLY, -40],
+                        [-SPL_TYPE_HUNTERSWORD, -90]
                       ];
                      
       iCharmDropRate = Send(SETTINGS_OBJECT,@GetLichCharmDropRate);
-      plTreasure = [ [ &LeatherArmor,  30 ],
-                     [ &ChainArmor,    25 ],
-                     [ &ScaleArmor,    20 ],
-                     [ &PlateArmor,    15 ],
-                     [ &OrcShield,     10 ],
-                     [ &GuildShield,   10 ],
-                     [ &Circlet,       30 ],
-                     [ &IvyCirclet,    20 ],
-                     [ &Scimitar,      25 ],
-                     [ &MysticSword,   20 ],
-                     [ &FarenCharm,    iCharmDropRate ],
-                     [ &KraananCharm,  iCharmDropRate ],
-                     [ &QorCharm,      iCharmDropRate ],
-                     [ &RiijaCharm,    iCharmDropRate ],
-                     [ &ShalilleCharm, iCharmDropRate ]
+      plTreasure = [ [ &LeatherArmor,  30],
+                     [ &ChainArmor,    25],
+                     [ &ScaleArmor,    20],
+                     [ &PlateArmor,    15],
+                     [ &OrcShield,     10],
+                     [ &GuildShield,   10],
+                     [ &Circlet,       30],
+                     [ &IvyCirclet,    20],
+                     [ &Scimitar,      25],
+                     [ &MysticSword,   20],
+                     [ &FarenCharm,    iCharmDropRate],
+                     [ &KraananCharm,  iCharmDropRate],
+                     [ &QorCharm,      iCharmDropRate],
+                     [ &RiijaCharm,    iCharmDropRate],
+                     [ &ShalilleCharm, iCharmDropRate]
                    ];
 
       Broadcast(lich_spawn_rsc);

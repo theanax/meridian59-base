@@ -86,15 +86,27 @@ messages:
 
    CreateBoss()
    {
-      if poBoss = $
-         AND pbBossCanSpawn
+      if pbBossCanSpawn
       {
+         if poBoss <> $
+         {
+            Send(poBoss,@Delete);
+         }
          poBoss = Create(&Lich);
          
          Send(self,@NewHold,#what=poBoss,
-               #new_row=viTeleport_row,
-               #new_col=viTeleport_col,
-               #new_angle=ANGLE_SOUTH_EAST);
+            #new_row=viTeleport_row,
+            #new_col=viTeleport_col,
+            #new_angle=ANGLE_SOUTH_EAST
+         );
+
+         Send(poBoss,@SetSpawnLoc,
+            #iRow=viTeleport_row,
+            #iCol=viTeleport_col,
+            #iIndex=Length(plGenerators)
+         );
+         
+         pbBossCanSpawn = FALSE;
       }
       
       return;
@@ -110,7 +122,7 @@ messages:
       }
       plHenchmen = $;
 
-      iIndex = Length(plGenerators);
+      iIndex = Length(plGenerators) + 1;
       foreach i in plMonsters
       {
          oTarget = Create(First(i));
@@ -138,6 +150,7 @@ messages:
       return;
    }
 
+
    CreateStandardExits()
    {
       plEdge_Exits = $;
@@ -149,14 +162,26 @@ messages:
 
    Delete()
    {
+      local i;
+
+      if plHenchmen <> $
+      {
+         foreach i in plHenchmen
+         {
+            Send(i,@Delete);
+         }
+         plHenchmen = $; 
+      }
+      if poBoss <> $
+      {
+         Send(poBoss,@Delete);
+         poBoss = $;
+      }
       if ptBoss_gen <> $
       {
          DeleteTimer(ptBoss_gen);
          ptBoss_gen = $;
       }
-
-      poBoss = $;
-      plHenchmen = $;
 
       propagate;
    }
@@ -197,7 +222,6 @@ messages:
             DeleteTimer(ptBoss_gen);
          }
          ptBoss_gen = CreateTimer(self,@BossCanSpawn,viBossResetTime);
-         pbBossCanSpawn = FALSE;
       }
 
       propagate;

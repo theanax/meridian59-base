@@ -5316,11 +5316,11 @@ messages:
             }
 	         val = Bound(val, 0, 20);
             Send(what,@AddTrainingPoints,#points=val,#report=TRUE);
-
-            // Delete here so we don't accidentally "kill" then delete system
-            // template monsters.
-            Send(self,@Delete);
          }
+
+         // Delete here so we don't accidentally "kill" then delete system
+         // template monsters.
+         Send(self,@Delete);
       }
 
       return;

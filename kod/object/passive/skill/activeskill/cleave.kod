@@ -54,7 +54,7 @@ classvars:
    vrSucceed_wav = Cleave_sound_rsc
 
    vbReportTrance = FALSE
-   vbCanBreakTrance = FALSE
+   vbCanBreakTrance = TRUE
    vbIsAreaEffect = TRUE
 
 properties:
