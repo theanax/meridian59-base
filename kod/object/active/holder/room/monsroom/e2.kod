@@ -92,12 +92,6 @@ messages:
 
    CreateBoss()
    {
-      if poBoss <> $
-      {
-         Send(poBoss,@Delete);
-      }
-      poBoss = $;   
-
       if pbBossCanSpawn = TRUE
       {
          poBoss = Create(&Lich);
@@ -225,6 +219,10 @@ messages:
    {
       if IsClass(victim,&Lich)
       {
+         if poBoss <> $
+         {
+            poBoss = $;   
+         }
          piBossDead_time = 0;
          ptBossDead_timer = CreateTimer(self,@BossDeadTimer,1000);
       }
