@@ -47,9 +47,8 @@ classvars:
 
    viSpell_level = 2
    viMana = 17
-
-   viCast_time = 15000
    viSpellExertion = 3
+   viCast_time = 15000
 
 properties:
 
@@ -128,25 +127,17 @@ messages:
          return FALSE;
       }
 
-      oWeapAtt = Send(SYS,@FindItemAttByNum,#num=WA_ATTACKSPELLTYPE);
       oEnchantedWeapAtt = Send(SYS,@FindItemAttByNum,#num=WA_ENCHANTED);
-
-      iCurrentSpell = Send(oWeapon,@GetAttributeData,#ItemAtt=WA_ATTACKSPELLTYPE);
       iEnchanted = Send(oWeapon,@GetAttributeData,#ItemAtt=WA_ENCHANTED);
-
-      if iCurrentSpell <> $
-      {
-         Send(oWeapAtt,@RemoveFromItem,#oItem=oWeapon);
-      }
-
+      
       if iEnchanted <> $
       {
          Send(oEnchantedWeapAtt,@RemoveFromItem,#oItem=oWeapon);
       }
 
-      Send(oWeapAtt,@AddToItem,#oItem=oWeapon,#random_gen=FALSE,
+      Send(oEnchantedWeapAtt,@AddToItem,#oItem=oWeapon,#random_gen=FALSE,
             #timer_duration=Send(self,@GetDuration,#iSpellPower=iSpellPower),
-            #state1=SPL_TYPE_ALL,#state3=Send(self,@GetMakerInfo,#who=who));
+            #state3=Send(self,@GetMakerInfo,#who=who));
 
       Send(who,@MsgSendUser,#message_rsc=enchantedweapon_cast_rsc,
              #parm1=Send(oWeapon,@GetName));

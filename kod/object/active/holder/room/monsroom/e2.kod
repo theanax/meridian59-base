@@ -41,8 +41,6 @@ classvars:
 
    viWeatherZone = WEATHER_ZONE_CV
 
-   viBossResetTime = 1000 * 60 * 60 * 6
-
 properties:
 
    prRoom = room_OutdoorsE2
@@ -62,10 +60,11 @@ properties:
 
    piMonster_count_max = 15
 
-   ptBoss_gen = $
+   piBossDead_time = 0
+   ptBossDead_timer = $
    pbBossCanSpawn = TRUE
    poBoss = $
-
+   piBossResetTime = 1000 * 60 * 60 * 6
    plHenchmen = $
 
 messages:
@@ -77,21 +76,30 @@ messages:
       propagate;
    }
 
-   BossCanSpawn()
+   BossDeadTimer()
    {
-      pbBossCanSpawn = TRUE;
-   
+      piBossDead_time += 1000;
+      if piBossDead_time >= piBossResetTime
+      {
+         pbBossCanSpawn = TRUE;
+
+         return;
+      }
+      ptBossDead_timer = CreateTimer(self,@BossDeadTimer,1000);
+      
       return;
    }
 
    CreateBoss()
    {
-      if pbBossCanSpawn
+      if poBoss <> $
       {
-         if poBoss <> $
-         {
-            Send(poBoss,@Delete);
-         }
+         Send(poBoss,@Delete);
+      }
+      poBoss = $;   
+
+      if pbBossCanSpawn = TRUE
+      {
          poBoss = Create(&Lich);
          
          Send(self,@NewHold,#what=poBoss,
@@ -177,10 +185,10 @@ messages:
          Send(poBoss,@Delete);
          poBoss = $;
       }
-      if ptBoss_gen <> $
+      if ptBossDead_timer <> $
       {
-         DeleteTimer(ptBoss_gen);
-         ptBoss_gen = $;
+         DeleteTimer(ptBossDead_timer);
+         ptBossDead_timer = $;
       }
 
       propagate;
@@ -217,11 +225,8 @@ messages:
    {
       if IsClass(victim,&Lich)
       {
-         if ptBoss_gen <> $
-         {
-            DeleteTimer(ptBoss_gen);
-         }
-         ptBoss_gen = CreateTimer(self,@BossCanSpawn,viBossResetTime);
+         piBossDead_time = 0;
+         ptBossDead_timer = CreateTimer(self,@BossDeadTimer,1000);
       }
 
       propagate;

@@ -5832,7 +5832,8 @@ messages:
       precision=FALSE)
    {
       local i, j, iResistance, oSoldierShield, gainchance, color_rsc,
-            iDuration, oSpell, oGort,iLimit, origdamage, oWeapon, shrunken, oRing;
+            iDuration, oSpell, oGort,iLimit, origdamage, oWeapon, shrunken, oRing,
+            oEnchantedWeapAtt, iEnchanted;
 
       if NOT precision
       {
@@ -5849,6 +5850,19 @@ messages:
 
       if NOT absolute
       {
+         if stype=0
+         {
+            // Fix kraanan enchanted attacks by making it like earthquake.
+            oWeapon = Send(what,@GetWeapon);
+            oEnchantedWeapAtt = Send(SYS,@FindItemAttByNum,#num=WA_ENCHANTED);
+            iEnchanted = Send(oWeapon,@GetAttributeData,#ItemAtt=WA_ENCHANTED);
+            
+            if iEnchanted <> $
+            {
+               stype=SPL_TYPE_QUAKE;
+            }
+         }
+
          // Armor of Gort has a special effect that must go first
          oGort = Send(SYS,@FindSpellByNum,#Num=SID_ARMOR_OF_GORT);
          if Send(self,@IsEnchanted,#what=oGort)

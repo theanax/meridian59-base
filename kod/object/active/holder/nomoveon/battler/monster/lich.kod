@@ -77,10 +77,10 @@ classvars:
    viSpell_type = SPL_TYPE_UNHOLY
    viLevel = 350
    viDifficulty = 10
-   viVisionDistance = 360
+   viVisionDistance = 36
    viMeleeRange = 192
    viFireRange = 640
-   vbSpin = FALSE
+   vbSpin = TRUE
    viKarma = -100
    vbIsUndead = TRUE
    viDefault_behavior = \
@@ -118,6 +118,8 @@ properties:
    piReputationGroup = REP_LICH
 
    plTreasure = $
+
+   ptTargeting = $
 
 messages:
 
@@ -169,6 +171,8 @@ messages:
                    ];
 
       Broadcast(lich_spawn_rsc);
+
+      ptTargeting = CreateTimer(self,@DoTargeting,1000);
 
       propagate;
    }
@@ -297,6 +301,12 @@ messages:
          ptGoIllusioned = $;
       }
 
+      if ptTargeting <> $
+      {
+         DeleteTimer(ptTargeting);
+         ptTargeting = $;
+      }
+
       propagate;
    }
 
@@ -318,6 +328,21 @@ messages:
       }
 
       ptGoIllusioned = CreateTimer(self,@ReplaceIllusions,LICH_ILLUSION_TIME);
+
+      return;
+   }
+
+   DoTargeting()
+   {
+      local oTarget;
+
+      foreach oTarget in plAttackers
+      {
+         Send(oTarget,@RemoveEnchantmentClass,#class=&Invisibility,#report=FALSE);
+         Send(oTarget,@RemoveEnchantmentClass,#class=&ShadowForm,#report=FALSE);
+      }
+      
+      ptTargeting = CreateTimer(self,@DoTargeting,1000);
 
       return;
    }
@@ -369,6 +394,18 @@ messages:
 
    IsArenaMonster()
    {
+      return FALSE;
+   }
+
+   IsAlliedClass(what=$)
+   {
+      if IsClass(what,&Necromancer)
+         OR IsClass(what,&Ghost)
+         OR IsClass(what,&DarkAngel)
+      {
+         return TRUE;
+      }
+
       return FALSE;
    }
 
