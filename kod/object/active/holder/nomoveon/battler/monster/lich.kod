@@ -334,12 +334,16 @@ messages:
 
    DoTargeting()
    {
-      local oTarget;
+      local i, oTarget;
 
-      foreach oTarget in plAttackers
+      foreach i in Send(poOwner,@GetHolderActive)
       {
-         Send(oTarget,@RemoveEnchantmentClass,#class=&Invisibility,#report=FALSE);
-         Send(oTarget,@RemoveEnchantmentClass,#class=&ShadowForm,#report=FALSE);
+         oTarget = Send(poOwner,@HolderExtractObject,#data=i);
+         if IsClass(oTarget,&Player)
+         {
+            Send(oTarget,@RemoveEnchantmentClass,#class=&Invisibility,#report=FALSE);
+            Send(oTarget,@RemoveEnchantmentClass,#class=&ShadowForm,#report=FALSE);
+         }
       }
       
       ptTargeting = CreateTimer(self,@DoTargeting,1000);
