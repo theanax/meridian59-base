@@ -77,7 +77,7 @@ classvars:
    viSpell_type = SPL_TYPE_UNHOLY
    viLevel = 350
    viDifficulty = 10
-   viVisionDistance = 36
+   viVisionDistance = 1000 // super vision
    viMeleeRange = 192
    viFireRange = 640
    vbSpin = TRUE
@@ -85,7 +85,7 @@ classvars:
    vbIsUndead = TRUE
    viDefault_behavior = \
       AI_FIGHT_AGGRESSIVE | AI_FIGHT_HYPERAGGRESSIVE \
-      | AI_MOVE_FLEE_FRIGHTENERS | AI_FIGHT_THROUGH_WALLS | AI_FIGHT_SWITCHALOT
+      | AI_MOVE_FLEE_FRIGHTENERS | AI_FIGHT_THROUGH_WALLS
 
    vrSound_miss = lich_sound_miss
    vrSound_aware = lich_sound_aware
@@ -334,16 +334,37 @@ messages:
 
    DoTargeting()
    {
-      local i, oTarget;
+      local i, iBestDistance, iDistance, iRandom, oOwner, oNextTarget, oTarget;
 
-      foreach i in Send(poOwner,@GetHolderActive)
+      oOwner = Send(self,@GetOwner);
+      if oOwner = $
       {
-         oTarget = Send(poOwner,@HolderExtractObject,#data=i);
+         return;
+      }
+      
+      // Find the closest player
+      // and switch to them 30% of the time
+      
+      iBestDistance = 999999;
+      iRandom = Random(1,100);
+      foreach i in Send(oOwner,@GetHolderActive)
+      {
+         oTarget = Send(oOwner,@HolderExtractObject,#data=i);
          if IsClass(oTarget,&Player)
          {
-            Send(oTarget,@RemoveEnchantmentClass,#class=&Invisibility,#report=FALSE);
-            Send(oTarget,@RemoveEnchantmentClass,#class=&ShadowForm,#report=FALSE);
+            iDistance = Send(self,@SquaredDistanceTo,#what=oTarget);
+            if iDistance < iBestDistance
+            {
+               iBestDistance = iDistance;
+               oNextTarget = oTarget;
+            }
          }
+      }
+
+      if oNextTarget <> $
+         AND iRandom <= 30
+      {
+         Send(self,@TargetSwitch,#what=oNextTarget,#iHatred=5000);
       }
       
       ptTargeting = CreateTimer(self,@DoTargeting,1000);
