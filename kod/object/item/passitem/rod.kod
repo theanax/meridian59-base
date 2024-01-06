@@ -88,7 +88,7 @@ messages:
       {
          foreach i in Send(what,@GetHolderPassive)
          {
-            if IsClass(i,&Rod)
+            if IsClass(i,&Rod) OR IsClass(i, &Wand)
             {
                iRodCount = iRodCount + 1;
             }

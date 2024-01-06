@@ -43,7 +43,7 @@ classvars:
    vrDead_name = spiderqueen_dead_name_rsc
 
    // This monster poisons enemies...
-   viPoisonChance = 7
+   viPoisonChance = 15
    viPoisonStrength = 1000
    viPoisonDuration = 30000
    viPoisonHealth = 25
@@ -60,7 +60,7 @@ classvars:
    viVisionDistance = 6
 
    // Attack range of 256 (4 row/col units).
-   viMeleeRange = 256
+   viMeleeRange = 384
 
    viKarma = -90
    viDefault_behavior = AI_NOMOVE | AI_FIGHT_AGGRESSIVE | AI_FIGHT_SWITCHALOT

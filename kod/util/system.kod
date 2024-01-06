@@ -3609,6 +3609,7 @@ messages:
       Send(self,@CreateOneSpellIfNew,#num=SID_CONVEYANCE,#class=&Conveyance);
       Send(self,@CreateOneSpellIfNew,#num=SID_TRANSFERENCE,#class=&Transference);
       Send(self,@CreateOneSpellIfNew,#num=SID_PHASE,#class=&Phase);
+      Send(self,@CreateOneSpellIfNew,#num=SID_SPRINT,#class=&Sprint);
 
       // Trance may be searched for frequently, leave at end of list
       Send(self,@CreateOneSpellIfNew,#num=SID_TRANCE,#class=&Trance);
@@ -3678,6 +3679,14 @@ messages:
 
       // Add epic sstuff ;-)
       Send(self,@CreateOneItemAttIfNew,#num=IA_RESIST,#class=&ItemAttResist);
+      Send(self,@CreateOneItemAttIfNew,#num=IA_AIM,#class=&ItemAttAim);
+      Send(self,@CreateOneItemAttIfNew,#num=IA_MIGHT,#class=&ItemAttMight);
+      Send(self,@CreateOneItemAttIfNew,#num=IA_AGILITY,#class=&ItemAttAgility);
+      Send(self,@CreateOneItemAttIfNew,#num=IA_INT,#class=&ItemAttInt);
+      Send(self,@CreateOneItemAttIfNew,#num=IA_MYST,#class=&ItemAttMyst);
+      Send(self,@CreateOneItemAttIfNew,#num=IA_OFFENSE,#class=&ItemAttOffense);
+      Send(self,@CreateOneItemAttIfNew,#num=IA_DEFENSE,#class=&ItemAttDefense);
+
 
       return;
    }

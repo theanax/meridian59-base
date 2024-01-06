@@ -20,7 +20,7 @@ classvars:
 
 properties:
 
-   piItem_att_chance = 6
+   piItem_att_chance = 80
    piDiff_seed = 6
 
 messages:
@@ -28,14 +28,13 @@ messages:
    Constructed()
    {
       plTreasure = [ [ &OrcTooth, 42 ],
-                     [ &Scimitar, 12 ],
-                     [ &Arrow, 12 ],
+                     [ &DiscipleRobe, 12 ],
+                     [ &LightDiscipleRobe, 12 ],
                      [ &NeruditeArmor, 9],
                      [ &NeruditeSword, 9],
-                     [ &OreChunk, 4],
                      [ &UncutSeraphym, 3],
                      [ &Flask, 2],
-                     [ &OrcShield, 2],
+                     [ &OrcShield, 6],
                      [ &PlateArmor, 2],
                      [ &HoldWand, 1 ],
                      [ &BlindWand, 1 ],

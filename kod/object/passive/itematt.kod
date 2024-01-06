@@ -106,13 +106,25 @@ messages:
                [ &LeatherArmor, 10],
                [ &GoldShield, 9],
                [ &Hammer, 8],
-               [ &ChainArmor, 6],
+               [ &ChainArmor, 8],
                [ &Axe, 6],
                [ &Longsword, 4],
-               [ &ScaleArmor, 3],
-               [ &KnightShield, 2],
+               [ &ScaleArmor, 5],
+               [ &KnightShield, 5],
                [ &Scimitar, 1],
-               [ &PlateArmor, 1]
+               [ &PlateArmor, 1],
+               [ &DiscipleRobe, 10],
+               [ &LightDiscipleRobe, 1],
+               [ &JalaNecklace, 1],
+               [ &SimpleHelm, 10],
+               [ &DaemonHelm, 1],
+               [ &NeruditeSword, 3],
+               [ &NeruditeArmor, 1],
+               [ &WoodenShield, 20],
+               [ &OrcShield, 1],
+               [ &IvyCirclet, 1],
+               [ &Circlet, 1],
+               [ &MysticSword, 1]
              ];
 
       return;

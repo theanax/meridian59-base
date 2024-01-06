@@ -49,7 +49,7 @@ classvars:
    viBroken_group = 3
 
    // This is the default value for piDefense_bonus
-   viDefense_base = 25
+   viDefense_base = 30
 
    // This is the default value for piDamage_reduce
    viDamage_base = 1
@@ -74,7 +74,7 @@ messages:
 
    GetResistanceModifiers()
    {
-      return [ [-SPL_TYPE_ALL,15]
+      return [ [-SPL_TYPE_ALL,5]
              ];
    }
 

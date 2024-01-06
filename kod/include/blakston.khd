@@ -1933,6 +1933,7 @@
 
    TID_SKELETON5     = 74
    TID_NECROMANCER   = 75
+   TID_YETI          = 76
 
 
    // English articles
@@ -2012,6 +2013,18 @@
    IA_XP_KILL_BONUS        = 22
    IA_MOVESPEED            = 23
    IA_RESIST               = 24
+   IA_AIM                  = 25
+   IA_AGILITY              = 26
+   IA_MIGHT                = 27
+   IA_INT                  = 28
+   IA_MYST                 = 29
+   IA_TRAINING             = 30 //actual work to do for this one
+   IA_OFFENSE              = 31
+   IA_DEFENSE              = 32
+   IA_PIERCERES            = 33 
+   IA_BLUDGENRES           = 34
+   IA_SLASHRES             = 35
+   IA_DAMAGEREDUCE         = 36
 
    // Weapon Attributes.  These are attributes only applied to weapons.
    WA_TRAINING             = 51

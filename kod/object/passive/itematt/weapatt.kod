@@ -79,6 +79,7 @@ messages:
                                [ &Axe, 15 ],
                                [ &Longsword, 13 ],
                                [ &Scimitar, 4 ],
+                               [ &NeruditeSword, 3],
                                [ &MysticSword, 3 ]
                              ];
       return;

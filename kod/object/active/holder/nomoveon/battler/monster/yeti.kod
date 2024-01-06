@@ -46,7 +46,7 @@ classvars:
    vrDead_icon = yeti_dead_icon_rsc
    vrDead_name = yeti_dead_name_rsc
 
-   viTreasure_type = TID_VERY_TOUGH
+   viTreasure_type = TID_YETI
    viSpeed = SPEED_SLOW
    viAttack_type = ATK_TYPE_CLAW
    viAttributes = 0
@@ -70,7 +70,7 @@ classvars:
    viFatigueDuration = 5000
    vbCanSiphon = FALSE
 
-   viBonusXP = 100
+   viBonusXP = 200
 
 properties:
 

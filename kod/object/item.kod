@@ -1063,6 +1063,34 @@ messages:
          {
             Send(poOwner,@AddMagicResistPercent,#iResist=iBonus);
          }
+         else if iNum = IA_AIM
+         { 
+            Send(poOwner,@AddAim,#points=iBonus);
+         }
+         else if iNum = IA_AGILITY
+         { 
+            Send(poOwner,@AddAgility,#points=iBonus);
+         }
+         else if iNum = IA_MIGHT
+         { 
+            Send(poOwner,@AddMight,#points=iBonus);
+         }
+         else if iNum = IA_INT
+         { 
+            Send(poOwner,@AddIntellect,#points=iBonus);
+         }
+         else if iNum = IA_MYST
+         { 
+            Send(poOwner,@AddMysticism,#points=iBonus);
+         }
+         else if iNum = IA_OFFENSE
+         { 
+            Send(poOwner,@AddAttackModifier,#what=iBonus);
+         }
+         else if iNum = IA_DEFENSE
+         { 
+            Send(poOwner,@AddDefenseModifier,#what=iBonus);
+         }
       }
 
       return;
@@ -1136,6 +1164,34 @@ messages:
          else if (iNum = IA_RESIST)
          {
             Send(poOwner,@AddMagicResistPercent,#iResist=-iBonus);
+         }
+         else if iNum = IA_AIM
+         { 
+            Send(poOwner,@AddAim,#points=-iBonus);
+         }
+         else if iNum = IA_AGILITY
+         { 
+            Send(poOwner,@AddAgility,#points=-iBonus);
+         }
+         else if iNum = IA_MIGHT
+         { 
+            Send(poOwner,@AddMight,#points=-iBonus);
+         }
+         else if iNum = IA_INT
+         { 
+            Send(poOwner,@AddIntellect,#points=-iBonus);
+         }
+         else if iNum = IA_MYST
+         { 
+            Send(poOwner,@AddMysticism,#points=-iBonus);
+         }
+         else if iNum = IA_OFFENSE
+         { 
+            Send(poOwner,@AddAttackModifier,#what=-iBonus);
+         }
+         else if iNum = IA_DEFENSE
+         { 
+            Send(poOwner,@AddDefenseModifier,#what=-iBonus);
          }
       }
 

@@ -20,7 +20,7 @@ classvars:
 
 properties:
 
-   piItem_att_chance = 3
+   piItem_att_chance = 20
    piDIff_seed = 9
 
 messages:
@@ -30,9 +30,10 @@ messages:
       plTreasure = [ [ &Scimitar, 2 ],
                      [ &BlueDragonScale, 25 ],
                      [ &DarkAngelFeather, 25 ],
-                     [ &EntrootBerry, 14 ],
-                     [ &PurpleMushroom, 11 ],
-                     [ &InkyCap, 5 ],
+                     [ &ChainArmor, 14 ],
+                     [ &Axe, 6 ],
+                     [ &Hammer, 5 ],
+                     [ &LeatherArmor, 5 ],
                      [ &SilverArrow, 3 ],
                      [ &Circlet, 4 ],
                      [ &Gauntlet, 3 ],

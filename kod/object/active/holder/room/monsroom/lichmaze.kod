@@ -61,7 +61,7 @@ messages:
    {
       local oMovingSector,lSectorIDs, IDs, lTemp;
 
-      plMonsters = [ [&DaemonSkeleton, 50], [&TuskedSkeleton, 50] ];
+      plMonsters = [ [&GiantDaemonSkeleton, 100] ];
 
       plLooping_sounds = [[ LichMaze_loop, 0, 0, 200, 100 ]];
 

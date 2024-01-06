@@ -23,7 +23,7 @@ properties:
    /// good stuff, appears relatively rarely compared to other
    /// supermonsters.
    piDiff_seed = 5
-   piItem_att_chance = 5
+   piItem_att_chance = 50
 
 messages:
 
@@ -32,12 +32,12 @@ messages:
       plTreasure = [ [ &SpiderEgg, 40 ],
                      [ &BerserkerRing, 11 ],
                      [ &FireRing, 10 ],
-                     [ &Emerald,  10 ],
-                     [ &Sapphire, 8 ],
+                     [ &LongSword,  10 ],
+                     [ &Mace, 8 ],
                      [ &Diamond,  7 ],
-                     [ &BlueDragonScale, 6],
-                     [ &Ruby, 4 ],
-                     [ &DarkAngelFeather, 4]
+                     [ &DiscipleRobe, 6],
+                     [ &Axe, 4 ],
+                     [ &PracticeBow, 4]
                    ];
 
       propagate;
