@@ -2812,6 +2812,12 @@ messages:
          iSpellpower -= iAbilityLoss;
       }
 
+      //kraanan spellpower is lacking for some reason and requires multiple shrines to fix it.  This is a band-aid fix.
+      if viSchool = SS_KRAANAN
+      {
+         iSpellPower = iSpellPower + 18;
+      }
+
       // Bound the result.
       iSpellPower = Bound(iSpellPower,SPELLPOWER_MINIMUM,SPELLPOWER_MAXIMUM);
 
