@@ -71,13 +71,13 @@ properties:
    // Are there node attacks?
    pbAttackEnabled = TRUE
    // Base number of Meridian days to use when figuring frequency of attacks.
-   piAttackFrequency = 18
+   piAttackFrequency = 10
    // Number of minutes the whole attack lasts.
    //  Divided into 1/3 time that node holders know, 2/3 time everyone knows.
    piAttackDuration = 60
 
    // Number of users that must be on before a node attack goes on.
-   piNumIPsOnForAttack = 8
+   piNumIPsOnForAttack = 7
    // piAttackMin is the base number of Xeochicatl spawned during an attack,
    // with 10 IPs online. Further players online raises this number up to
    // piAttackMax.

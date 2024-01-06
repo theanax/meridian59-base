@@ -39,7 +39,7 @@ classvars:
 
    viSpell_num = SID_CURE_DISEASE
    viSchool = SS_SHALILLE
-   viMana = 9
+   viMana = 5
    viSpell_level = 3
 
    viChance_To_Increase = 40

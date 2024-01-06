@@ -14,8 +14,8 @@ constants:
 
    include blakston.khd
 
-   // Half an hour
-   HUNT_TIME = 1800000
+   // 2 hours
+   HUNT_TIME = 7200000
 
 resources:
 
@@ -70,7 +70,7 @@ classvars:
 
 properties:
 
-   viMultiCast_Spellpower = 5000 
+   viMultiCast_Spellpower = 2500 //Halved Spellpower required 
 
    // Spell is harmful to the player it's cast upon.
    viHarmful = TRUE
@@ -118,11 +118,11 @@ messages:
             Send(oTarget,@RemoveEnchantment,#what=self);
          }
       }
-
-      Send(oTarget,@MsgSendUser,#message_rsc=hunt_gain_trackers);
-      Send(oTarget,@StartEnchantment,#what=self,
-            #state=lCasters,#time=HUNT_TIME,
-            #iSpellPower=SpellPower,#lastcall=TRUE,#addicon=FALSE);
+      //No longer warns the target
+      //Send(oTarget,@MsgSendUser,#message_rsc=hunt_gain_trackers);
+      //Send(oTarget,@StartEnchantment,#what=self,
+      //      #state=lCasters,#time=HUNT_TIME,
+      //      #iSpellPower=SpellPower,#lastcall=TRUE,#addicon=FALSE);
 
       foreach i in lCasters
       {

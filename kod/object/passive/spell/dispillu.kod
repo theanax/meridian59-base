@@ -67,65 +67,107 @@ messages:
       return 0;
    }
 
+
    GetTargets(who=$,lTargets=$)
-   "This returns a list of valid targets in range."
+   "This returns a list of valid targets in the room."
    {
-      local oRoom, i, each_obj, lFinalTargets, iSpellPower;
+      local oRoom, i, each_obj, lFinalTargets, iDistance_squared, iSpellpower;
+
+      if who = $
+      {
+         return;
+      }
 
       iSpellPower = Send(self,@GetSpellPower,#who=who);
-
-      oRoom = Send(who,@GetOwner);
-      lFinalTargets = Send(oRoom,@EnchantAllInRange,#what=self,
-                           #range=(12+(iSpellpower+1)/20),#center=who,
-                           #monsters=TRUE);
-
-      return lFinalTargets;
-   }
-
-   DoSpellEffects(who = $, lTargets = $, iSpellPower = 0)
-   {
-      local oRoom, iChance, bAll, i;
-
-      oRoom = Send(who,@GetOwner);
-
-      // A percent chance based on spellpower
-      if IsClass(who,&Admin)
-         AND Send(who,@PlayerIsImmortal)
+	  
+	  if IsClass(who,&Room)
       {
-         iChance = 100;
+         oRoom = who;
       }
       else
       {
-         iChance = Bound(iSpellPower,10,99);
+         oRoom = Send(who,@GetOwner);
       }
 
-      foreach i in lTargets
+      foreach i in Send(oRoom,@GetHolderActive)
       {
-         // Only attempt to dispell all illusions if the player can PvP.
-         if IsClass(who,&Player)
+         each_obj = First(i);
+
+         // We do the guildhall check here now, not added to lFinalTargets
+         // if they're not in the same zone as the caster.
+         if IsClass(each_obj,&Battler)
+            AND NOT (IsClass(oRoom,&GuildHall)
+               AND Send(oRoom,@InFoyer,#who=each_obj)
+                  <> Send(oRoom,@InFoyer,#who=who))
          {
-            bAll = Send(who,@CanPlayerPvP);
+            // Skip players who are phased/in spectator mode.
+            if IsClass(each_obj,&Player)
+               AND Send(each_obj,@IsInCannotInteractMode)
+            {
+               continue;
+            }
+
+            if each_obj <> $
+            {
+               iDistance_squared = Send(who,@SquaredDistanceTo,#what=each_obj);
+
+               // SquaredDistanceTo returns $ for target not in same room
+               if iDistance_squared <= (100 + iSpellPower*2)
+               {
+                  lFinalTargets = Cons(each_obj,lFinalTargets);
+               }
+            }
          }
-         else
-         {
-            bAll = TRUE;
-         }
-
-         if bAll
-         {
-            Send(oRoom,@DispelIllusionEnchantments,#who=who,#iChance=iChance,
-                  #stroke_obj=self);
-         }
-
-         Send(oRoom,@DispelIllusions,#who=who,#what=self,#iChance=iChance,
-               #bAll=bAll,#stroke_obj=self);
-
-         Send(who,@MsgSendUser,#message_rsc=dispelillusion_castermsg_rsc);
-
-         return TRUE;
       }
 
-      return;
+      return lFinalTargets;
+   }
+	
+	
+   DoSpellEffects(who = $,lTargets=$)
+   {
+      local oRoom, iSpellPower, i, bAll, iChance;
+
+      iSpellPower = Send(self,@GetSpellPower,#who=who);
+	  
+	   oRoom = Send(who,@GetOwner);
+	   
+	   iChance = Bound(iSpellpower,10,99);
+	   
+	   lTargets = Send(self,@GetTargets,#who=who);
+ 
+	   	   
+	   foreach i in lTargets
+	   {
+	   
+	   if IsClass(i,&Player)
+      {
+         bAll = Send(who,@CanPlayerPvP);
+      }
+      else
+      {
+         bAll = TRUE;
+      }
+	   
+	   if bAll
+	   {
+	      Send(i,@DispelIllusionEnchantments, #who=who, #iChance=iChance, #stroke_obj=self);
+	   }
+      else
+      {
+         Send(i,@DispelIllusions, #who=who, #what=self, #iChance=iChance, #stroke_obj=self);
+      }
+
+      if IsClass(i,&Reflection)
+      {
+         send(i,@delete);
+      }
+ 
+	      Send(i,@MsgSendUser,#message_rsc=dispelillusion_castermsg_rsc);
+		
+		}
+ 
+       return;
    }
 
    // We just needed a list of players in range, so we don't do anything here.
