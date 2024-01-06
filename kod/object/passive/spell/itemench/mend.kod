@@ -124,8 +124,8 @@ messages:
       else
       {
          // Multiplier is a number from 75// to 95//.
-         iMultiplier = 75 + iSpellpower/5;
-         iMultiplier = bound(iMultiplier,75,95);
+         iMultiplier = 80 + iSpellpower/5;
+         iMultiplier = bound(iMultiplier,80,95);
       }
 
       iAmount = (iAmount*iMultiplier)/100;
