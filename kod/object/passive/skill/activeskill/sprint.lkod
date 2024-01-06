@@ -1,0 +1,12 @@
+Sprint_name_rsc = de "Sprinten"
+Sprint_desc_rsc = de \
+    "Ermöglicht es einem agilen und ausdauernden Krieger, deutlich schneller zu laufen, zum "
+    "um den Preis, dass er schneller außer Atem kommt."
+    "\n\nHINWEIS: Es handelt sich hierbei um eine "
+   "'aktive' Fertigkeit, die manuell ausgeführt werden muss, indem man den "
+   "Befehl 'ausführen Sprint oder perform Sprint' verwendet oder einen Hotkey "
+   "benutzt."
+
+Sprint_start = de "Du beginnst zu sprinten!"
+Sprint_end = de "Du sprintest nicht mehr."
+Sprint_exhaust = de "Du bist zu erschöpft, um zu sprinten!"

@@ -2221,6 +2221,7 @@
 
    // Active skills
    SKID_CLEAVE = 470
+   SKID_SPRINT = 471
 
    // Unique spell constants
 

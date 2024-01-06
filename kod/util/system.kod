@@ -3609,7 +3609,6 @@ messages:
       Send(self,@CreateOneSpellIfNew,#num=SID_CONVEYANCE,#class=&Conveyance);
       Send(self,@CreateOneSpellIfNew,#num=SID_TRANSFERENCE,#class=&Transference);
       Send(self,@CreateOneSpellIfNew,#num=SID_PHASE,#class=&Phase);
-      Send(self,@CreateOneSpellIfNew,#num=SID_SPRINT,#class=&Sprint);
 
       // Trance may be searched for frequently, leave at end of list
       Send(self,@CreateOneSpellIfNew,#num=SID_TRANCE,#class=&Trance);
@@ -3851,8 +3850,9 @@ messages:
 
        Send(self,@CreateOneSKillIfNew,#num=SKID_SECOND_WIND,#class=&SecondWind);
        Send(self,@CreateOneSKillIfNew,#num=SKID_DISARM,#class=&Disarm);
-
+       
        Send(self,@CreateOneSKillIfNew,#num=SKID_CLEAVE,#class=&Cleave);
+       Send(self,@CreateOneSKillIfNew,#num=SKID_SPRINT,#class=&Sprint);
 
        return;
    }

@@ -19,7 +19,7 @@ resources:
    include transference.lkod
 
    transference_name_rsc = "transference"
-   transference_icon_rsc = iconveyance.bgf
+   transference_icon_rsc = itransference.bgf
    transference_desc_rsc = \
       "Sends a stack of items to your hall.  "
       "Requires only the fee for depositing items."
