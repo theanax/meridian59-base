@@ -68,7 +68,7 @@ messages:
 
    Constructed()
    {
-      plMonsters = [ [&RedAnt, 60], [&Troll, 40] ];
+      plMonsters = [ [&StoneTroll, 100] ];
 
       ptDiscord = CreateTimer(self,@DiscordTimer,
                       random(DISCORD_TIME_MIN,DISCORD_TIME_MAX));

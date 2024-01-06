@@ -60,7 +60,7 @@ messages:
 
    Constructed()
    {
-      plMonsters = [ [&RedAnt, 30], [&Troll, 70] ];
+      plMonsters = [ [&RedAnt, 100] ];
 
       plLooping_sounds = [[ waterfall_sounda6, 16, 37 ],[ waterfall_sounda6, 2, 34 ]];
 
