@@ -17,7 +17,7 @@ constants:
 resources:
 
    int_dm = "intellect"
-   iaint_info_desc = "%i% intellect\n"
+   iaint_info_desc = "+%i intellect\n"
 
 classvars:
 

@@ -16,7 +16,7 @@ constants:
 
 resources:
 
-   iaOffense_info_desc = "%i% Offense\n"
+   iaOffense_info_desc = "+%i Offense\n"
    offense_dm = "offense"
 
 classvars:

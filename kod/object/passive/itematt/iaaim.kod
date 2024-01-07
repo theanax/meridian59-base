@@ -17,7 +17,7 @@ constants:
 resources:
 
    aim_dm = "aim"
-   iaaim_info_desc = "%i% aim\n"
+   iaaim_info_desc = "+%i aim\n"
 
 classvars:
 

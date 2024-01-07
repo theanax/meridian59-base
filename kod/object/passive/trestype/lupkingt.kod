@@ -20,7 +20,7 @@ classvars:
 
 properties:
 
-   piItem_att_chance = 80
+   piItem_att_chance = 120
    piDiff_seed = 10
 
 messages:
@@ -32,9 +32,9 @@ messages:
                      [ &OrcShield, 15 ],                     
                      [ &SimpleHelm, 15 ],
                      [ &MysticSword, 10 ],
-                     [ &FineLute, 6 ],
-                     [ &Helmet, 2 ],
-                     [ &JalaNecklace, 20 ]
+                     [ &TrueLute, 10 ],
+                     [ &Helm, 5 ],
+                     [ &JalaNecklace, 13 ]
                    ];
 
       propagate;

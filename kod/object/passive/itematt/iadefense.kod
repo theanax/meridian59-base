@@ -16,7 +16,7 @@ constants:
 
 resources:
 
-   iaDefense_info_desc = "%i% Defense\n"
+   iaDefense_info_desc = "+%i Defense\n"
    defense_dm = "defense"
 
 classvars:

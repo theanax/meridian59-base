@@ -17,7 +17,7 @@ constants:
 resources:
 
    agility_dm = "agility"
-   iaagility_info_desc = "%i% agility\n"
+   iaagility_info_desc = "+%i agility\n"
 
 classvars:
 

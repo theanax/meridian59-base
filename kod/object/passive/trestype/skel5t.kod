@@ -20,7 +20,7 @@ classvars:
 
 properties:
 
-   piItem_att_chance = 20
+   piItem_att_chance = 50
    piDIff_seed = 9
 
 messages:

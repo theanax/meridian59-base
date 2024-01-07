@@ -24,7 +24,7 @@ constants:
 
 resources:
 
-   iamight_info_desc = "%i% might\n"
+   iamight_info_desc = "+%i might\n"
    might_dm = "might"
 
 classvars:
