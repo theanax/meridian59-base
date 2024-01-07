@@ -21,7 +21,7 @@ constants:
    BOON_HOUR = 3600000
    BOON_DEFAULT_LENGTH = 4    // in realtime weeks
    BOON_DEFAULT_AMOUNT = 5
-   HOURS_LOGGED_ON_PER_DAY = 2
+   HOURS_LOGGED_ON_PER_DAY = 10
 
 resources:
 

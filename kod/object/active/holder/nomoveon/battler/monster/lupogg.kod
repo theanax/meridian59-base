@@ -51,7 +51,7 @@ classvars:
    viSpeed = 4
    viAttributes = 0
    viLevel = 105
-   viDifficulty = 9
+   viDifficulty = 7
    viVisionDistance = 18
    // Attack range of 192, or 3 row/col.
    viMeleeRange = 192
@@ -92,10 +92,10 @@ messages:
                         [-SPL_TYPE_SHOCK, 90],
                         [-SPL_TYPE_ACID, 10 ],
                         [-SPL_TYPE_FIRE, 10 ],
-                        [ATK_TYPE_SLASH, 55 ],
+                        [ATK_TYPE_SLASH, 10 ],
                         [ATK_TYPE_NERUDITE, 25 ],
-                        [ATK_TYPE_PIERCE, 70 ],
-                        [ATK_TYPE_THRUST, 70 ],
+                        [ATK_TYPE_PIERCE, 10 ],
+                        [ATK_TYPE_THRUST, 10 ],
                         [ATK_TYPE_BLUDGEON, 30 ]];
 
       propagate;
