@@ -1085,11 +1085,11 @@ messages:
          }
          else if iNum = IA_OFFENSE
          { 
-            Send(poOwner,@AddAttackModifier,#what=iBonus);
+            Send(poOwner,@AddOffenseBonus,#points=iBonus);
          }
          else if iNum = IA_DEFENSE
          { 
-            Send(poOwner,@AddDefenseModifier,#what=iBonus);
+            Send(poOwner,@AddDefenseBonus,#points=iBonus);
          }
       }
 
@@ -1187,11 +1187,11 @@ messages:
          }
          else if iNum = IA_OFFENSE
          { 
-            Send(poOwner,@AddAttackModifier,#what=-iBonus);
+            Send(poOwner,@AddOffenseBonus,#what=-iBonus);
          }
          else if iNum = IA_DEFENSE
          { 
-            Send(poOwner,@AddDefenseModifier,#what=-iBonus);
+            Send(poOwner,@AddDefenseBonus,#what=-iBonus);
          }
       }
 

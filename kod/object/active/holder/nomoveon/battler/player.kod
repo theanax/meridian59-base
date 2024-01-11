@@ -1090,6 +1090,10 @@ properties:
 
    plPeriodicSounds = $
 
+   // Active offense/defense from special gear
+   piDefenseBonus = 0
+   piOffenseBonus = 0
+
 messages:
 
    Constructor()
@@ -5522,6 +5526,8 @@ messages:
          iOffense = iOffense / 2;
       }
 
+      iOffense += Send(self,@GetOffenseBonus);
+
       return Bound(iOffense,1,2000);
    }
 
@@ -5571,6 +5577,8 @@ messages:
 
       iDefense += Send(Send(SYS,@GetParliament),@GetFactionDefenseBonus,
                         #who=self,#stroke_obj=stroke_obj);
+
+      iDefense += Send(self,@GetDefenseBonus);
 
       return Bound(iDefense,1,2000);
    }
@@ -16180,6 +16188,44 @@ messages:
 
       return;
    }
+
+   AddDefenseBonus(iBonus=0)
+   {
+      piDefenseBonus += iBonus;
+
+      return;
+   }
+
+   GetDefenseBonus()
+   {
+      return piDefenseBonus;
+   }
+
+   ResetDefenseBonus()
+   {
+      piDefenseBonus = 0;
+
+      return;
+   }
+
+   AddOffenseBonus(iBonus=0)
+   {
+      piOffenseBonus += iBonus;
+
+      return;
+   }
+
+   GetOffenseBonus()
+   {
+      return piOffenseBonus;
+   }  
+
+   ResetOffenseBonus()
+   {
+      piOffenseBonus = 0;
+
+      return;
+   }  
 
 end
 ////////////////////////////////////////////////////////////////////////////////
