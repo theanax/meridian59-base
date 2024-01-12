@@ -44,12 +44,13 @@ classvars:
    viSpellExertion = 3
    viMeditate_ratio = 30
 
-   viHarmful = TRUE
-   viOutlaw = TRUE
    viNoNewbieOffense = TRUE
    vbIsAreaEffect = TRUE
 
 properties:
+
+   viHarmful = TRUE
+   viOutlaw = TRUE
 
 messages:
 
@@ -122,9 +123,9 @@ messages:
 
       return lFinalTargets;
    }
+  
 	
-	
-   DoSpellEffects(who = $,lTargets=$)
+   DoSpellEffects(who = $,lTargets=$, iLocation=$)
    {
       local oRoom, iSpellPower, i, bAll, iChance;
 
@@ -139,35 +140,43 @@ messages:
 	   	   
 	   foreach i in lTargets
 	   {
-	   
-	   if IsClass(i,&Player)
-      {
-         bAll = Send(who,@CanPlayerPvP);
-      }
-      else
-      {
-         bAll = TRUE;
-      }
-	   
-	   if bAll
-	   {
-	      Send(i,@DispelIllusionEnchantments, #who=who, #iChance=iChance, #stroke_obj=self);
-	   }
-      else
-      {
-         Send(i,@DispelIllusions, #who=who, #what=self, #iChance=iChance, #stroke_obj=self);
-      }
+         if IsClass(i,&Player)
+         {
+            bAll = Send(who,@CanPlayerPvP);
+         }
+         else
+         {
+            bAll = FALSE;
+            viHarmful = FALSE;
+         }
+         
+         if bAll
+         {
+            Send(i,@DispelIllusionEnchantments, #who=who, #iChance=iChance, #stroke_obj=self);
+         }
+         else
+         {
+            Send(i,@DispelIllusions, #who=who, #what=self, #iChance=iChance, #stroke_obj=self);
+         }
 
-      if IsClass(i,&Reflection)
-      {
-         send(i,@delete);
-      }
+         if IsClass(i,&Reflection)
+         {
+            send(i,@delete);
+         }
  
 	      Send(i,@MsgSendUser,#message_rsc=dispelillusion_castermsg_rsc);
-		
 		}
- 
-       return;
+	 
+	   if IsClass(oRoom,&Cave2)
+		{
+         viHarmful=FALSE;
+         Send(oRoom,@DispelIllusionEnchantments,#who=who,#iChance=iChance,
+                  #stroke_obj=self);
+         Send(oRoom,@DispelIllusions,#who=who,#what=self,#iChance=iChance,
+               #bAll=bAll,#stroke_obj=self);
+		}
+
+      return;
    }
 
    // We just needed a list of players in range, so we don't do anything here.

@@ -52,8 +52,6 @@ properties:
    ptIllusionResetTimer = $
    piLastIllusionReplaceTime = $
 
-   poPortal = $
-
 messages:
 
    Constructed()
@@ -160,11 +158,6 @@ messages:
    {
       Send(self,@NewHold,#what=Create(&ManaNode,#node_num=NODE_ORCCAVES),
             #new_row=23,#new_col=53,#new_angle=ANGLE_NORTH);
-
-      poPortal = Create(&Portal,#desc=portal_cave_desc,#dest_room_num=RID_ORC_CAVE1,
-                        #dest_col=27 ,#dest_row=26);
-      Send(self,@NewHold,#what=poPortal,#new_row=21,#new_col=15,
-            #fine_row=0,#fine_col=19,#new_angle=ANGLE_WEST);      
 
       propagate;
    }
