@@ -17,7 +17,7 @@ constants:
 resources:
 
    myst_dm = "mysticism"
-   iaMyst_info_desc = "%i% Mysticism\n"
+   iaMyst_info_desc = "+%i Mysticism\n"
 
 classvars:
 
