@@ -68,7 +68,6 @@ messages:
       return 0;
    }
 
-
    GetTargets(who=$,lTargets=$)
    "This returns a list of valid targets in the room."
    {
@@ -81,7 +80,7 @@ messages:
 
       iSpellPower = Send(self,@GetSpellPower,#who=who);
 	  
-	  if IsClass(who,&Room)
+	   if IsClass(who,&Room)
       {
          oRoom = who;
       }
@@ -130,14 +129,10 @@ messages:
       local oRoom, iSpellPower, i, bAll, iChance;
 
       iSpellPower = Send(self,@GetSpellPower,#who=who);
-	  
 	   oRoom = Send(who,@GetOwner);
-	   
 	   iChance = Bound(iSpellpower,10,99);
-	   
 	   lTargets = Send(self,@GetTargets,#who=who);
- 
-	   	   
+
 	   foreach i in lTargets
 	   {
          if IsClass(i,&Player)
@@ -148,11 +143,12 @@ messages:
          {
             bAll = FALSE;
             viHarmful = FALSE;
+            viOutlaw = FALSE;		 
          }
          
          if bAll
          {
-            Send(i,@DispelIllusionEnchantments, #who=who, #iChance=iChance, #stroke_obj=self);
+            Send(i,@DispelIllusionEnchantments,#who=who, #iChance=iChance,#stroke_obj=self);
          }
          else
          {
@@ -161,19 +157,18 @@ messages:
 
          if IsClass(i,&Reflection)
          {
-            send(i,@delete);
+            Send(i,@Delete);
          }
- 
-	      Send(i,@MsgSendUser,#message_rsc=dispelillusion_castermsg_rsc);
+
+         Send(i,@MsgSendUser,#message_rsc=dispelillusion_castermsg_rsc);
 		}
 	 
 	   if IsClass(oRoom,&Cave2)
 		{
          viHarmful=FALSE;
-         Send(oRoom,@DispelIllusionEnchantments,#who=who,#iChance=iChance,
-                  #stroke_obj=self);
-         Send(oRoom,@DispelIllusions,#who=who,#what=self,#iChance=iChance,
-               #bAll=bAll,#stroke_obj=self);
+         viOutlaw=FALSE;
+         Send(oRoom,@DispelIllusionEnchantments,#who=who,#iChance=iChance,#stroke_obj=self);
+         Send(oRoom,@DispelIllusions,#who=who,#what=self,#iChance=iChance,#bAll=bAll,#stroke_obj=self);       
 		}
 
       return;

@@ -4189,6 +4189,8 @@ messages:
       Create(&XeoHolyTreasure);
       Create(&XeoNeruTreasure);
       Create(&XeoIllTreasure);
+      Create(&YetiTreasure);
+
 
       return;
    }

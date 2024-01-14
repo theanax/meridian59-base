@@ -16165,7 +16165,7 @@ messages:
    {
       local iXP, iLvl, iXPMIN, iXPMAX;
 
-      ilvl = send(self,@GetMaxHealth);
+      ilvl = send(self,@GetBaseMaxHealth);
       iXPMAX = ilvl*ilvl/4;
       iXPMIN = ilvl*ilvl/6;
       iXP = Random(iXPMIN,iXPMAX);
@@ -16179,7 +16179,7 @@ messages:
    {
       local iTP, iLvl, iTPMIN, iTPMAX;
 
-      ilvl = send(self,@GetMaxHealth);
+      ilvl = send(self,@GetBaseMaxHealth);
       iTPMAX = ilvl + 20;
       iTPMIN = ilvl - 20;
       iTP = Random(iTPMIN,iTPMAX);
