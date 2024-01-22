@@ -32,12 +32,17 @@ messages:
       plTreasure = [ [ &SpiderEgg, 40 ],
                      [ &BerserkerRing, 11 ],
                      [ &FireRing, 10 ],
-                     [ &LongSword,  10 ],
-                     [ &Mace, 8 ],
+                     [ &LongSword,  5 ],
+                     [ &LongSword, IA_XP_KILL_BONUS, 5 ],
+                     [ &Mace, 4 ],
+                     [ &Mace, IA_XP_KILL_BONUS, 4 ],
                      [ &Diamond,  7 ],
-                     [ &DiscipleRobe, 6],
-                     [ &Axe, 4 ],
-                     [ &PracticeBow, 4]
+                     [ &DiscipleRobe, 5 ],
+                     [ &DiscipleRobe, IA_XP_KILL_BONUS, 1 ],
+                     [ &Axe, 2 ],
+                     [ &PracticeBow, 2],
+                     [ &Axe, IA_XP_KILL_BONUS, 2 ],
+                     [ &PracticeBow, IA_XP_KILL_BONUS, 2 ]
                    ];
 
       propagate;
