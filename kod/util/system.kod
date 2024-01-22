@@ -4176,6 +4176,7 @@ messages:
       Create(&FireElementalTreasure);
       Create(&IceElementalTreasure);
       Create(&NeruditeElementalTreasure);
+      Create(&NeruditeChampionTreasure);
 
       Create(&EasterBunnyTreasure);
       Create(&KillerBunnyTreasure);
@@ -4189,8 +4190,6 @@ messages:
       Create(&XeoHolyTreasure);
       Create(&XeoNeruTreasure);
       Create(&XeoIllTreasure);
-      Create(&YetiTreasure);
-
 
       return;
    }
