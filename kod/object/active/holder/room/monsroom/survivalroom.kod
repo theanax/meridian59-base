@@ -381,7 +381,6 @@ messages:
       plBosses = [&EarthElementalChampion,
                   &FireElementalChampion,
                   &IceElementalChampion,
-                  &NeruElementalChampion,
                   &Yeti,
                   &DarkAngel,
                   &Thrasher,
