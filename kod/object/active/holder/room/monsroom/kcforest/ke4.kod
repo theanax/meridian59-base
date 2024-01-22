@@ -288,10 +288,23 @@ messages:
       {
          Post(self,@SomeoneSaid,#type=SAY_MESSAGE,#what=self,
                #string=KE4_evil_final);
+         
+         /// Also spawn the Boss
+         Send(self,@NewHold,#what=Create(&NeruElementalChampion, #viBrain_type = BRAIN_SWARM),#new_row=28,#new_col=63,
+               #fine_row=40,#fine_col=32,#new_angle=ANGLE_NORTH_WEST);\
+         Send(self,@NewHold,#what=Create(&NeruElemental, #viBrain_type = BRAIN_SWARM),#new_row=28,#new_col=59,
+               #fine_row=40,#fine_col=48,#new_angle=ANGLE_NORTH_EAST);
+         Send(self,@NewHold,#what=Create(&NeruElemental, #viBrain_type = BRAIN_SWARM),#new_row=25,#new_col=61,
+               #fine_row=48,#fine_col=48,#new_angle=ANGLE_SOUTH);
+
+         ///Make the monsters swarm!
+         
+
          Send(poNode,@NodeAppear,#karma=AVARNODE_EVIL,#where=self,
                #row=NODE_ROW,#col=NODE_COL,#fine_row=NODE_FINE_ROW,
                #fine_col=NODE_FINE_COL);
          Send(self,@SetNodeDisappear);
+
       }
       else if amount > 0
       {
