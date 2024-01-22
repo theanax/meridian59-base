@@ -1936,6 +1936,9 @@
    TID_YETI          = 76
 
    TID_NERU_CHAMP    = 77
+   TID_EARTH_CHAMP   = 78
+   TID_ICE_CHAMP     = 79
+   TID_FIRE_CHAMP    = 80
 
 
    // English articles
@@ -2017,7 +2020,7 @@
    IA_RESIST               = 24
    IA_AIM                  = 25
    IA_AGILITY              = 26
-   IA_MIGHT                = 27
+   IA_JUNK                 = 27
    IA_INT                  = 28
    IA_MYST                 = 29
    IA_TRAINING             = 30 //actual work to do for this one
@@ -2027,6 +2030,7 @@
    IA_BLUDGENRES           = 34
    IA_SLASHRES             = 35
    IA_DAMAGEREDUCE         = 36
+   IA_MIGHT                = 37    
 
    // Weapon Attributes.  These are attributes only applied to weapons.
    WA_TRAINING             = 51
