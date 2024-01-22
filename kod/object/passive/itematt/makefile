@@ -10,6 +10,7 @@ BOFS = weapatt.bof iacorptr.bof iadurabl.bof iatransc.bof \
        ianewdsc.bof iaappdsc.bof iaquest.bof iapkptr.bof \
        iabonded.bof iamade.bof iadmcreated.bof iaxpkillbonus.bof \
        iamovespeed.bof iaresist.bof iaaim.bof iaagility.bof \
-       iamyst.bof iaoffense.bof iaint.bof iadefense.bof
+       iamyst.bof iaoffense.bof iaint.bof iadefense.bof \
+       iamight.bof 
 
 !include $(KODDIR)\kod.mak
