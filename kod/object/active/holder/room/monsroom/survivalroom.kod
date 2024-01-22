@@ -378,11 +378,7 @@ messages:
                     [&GiantRatSoldier, 3],
                     [&StoneTroll, 3]];
 
-      plBosses = [&EarthElementalChampion,
-                  &FireElementalChampion,
-                  &IceElementalChampion,
-                  &Yeti,
-                  &DarkAngel,
+      plBosses = [&DarkAngel,
                   &Thrasher,
                   &Ghost];
 
