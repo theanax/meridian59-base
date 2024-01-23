@@ -4178,6 +4178,7 @@ messages:
       Create(&NeruditeElementalTreasure);
       Create(&NeruditeChampionTreasure);
       Create(&EarthChampionTreasure);
+      Create(&FireChampionTreasure);    
 
       Create(&EasterBunnyTreasure);
       Create(&KillerBunnyTreasure);
