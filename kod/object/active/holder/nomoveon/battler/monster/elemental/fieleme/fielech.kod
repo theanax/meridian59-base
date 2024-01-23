@@ -36,8 +36,9 @@ classvars:
    viIndefinite = ARTICLE_NONE
    viDefinite = ARTICLE_NONE
 
-   viTreasure_type = TID_NONE
+   viTreasure_type = TID_FIRE_CHAMP
    viSpeed = SPEED_FAST
+   viAttributes = MOB_ONE_TREASURE
 
    viLevel = 250
    viDifficulty = 9
