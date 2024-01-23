@@ -1,0 +1,47 @@
+// Meridian 59, Copyright 1994-2012 Andrew Kirmse and Chris Kirmse.
+// All rights reserved.
+//
+// This software is distributed under a license that is described in
+// the LICENSE file that accompanies it.
+//
+// Meridian is a registered trademark.
+
+
+////////////////////////////////////////////////////////////////////////////////
+EarthChampionTreasure is TreasureType
+
+constants:
+
+   include blakston.khd
+
+classvars:
+
+   viTreasure_num = TID_FIRE_CHAMP
+
+properties:
+
+   piItem_att_chance = 70
+   piDIff_seed = 9
+
+messages:
+
+   Constructed()
+   {
+      plTreasure = [ [ &PlateArmor, 39],
+                     [ &Gauntlet, 39 ],
+                     [ &PlateArmor,IA_OFFENSE, 3 ],
+                     [ &PlateArmor,IA_DEFENSE, 3 ],
+                     [ &PlateArmor,IA_AIM, 2 ],
+                     [ &PlateArmor,IA_AGILITY, 2 ],
+                     [ &PlateArmor,IA_MYST, 2 ],
+                     [ &PlateArmor,IA_INT, 2 ],
+                     [ &PlateArmor,IA_MIGHT, 2 ],
+                     [ &PlateArmor,IA_XP_KILL_BONUS, 5 ],
+                     [ &DaemonHelm, IA_MIGHT, 1 ]
+                  ];
+
+      propagate;
+   }
+
+end
+////////////////////////////////////////////////////////////////////////////////
