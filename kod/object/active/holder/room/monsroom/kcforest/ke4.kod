@@ -11,7 +11,7 @@
 OutdoorsKE4 is KCForest
 
 // The new home of the Avar node!  2 ways to get this node:
-//  The good way: Give offerings of food to the statue.  Good node appears.
+//  The good way: Give offerings of cyan Mushroom to the statue.  Good node appears.
 //  The evil way: Slaughter enough avars in the village.  Evil node appears.
 
 constants:
@@ -115,7 +115,7 @@ properties:
    // This keeps track of how long the Avar node sticks around.
    ptNodeDisappear = $
 
-   // This is the tally of the value of the food offered to the idol.
+   // This is the tally of the value of the item offered to the idol.
    piNodeValue = 0
 
    // Amount of time before the node value resets to 0 after node disappears.
@@ -201,8 +201,8 @@ messages:
 
    NewHold(what=$)
    {
-      // Get an offering of food if node isn't currently visible.
-      if IsClass(what,&Food)
+      // Get an offering of magic Mushroom if node isn't currently visible.
+      if IsClass(what,&CyanMushroom)
       {
          Post(self,@OfferingCheck,#what=what);
       }
@@ -279,6 +279,15 @@ messages:
       {
          Post(self,@SomeoneSaid,#type=SAY_MESSAGE,#what=self,
                #string=KE4_good_final);
+
+         ///Also spawn the Boss
+         Send(self,@NewHold,#what=Create(&FireElementalChampion, #viBrain_type = BRAIN_SWARM),#new_row=28,#new_col=63,
+               #fine_row=40,#fine_col=32,#new_angle=ANGLE_NORTH_WEST);\
+         Send(self,@NewHold,#what=Create(&FireElemental, #viBrain_type = BRAIN_SWARM),#new_row=28,#new_col=59,
+               #fine_row=40,#fine_col=48,#new_angle=ANGLE_NORTH_EAST);
+         Send(self,@NewHold,#what=Create(&FireElemental, #viBrain_type = BRAIN_SWARM),#new_row=25,#new_col=61,
+               #fine_row=48,#fine_col=48,#new_angle=ANGLE_SOUTH);
+
          Send(poNode,@NodeAppear,#karma=AVARNODE_GOOD,#where=self,
                #row=NODE_ROW,#col=NODE_COL,#fine_row=NODE_FINE_ROW,
                #fine_col=NODE_FINE_COL);
@@ -296,9 +305,6 @@ messages:
                #fine_row=40,#fine_col=48,#new_angle=ANGLE_NORTH_EAST);
          Send(self,@NewHold,#what=Create(&NeruElemental, #viBrain_type = BRAIN_SWARM),#new_row=25,#new_col=61,
                #fine_row=48,#fine_col=48,#new_angle=ANGLE_SOUTH);
-
-         ///Make the monsters swarm!
-         
 
          Send(poNode,@NodeAppear,#karma=AVARNODE_EVIL,#where=self,
                #row=NODE_ROW,#col=NODE_COL,#fine_row=NODE_FINE_ROW,
