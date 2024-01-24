@@ -27,14 +27,24 @@ messages:
 
    Constructed()
    {
-      plTreasure = [ [ &PlateArmor, 12 ],
-                     [ &ScaleArmor, 20 ],
-                     [ &OrcShield, 15 ],                     
-                     [ &SimpleHelm, 15 ],
-                     [ &MysticSword, 10 ],
+      plTreasure = [ [ &PlateArmor, IA_OFFENSE, 3 ],
+                     [ &PlateArmor, IA_DEFENSE, 3 ],
+                     [ &PlateArmor, 6 ],
+                     [ &ScaleArmor, 10 ],
+                     [ &ScaleArmor, IA_DEFENSE, 5 ],
+                     [ &ScaleArmor, IA_OFFENSE, 5 ],
+                     [ &OrcShield, IA_OFFENSE, 1 ], 
+                     [ &OrcShield, IA_DEFENSE, 1 ], 
+                     [ &OrcShield, 13 ],                     
+                     [ &SimpleHelm, 11 ],
+                     [ &SimpleHelm, IA_OFFENSE, 2 ],
+                     [ &SimpleHelm, IA_DEFENSE, 2 ],
+                     [ &Neruditesword, 10 ],
                      [ &TrueLute, 10 ],
                      [ &Helm, 5 ],
-                     [ &JalaNecklace, 13 ]
+                     [ &JalaNecklace, 5 ],
+                     [ &JalaNecklace, IA_OFFENSE, 1 ],
+                     [ &JalaNecklace, IA_DEFENSE, 1 ]                     
                    ];
 
       propagate;
