@@ -27,9 +27,25 @@ messages:
 
    Constructed()
    {
-      plTreasure = [ [ &&Scimitar, WA_BLINDER , 98 ],
-                     [ &Gift, 1 ],
-                     [ &NeruditeBow, 1 ]
+      plTreasure = [ [ &PlateArmor, 34],
+                     [ &Gauntlet, 34 ],
+                     [ &PlateArmor,IA_OFFENSE, 3 ],
+                     [ &PlateArmor,IA_DEFENSE, 3 ],
+                     [ &PlateArmor,IA_AIM, 2 ],
+                     [ &PlateArmor,IA_AGILITY, 2 ],
+                     [ &PlateArmor,IA_MYST, 2 ],
+                     [ &PlateArmor,IA_INT, 2 ],
+                     [ &PlateArmor,IA_MIGHT, 2 ],
+                     [ &PlateArmor,IA_XP_KILL_BONUS, 5 ],
+                     [ &DaemonHelm, IA_OFFENSE, 1 ],
+                     [ &DaemonHelm, IA_DEFENSE, 1 ],
+                     [ &DaemonHelm, IA_AIM, 1 ],
+                     [ &DaemonHelm, IA_AGILITY, 1 ],
+                     [ &DaemonHelm, IA_MYST, 1 ],
+                     [ &DaemonHelm, IA_INT, 1 ],
+                     [ &DaemonHelm, IA_MIGHT, 1 ],
+                     [ &DaemonHelm, IA_XP_KILL_BONUS, 3 ],
+                     [ &Gift, 1]
                   ];
 
       propagate;
