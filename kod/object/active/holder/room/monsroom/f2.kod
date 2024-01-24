@@ -221,8 +221,7 @@ messages:
                #string=F2_ice_final);
          
          /// Spawn the champion
-         Send(self,@NewHold,#what=Create(&NeruElementalChampion),#new_row=28,#new_col=63,
-               #fine_row=40,#fine_col=32,#new_angle=ANGLE_NORTH_WEST);
+         Send(self,@NewHold,#what=Create(&IceElementalChampion),#new_row=15,#new_col=7, #new_angle=ANGLE_NORTH_WEST);
 
          /// Reset the spawn counter
          piIceValue = 0;
