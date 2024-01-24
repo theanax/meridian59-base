@@ -1,0 +1,57 @@
+// Meridian 59, Copyright 1994-2012 Andrew Kirmse and Chris Kirmse.
+// All rights reserved.
+//
+// This software is distributed under a license that is described in
+// the LICENSE file that accompanies it.
+//
+// Meridian is a registered trademark.
+
+
+////////////////////////////////////////////////////////////////////////////////
+IceChampionTreasure is TreasureType
+
+constants:
+
+   include blakston.khd
+
+classvars:
+
+   viTreasure_num = TID_ICE_CHAMP
+
+properties:
+
+   piItem_att_chance = 70
+   piDIff_seed = 9
+
+messages:
+
+   Constructed()
+   {
+      plTreasure = [ [ &LeatherArmor, 27 ],
+                     [ &DiscipleRobe, 27 ],
+                     [ &Heraldshield, 1 ],
+                     [ &Rose, 2 ],
+                     [ &LeatherArmor, IA_OFFENSE, 3 ],
+                     [ &LeatherArmor, IA_DEFENSE, 3 ],
+                     [ &LeatherArmor, IA_AIM, 2 ],
+                     [ &LeatherArmor, IA_AGILITY, 2 ],
+                     [ &LeatherArmor, IA_MYST, 2 ],
+                     [ &LeatherArmor, IA_INT, 2 ],
+                     [ &LeatherArmor, IA_MIGHT, 2 ],
+                     [ &LeatherArmor, IA_XP_KILL_BONUS, 5 ],
+                     [ &DiscipleRobe, IA_OFFENSE, 3 ],
+                     [ &DiscipleRobe, IA_DEFENSE, 3 ],
+                     [ &DiscipleRobe, IA_AIM, 2 ],
+                     [ &DiscipleRobe, IA_AGILITY, 2 ],
+                     [ &DiscipleRobe, IA_MYST, 2 ],
+                     [ &DiscipleRobe, IA_INT, 2 ],
+                     [ &DiscipleRobe, IA_MIGHT, 2 ],
+                     [ &DiscipleRobe, IA_XP_KILL_BONUS, 5 ],
+                     [ &Gift, 1 ]
+                  ];
+
+      propagate;
+   }
+
+end
+////////////////////////////////////////////////////////////////////////////////
