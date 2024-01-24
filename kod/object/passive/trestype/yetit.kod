@@ -32,10 +32,16 @@ messages:
                      [ &Sapphire, 12 ],
                      [ &Diamond, 9 ],
                      [ &Ruby, 7 ],
-                     [ &SimpleHelm, 17],
+                     [ &SimpleHelm, IA_MIGHT, 3],
+                     [ &SimpleHelm, IA_AIM, 3],
+                     [ &SimpleHelm, IA_AGILITY, 3],
+                     [ &SimpleHelm, IA_INT, 3],
+                     [ &SimpleHelm, IA_MYST, 3],
                      [ &Gauntlet, 15],
-                     [ &Scimitar, 1],
+                     [ &Scimitar, WA_SPELLCASTER, 1],
                      [ &Mace, 3 ],
+                     [ &Mace, IA_DEFENSE, 1],
+                     [ &ShortSword, WA_BLINKER, 1],
                      [ &PlateArmor, 3 ]
                    ];
 
