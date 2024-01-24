@@ -3638,6 +3638,7 @@ messages:
       Send(self,@CreateOneItemAttIfNew,#num=WA_SPELLCASTER,#class=&WeapAttSpellCaster);
       Send(self,@CreateOneItemAttIfNew,#num=WA_EXPERT,#class=&WeapAttExpert);
       Send(self,@CreateOneItemAttIfNew,#num=WA_BLINDER,#class=&WeapAttBlinder);
+      Send(self,@CreateOneItemAttIfNew,#num=WA_BLINKER,#class=&WeapAttBlinker);
       Send(self,@CreateOneItemAttIfNew,#num=WA_BONKER,#class=&WeapAttBonker);
       Send(self,@CreateOneItemAttIfNew,#num=WA_PARALYZER,#class=&WeapAttParalyzer);
       Send(self,@CreateOneItemAttIfNew,#num=WA_TWISTER,#class=&WeapAttTwister);
@@ -4178,7 +4179,8 @@ messages:
       Create(&NeruditeElementalTreasure);
       Create(&NeruditeChampionTreasure);
       Create(&EarthChampionTreasure);
-      Create(&FireChampionTreasure);    
+      Create(&FireChampionTreasure);
+      Create(&IceChampionTreasure);   
 
       Create(&EasterBunnyTreasure);
       Create(&KillerBunnyTreasure);
