@@ -29,7 +29,7 @@ messages:
    {
       plTreasure = [ [ &LeatherArmor, 27 ],
                      [ &DiscipleRobe, 27 ],
-                     [ &Heraldshield, 1 ],
+                     [ &Shrunkenhead, 1 ],
                      [ &Rose, 2 ],
                      [ &LeatherArmor, IA_OFFENSE, 3 ],
                      [ &LeatherArmor, IA_DEFENSE, 3 ],
