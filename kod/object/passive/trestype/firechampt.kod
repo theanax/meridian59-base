@@ -27,17 +27,33 @@ messages:
 
    Constructed()
    {
-      plTreasure = [ [ &PlateArmor, 39],
-                     [ &Gauntlet, 39 ],
-                     [ &PlateArmor,IA_OFFENSE, 3 ],
-                     [ &PlateArmor,IA_DEFENSE, 3 ],
-                     [ &PlateArmor,IA_AIM, 2 ],
-                     [ &PlateArmor,IA_AGILITY, 2 ],
-                     [ &PlateArmor,IA_MYST, 2 ],
-                     [ &PlateArmor,IA_INT, 2 ],
-                     [ &PlateArmor,IA_MIGHT, 2 ],
-                     [ &PlateArmor,IA_XP_KILL_BONUS, 5 ],
-                     [ &DaemonHelm, IA_MIGHT, 1 ]
+      plTreasure = [ [ &MysticSword, 21],
+                     [ &LongSword, 21 ],
+                     [ &MysticSword, WA_BLINDER, 1 ],
+                     [ &MysticSword, WA_PARALYZER, 1 ],
+                     [ &MysticSword, WA_PURGER, 1 ],
+                     [ &MysticSword, WA_PUNISHER, 2 ],
+                     [ &MysticSword, WA_ATTACKSPELLTYPE, 1 ],
+                     [ &MysticSword, WA_EXPERT, 1 ],
+                     [ &MysticSword, WA_SPELLCASTER, 1 ],
+                     [ &MysticSword, WA_SLOW, 2 ],
+                     [ &MysticSword, WA_GUILD_HALL_DEFENDER, 4 ],
+                     [ &MysticSword, WA_VAMPER, 2 ],
+                     [ &MysticSword, WA_BLEED, 2 ],
+                     [ &MysticSword, WA_SIPHON, 3 ],
+                     [ &LongSword, WA_BLINDER, 2 ],
+                     [ &LongSword, WA_PARALYZER, 2 ],
+                     [ &LongSword, WA_PURGER, 2 ],
+                     [ &LongSword, WA_PUNISHER, 4 ],
+                     [ &LongSword, WA_ATTACKSPELLTYPE, 3 ],
+                     [ &LongSword, WA_EXPERT, 2 ],
+                     [ &LongSword, WA_SPELLCASTER, 1 ],
+                     [ &LongSword, WA_SLOW, 4 ],
+                     [ &LongSword, WA_GUILD_HALL_DEFENDER, 6 ],
+                     [ &LongSword, WA_VAMPER, 3 ],
+                     [ &LongSword, WA_BLEED, 2 ],
+                     [ &LongSword, WA_SIPHON, 5 ],
+                     [ &Gift, 1 ]
                   ];
 
       propagate;
